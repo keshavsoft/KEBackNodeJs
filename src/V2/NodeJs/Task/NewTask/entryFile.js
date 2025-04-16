@@ -5,6 +5,7 @@ const { StartFunc: StartFuncFromAggrFuncsGet } = require("./AggrFuncsGet/entryFi
 const { StartFunc: StartFuncFromSelectedColumns } = require("./SelectedColumns/entryFile");
 const { StartFunc: StartFuncFromBulkPost } = require("./BulkPost/entryFile");
 const { StartFunc: StartFuncFromUpload } = require("./Upload/entryFile");
+const { StartFunc: StartFuncFromRowShow } = require("./RowShow/entryFile");
 
 const StartFunc = () => {
     StartFuncCreate();
@@ -14,6 +15,7 @@ const StartFunc = () => {
     StartFuncFromSelectedColumns();
     StartFuncFromBulkPost();
     StartFuncFromUpload();
+    StartFuncFromRowShow();
 };
 
 module.exports = { StartFunc };

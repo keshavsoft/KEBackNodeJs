@@ -3,7 +3,7 @@
   "displayName": "KEBackNodeJs",
   "publisher": "KeshavSoft",
   "description": "KeshavSoft Extension to enhance the development of web applications",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -89,6 +89,10 @@
       {
         "command": "NodeJs.Task.NewTask.Upload.ImageAsBase64",
         "title": "NodeJs Task NewTask Upload ImageAsBase64"
+      },
+      {
+        "command": "NodeJs.Task.NewTask.RowShow",
+        "title": "NodeJs Task NewTask RowShow"
       },
       {
         "command": "KChakri",
