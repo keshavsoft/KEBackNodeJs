@@ -3,7 +3,7 @@
   "displayName": "KEBackNodeJs",
   "publisher": "KeshavSoft",
   "description": "KeshavSoft Extension to enhance the development of web applications",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -43,7 +43,7 @@
         "title": "NodeJs Task NewTask ShowGet AsArrayAndRest"
       },
       {
-        "command": "NodeJs.NewTask.AlterPut",
+        "command": "NodeJs.Task.NewTask.AlterPut",
         "title": "NodeJs Task NewTask AlterPut"
       },
       {
@@ -101,6 +101,10 @@
       {
         "command": "NodeJs.Task.NewTask.Check",
         "title": "NodeJs Task NewTask Check"
+      },
+      {
+        "command": "NodeJs.Task.NewTask.GenerateToken",
+        "title": "NodeJs Task NewTask GenerateToken"
       },
       {
         "command": "KChakri",

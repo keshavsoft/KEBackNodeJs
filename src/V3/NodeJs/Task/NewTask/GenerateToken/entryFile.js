@@ -4,8 +4,7 @@ const path = require('path');
 
 const { getSelectedFolderPath } = require('../../../../../CommonFuncs/getSelectedFolderPath');
 
-const CommonRegisterCommand = "NodeJs.Task.NewTask.AlterPut";
-const CommonFolderName = "CopyCode";
+const CommonRegisterCommand = "NodeJs.Task.NewTask.GenerateToken";
 
 const StartFunc = () => {
     activateFunc();
@@ -25,7 +24,7 @@ const LocalFuncToActivate = async () => {
 
         if (!LocalEndPointNeeded) throw new Error('Task Name was not provided.');
 
-        const LocalFromPath = path.join(__dirname, CommonFolderName);
+        const LocalFromPath = path.join(__dirname, "copyCode");
         const LocalToPath = path.join(selectedFolder, LocalEndPointNeeded);
 
         await fse.copy(LocalFromPath, LocalToPath);

@@ -7,6 +7,7 @@ const { StartFunc: StartFuncFromUpload } = require("./Upload/entryFile");
 const { StartFunc: StartFuncFromRowShow } = require("./RowShow/entryFile");
 const { StartFunc: StartFuncFromCreatePost } = require("./CreatePost/entryFile");
 const { StartFunc: StartFuncFromCheck } = require("./Check/entryFile");
+const { StartFunc: StartFuncFromGenerateToken } = require("./GenerateToken/entryFile");
 
 const StartFunc = () => {
     StartFuncFromShowGet();
@@ -18,6 +19,7 @@ const StartFunc = () => {
     StartFuncFromRowShow();
     StartFuncFromCreatePost();
     StartFuncFromCheck();
+    StartFuncFromGenerateToken();
 };
 
 module.exports = { StartFunc };
