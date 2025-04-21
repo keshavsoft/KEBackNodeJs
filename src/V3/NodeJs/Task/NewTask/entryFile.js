@@ -1,4 +1,3 @@
-const { StartFunc: StartFuncCreate } = require("./Create/entryFile");
 const { StartFunc: StartFuncFromShowGet } = require("./ShowGet/entryFile");
 const { StartFunc: StartFuncFromAlterPut } = require("./AlterPut/entryFile");
 const { StartFunc: StartFuncFromAggrFuncsGet } = require("./AggrFuncsGet/entryFile");
@@ -7,9 +6,9 @@ const { StartFunc: StartFuncFromBulkPost } = require("./BulkPost/entryFile");
 const { StartFunc: StartFuncFromUpload } = require("./Upload/entryFile");
 const { StartFunc: StartFuncFromRowShow } = require("./RowShow/entryFile");
 const { StartFunc: StartFuncFromCreatePost } = require("./CreatePost/entryFile");
+const { StartFunc: StartFuncFromCheck } = require("./Check/entryFile");
 
 const StartFunc = () => {
-    StartFuncCreate();
     StartFuncFromShowGet();
     StartFuncFromAlterPut();
     StartFuncFromAggrFuncsGet();
@@ -18,6 +17,7 @@ const StartFunc = () => {
     StartFuncFromUpload();
     StartFuncFromRowShow();
     StartFuncFromCreatePost();
+    StartFuncFromCheck();
 };
 
 module.exports = { StartFunc };

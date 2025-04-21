@@ -1,7 +1,7 @@
 import { StartFunc as StartFuncFromSelectedColumns } from '../../kLowDb/readFromFile.js';
 
-let postDefaultFunc = ({ inRequestBody }) => {
-    let LocalFromLowDb = StartFuncFromSelectedColumns({ inRequestBody });
+let postDefaultFunc = ({ inUserName, inPassword }) => {
+    let LocalFromLowDb = StartFuncFromSelectedColumns({ inUserName, inPassword });
 
     if (LocalFromLowDb.KTF === false) {
         return false;
