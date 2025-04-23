@@ -8,6 +8,8 @@ const { StartFunc: StartFuncFromRowShow } = require("./RowShow/entryFile");
 const { StartFunc: StartFuncFromCreatePost } = require("./CreatePost/entryFile");
 const { StartFunc: StartFuncFromCheck } = require("./Check/entryFile");
 const { StartFunc: StartFuncFromGenerateToken } = require("./GenerateToken/entryFile");
+const { StartFunc: StartFuncFromCreateFile } = require("./CreateFile/entryFile");
+const { StartFunc: StartFuncFromReadFile } = require("./ReadFile/entryFile");
 
 const StartFunc = () => {
     StartFuncFromShowGet();
@@ -20,6 +22,8 @@ const StartFunc = () => {
     StartFuncFromCreatePost();
     StartFuncFromCheck();
     StartFuncFromGenerateToken();
+    StartFuncFromCreateFile();
+    StartFuncFromReadFile();
 };
 
 module.exports = { StartFunc };
