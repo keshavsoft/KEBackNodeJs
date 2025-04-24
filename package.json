@@ -3,7 +3,7 @@
   "displayName": "KEBackNodeJs",
   "publisher": "KeshavSoft",
   "description": "KeshavSoft Extension to enhance the development of web applications",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -113,6 +113,10 @@
       {
         "command": "NodeJs.Task.NewTask.FileAsObject.FileRead",
         "title": "NodeJs Task NewTask FileAsObject FileRead"
+      },
+      {
+        "command": "NodeJs.Task.NewTask.FileAsObject.FileDelete",
+        "title": "NodeJs Task NewTask FileAsObject FileDelete"
       },
       {
         "command": "KChakri",
