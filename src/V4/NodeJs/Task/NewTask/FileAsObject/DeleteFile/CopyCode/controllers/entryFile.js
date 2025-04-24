@@ -1,11 +1,11 @@
 import {
-    GetFunc as GetFuncRepo
-} from '../../repos/getFuncs/EntryFile.js';
+    DeleteFunc as DeleteFuncFromRepo
+} from '../repos/entryFile.js';
 
-let GetFunc = (req, res) => {
+let DeleteFunc = (req, res) => {
     const LocalFileName = req.params.FileName;
 
-    let LocalFromRepo = GetFuncRepo({ inFileName: LocalFileName });
+    let LocalFromRepo = DeleteFuncFromRepo({ inFileName: LocalFileName });
 
     if (LocalFromRepo.KTF === false) {
         res.status(500).send(LocalFromRepo.KReason);
@@ -16,5 +16,5 @@ let GetFunc = (req, res) => {
 };
 
 export {
-    GetFunc
+    DeleteFunc
 };
