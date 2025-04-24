@@ -3,7 +3,7 @@
   "displayName": "KEBackNodeJs",
   "publisher": "KeshavSoft",
   "description": "KeshavSoft Extension to enhance the development of web applications",
-  "version": "0.0.10",
+  "version": "0.0.12",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -107,8 +107,12 @@
         "title": "NodeJs Task NewTask GenerateToken"
       },
       {
-        "command": "NodeJs.Task.NewTask.CreateFile",
-        "title": "NodeJs Task NewTask CreateFile"
+        "command": "NodeJs.Task.NewTask.FileAsObject.FileCreate",
+        "title": "NodeJs Task NewTask FileAsObject FileCreate"
+      },
+      {
+        "command": "NodeJs.Task.NewTask.FileAsObject.FileRead",
+        "title": "NodeJs Task NewTask FileAsObject FileRead"
       },
       {
         "command": "KChakri",
