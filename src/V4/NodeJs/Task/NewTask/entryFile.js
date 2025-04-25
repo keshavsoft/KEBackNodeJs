@@ -9,6 +9,7 @@ const { StartFunc: StartFuncFromCreatePost } = require("./CreatePost/entryFile")
 const { StartFunc: StartFuncFromCheck } = require("./Check/entryFile");
 const { StartFunc: StartFuncFromGenerateToken } = require("./GenerateToken/entryFile");
 const { StartFunc: StartFuncFromFileAsObject } = require("./FileAsObject/entryFile");
+const { StartFunc: StartFuncFromFileAsObjTasks } = require("./FileAsObjTasks/entryFile");
 
 const StartFunc = () => {
     StartFuncFromShowGet();
@@ -22,6 +23,7 @@ const StartFunc = () => {
     StartFuncFromCheck();
     StartFuncFromGenerateToken();
     StartFuncFromFileAsObject();
+    StartFuncFromFileAsObjTasks();
 };
 
 module.exports = { StartFunc };
