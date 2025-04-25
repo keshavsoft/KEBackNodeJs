@@ -1,0 +1,7 @@
+POST http://localhost:7019/Login/ForAny/CreateToken
+Content-Type: application/json
+
+{
+  "UserName":"Keshav",
+  "Password":"KeshavSoft"
+}
