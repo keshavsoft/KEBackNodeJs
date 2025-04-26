@@ -1,0 +1,7 @@
+POST http://localhost:7019/Login/ForAny/Check
+Content-Type: application/json
+
+{
+  "UserName":"Keshav",
+  "Password":"KeshavSoft"
+}
