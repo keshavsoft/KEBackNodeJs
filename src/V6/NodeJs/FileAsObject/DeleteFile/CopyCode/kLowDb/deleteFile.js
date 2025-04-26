@@ -1,12 +1,13 @@
 import fs from "fs";
-import { StartFunc as StartFuncCommonExpose } from "../../../CommonExpose/returnFullDataPath.js";
+import { StartFunc as StartFuncCommonExpose } from "../../../CommonExpose/returnRootDir.js";
+const CommonDataPath = "Data";
 
 let StartFunc = ({ inFileName }) => {
     const LocalFileName = inFileName;
     const LocalDataPath = StartFuncCommonExpose();
 
     let LocalReturnData = { KTF: false };
-    const filePath = `${LocalDataPath}/${LocalFileName}.json`;
+    const filePath = `${LocalDataPath}/${CommonDataPath}/${LocalFileName}.json`;
 
     if (fs.existsSync(filePath)) {
         try {

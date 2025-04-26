@@ -2,9 +2,9 @@ const vscode = require('vscode');
 const fse = require('fs-extra');
 const path = require('path');
 
-const { getSelectedFolderPath } = require('../../../../../../CommonFuncs/getSelectedFolderPath');
+const { getSelectedFolderPath } = require('./getSelectedFolderPath');
 
-const CommonRegisterCommand = "NodeJs.Task.NewTask.FileAsObject.FileRead";
+const CommonRegisterCommand = "NodeJs.FileAsObject.FileRead";
 
 const StartFunc = () => {
     activateFunc();

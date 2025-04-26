@@ -1,1 +1,1 @@
-DELETE http://localhost:7328/JsonFile/DeleteFile/test2
+DELETE http://localhost:3000/Files/Delete/test3
