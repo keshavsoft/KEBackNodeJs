@@ -1,0 +1,8 @@
+POST http://localhost:3000/FileAsObject/WithContent/test7
+Content-Type: application/json
+
+{
+    "Name":"Sree",
+    "Mobile":8341177771,
+    "Other":""
+}

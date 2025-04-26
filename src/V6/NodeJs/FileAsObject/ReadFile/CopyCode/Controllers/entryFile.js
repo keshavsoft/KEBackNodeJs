@@ -9,10 +9,11 @@ let GetFunc = (req, res) => {
 
     if (LocalFromRepo.KTF === false) {
         res.status(500).send(LocalFromRepo.KReason);
+        
         return;
     };
 
-    res.status(200).end();
+    res.status(200).send(LocalFromRepo.JsonData);
 };
 
 export {

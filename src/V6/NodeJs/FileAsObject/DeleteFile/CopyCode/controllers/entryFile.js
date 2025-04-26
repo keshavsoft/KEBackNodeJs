@@ -1,6 +1,6 @@
 import {
     DeleteFunc as DeleteFuncFromRepo
-} from '../repos/entryFile.js';
+} from '../Repos/entryFile.js';
 
 let DeleteFunc = (req, res) => {
     const LocalFileName = req.params.FileName;

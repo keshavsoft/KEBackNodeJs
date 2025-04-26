@@ -2,7 +2,7 @@ import express from 'express';
 
 var router = express.Router();
 
-import { router as routerForDelete } from './routes/entryFile.js';
+import { router as routerForDelete } from './Routes/entryFile.js';
 
 router.use('/', routerForDelete);
 

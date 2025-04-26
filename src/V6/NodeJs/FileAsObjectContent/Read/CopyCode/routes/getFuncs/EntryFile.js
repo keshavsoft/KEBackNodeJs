@@ -1,10 +1,10 @@
 import express from 'express';
 
-var router = express.Router();
+var  router = express.Router();
 
 import {
     GetFunc
-} from '../Controllers/entryFile.js';
+} from '../../controllers/getFuncs/EntryFile.js';
 
 router.get('/:FileName', GetFunc);
 

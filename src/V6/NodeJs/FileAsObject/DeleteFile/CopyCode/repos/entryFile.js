@@ -1,6 +1,6 @@
 import {
     DeleteFunc as DeleteFuncFromDal
-} from '../dals/entryFile.js';
+} from '../Dals/entryFile.js';
 
 let DeleteFunc = ({ inFileName }) => {
     return DeleteFuncFromDal({ inFileName });

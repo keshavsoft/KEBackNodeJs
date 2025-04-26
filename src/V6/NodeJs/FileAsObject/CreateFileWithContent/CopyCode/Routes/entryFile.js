@@ -3,9 +3,9 @@ import express from 'express';
 var router = express.Router();
 
 import {
-    DeleteFunc
+    PostFunc
 } from '../Controllers/entryFile.js';
 
-router.delete('/:FileName', DeleteFunc);
+router.post('/:FileName', PostFunc);
 
 export { router };

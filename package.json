@@ -3,7 +3,7 @@
   "displayName": "KEBackNodeJs",
   "publisher": "KeshavSoft",
   "description": "KeshavSoft Extension to enhance the development of web applications",
-  "version": "0.0.19",
+  "version": "0.0.21",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -141,6 +141,18 @@
       {
         "command": "NodeJs.FileAsObject.FileRead",
         "title": "NodeJs FileAsObject FileRead"
+      },
+      {
+        "command": "NodeJs.FileAsObject.FileCreateWithContent",
+        "title": "NodeJs FileAsObject FileCreateWithContent"
+      },
+      {
+        "command": "NodeJs.FileAsObjectContent.Read",
+        "title": "NodeJs FileAsObjectContent Read"
+      },
+      {
+        "command": "NodeJs.FileAsObjectContent.Insert",
+        "title": "NodeJs FileAsObjectContent Insert"
       },
       {
         "command": "KChakri",
