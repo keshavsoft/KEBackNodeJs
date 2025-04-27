@@ -1,15 +1,15 @@
 const { StartFunc: StartFuncEndPoints } = require("./EndPoints/entryFile");
 const { StartFunc: StartFuncFromTask } = require("./Task/entryFile");
-const { StartFunc: StartFuncFromSubRoute } = require("./SubRoute/entryFile");
 const { StartFunc: StartFuncFromFileAsObject } = require("./FileAsObject/entryFile");
 const { StartFunc: StartFuncFromFileAsObjectContent } = require("./FileAsObjectContent/entryFile");
+const { StartFunc: StartFuncFromRouteUse } = require("./RouteUse/entryFile");
 
 const StartFunc = () => {
     StartFuncEndPoints();
     StartFuncFromTask();
-    StartFuncFromSubRoute();
     StartFuncFromFileAsObject();
     StartFuncFromFileAsObjectContent();
+    StartFuncFromRouteUse();
 };
 
 module.exports = { StartFunc };

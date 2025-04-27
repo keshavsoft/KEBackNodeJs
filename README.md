@@ -28,6 +28,10 @@ This extension has no settings.
 
 - Initial release of the Sample Extension.
 
+### 24.0.0
+
+- NodeJs.RouteUse.CreateNew working
+
 ## License
 
 MIT
