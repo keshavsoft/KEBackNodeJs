@@ -1,10 +1,10 @@
-import { StartFunc as StartFuncFromSelectedColumns } from '../kLowDb/readFromFile.js';
+import { StartFunc as StartFuncFromInsertToFile } from '../kLowDb/insertToFile.js';
 
-let postDefaultFunc = ({ inKey, inValu, inFileName }) => {
-    let LocalFromLowDb = StartFuncFromSelectedColumns({ inKey, inValu, inFileName });
+let postDefaultFunc = ({ inKey, inValue, inFileName }) => {
+    let LocalFromLowDb = StartFuncFromInsertToFile({ inKey, inValue, inFileName });
 
     if (LocalFromLowDb.KTF === false) {
-        return false;
+        return LocalFromLowDb;
     };
 
     return LocalFromLowDb;

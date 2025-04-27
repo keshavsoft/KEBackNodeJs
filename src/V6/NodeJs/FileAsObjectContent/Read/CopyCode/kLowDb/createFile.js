@@ -14,6 +14,7 @@ let StartFunc = ({ inFileName }) => {
         LocalReturnData.KTF = true;
         LocalReturnData.JsonData = data;
 
+        return LocalReturnData;
     } catch (err) {
         if (err.code === 'EEXIST') {
             console.log('File already exists.');
@@ -21,8 +22,6 @@ let StartFunc = ({ inFileName }) => {
             console.error('Error creating file:', err);
         }
     };
-
-    // fs.writeFileSync(`${LocalDataPath}/${LocalFileName}`, JSON.stringify({}));
 
     return LocalReturnData;
 };
