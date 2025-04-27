@@ -3,7 +3,7 @@
   "displayName": "KEBackNodeJs",
   "publisher": "KeshavSoft",
   "description": "KeshavSoft Extension to enhance the development of web applications",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -153,6 +153,10 @@
       {
         "command": "NodeJs.FileAsObjectContent.Insert",
         "title": "NodeJs FileAsObjectContent Insert"
+      },
+      {
+        "command": "NodeJs.FileAsObjectContent.Delete",
+        "title": "NodeJs FileAsObjectContent Delete"
       },
       {
         "command": "KChakri",
