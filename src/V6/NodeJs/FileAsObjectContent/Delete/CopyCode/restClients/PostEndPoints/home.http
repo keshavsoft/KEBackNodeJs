@@ -1,6 +1,0 @@
-DELETE http://localhost:3000/FileContent/Delete/test2
-Content-Type: application/json
-
-{
-  "Key":"Annam"
-}

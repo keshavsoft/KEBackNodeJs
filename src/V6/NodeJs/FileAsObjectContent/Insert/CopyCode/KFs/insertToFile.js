@@ -2,25 +2,25 @@ import fs from "fs";
 import { StartFunc as StartFuncCommonExpose } from "../../../CommonExpose/returnRootDir.js";
 const CommonDataPath = "Data";
 
-const StartFunc = ({ inKey, inFileName }) => {
+const StartFunc = ({ inKey, inValue, inFileName }) => {
   const LocalFileName = inFileName;
   const LocalDataPath = StartFuncCommonExpose();
-  let LocalReturnObject = {};
-  LocalReturnObject.KTF = false;
 
   const filePath = `${LocalDataPath}/${CommonDataPath}/${LocalFileName}.json`;
+  let LocalReturnObject = {};
+  LocalReturnObject.KTF = false;
 
   try {
     if (fs.existsSync(filePath)) {
       const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
-      if (inKey in data === false) {
-        LocalReturnObject.KReason = "Key not found...";
+      if (inKey in data) {
+        LocalReturnObject.KReason = "Key already present";
 
         return LocalReturnObject;
       };
 
-      delete data[inKey];
+      data[inKey] = inValue;
 
       fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
 
@@ -28,11 +28,14 @@ const StartFunc = ({ inKey, inFileName }) => {
 
       return LocalReturnObject;
     } else {
-      console.warn(`File ${filePath} does not exist.`);
-    }
+      LocalReturnObject.KReason = `File ${filePath} does not exist.`;
+      console.warn(LocalReturnObject.KReason);
+
+      return LocalReturnObject;
+    };
   } catch (err) {
     console.error('Error:', err);
-  }
+  };
 
   return LocalReturnObject;
 };
