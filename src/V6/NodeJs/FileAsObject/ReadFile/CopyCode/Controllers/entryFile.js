@@ -8,8 +8,8 @@ let GetFunc = (req, res) => {
     let LocalFromRepo = GetFuncRepo({ inFileName: LocalFileName });
 
     if (LocalFromRepo.KTF === false) {
-        res.status(500).send(LocalFromRepo.KReason);
-        
+        res.status(409).send(LocalFromRepo.KReason);
+
         return;
     };
 

@@ -20,8 +20,6 @@ let StartFunc = ({ inFileName }) => {
         }
     };
 
-    // fs.writeFileSync(`${LocalDataPath}/${LocalFileName}`, JSON.stringify({}));
-
     return LocalReturnData;
 };
 

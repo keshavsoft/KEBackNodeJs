@@ -8,7 +8,7 @@ let DeleteFunc = (req, res) => {
     let LocalFromRepo = DeleteFuncFromRepo({ inFileName: LocalFileName });
 
     if (LocalFromRepo.KTF === false) {
-        res.status(500).send(LocalFromRepo.KReason);
+        res.status(409).send(LocalFromRepo.KReason);
         return;
     };
 

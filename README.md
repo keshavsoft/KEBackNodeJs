@@ -32,6 +32,10 @@ This extension has no settings.
 
 - NodeJs.RouteUse.CreateNew working
 
+### 0.0.26
+
+- FileAsObject perfect
+
 ## License
 
 MIT
