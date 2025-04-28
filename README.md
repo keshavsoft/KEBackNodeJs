@@ -36,6 +36,10 @@ This extension has no settings.
 
 - FileAsObject perfect
 
+### 0.0.27
+
+- FileAsObject perfect alter added, still Delete need to work on
+
 ## License
 
 MIT

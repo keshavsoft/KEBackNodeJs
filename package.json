@@ -159,6 +159,10 @@
         "title": "NodeJs FileAsObjectContent Delete"
       },
       {
+        "command": "NodeJs.FileAsObjectContent.Alter",
+        "title": "NodeJs FileAsObjectContent Alter"
+      },
+      {
         "command": "NodeJs.RouteUse.CreateNew",
         "title": "NodeJs RouteUse CreateNew"
       }
