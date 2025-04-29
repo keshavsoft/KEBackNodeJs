@@ -40,6 +40,10 @@ This extension has no settings.
 
 - FileAsObject perfect alter added, still Delete need to work on
 
+### 0.0.28
+
+- FileAsArray Create and With Content working
+
 ## License
 
 MIT

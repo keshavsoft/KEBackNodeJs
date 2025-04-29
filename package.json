@@ -3,7 +3,7 @@
   "displayName": "KEBackNodeJs",
   "publisher": "KeshavSoft",
   "description": "KeshavSoft Extension to enhance the development of web applications",
-  "version": "0.0.27",
+  "version": "0.0.28",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -165,6 +165,14 @@
       {
         "command": "NodeJs.RouteUse.CreateNew",
         "title": "NodeJs RouteUse CreateNew"
+      },
+      {
+        "command": "NodeJs.FileAsArray.Create",
+        "title": "NodeJs FileAsArray Create"
+      },
+      {
+        "command": "NodeJs.FileAsArray.CreateWithContent",
+        "title": "NodeJs FileAsArray CreateWithContent"
       }
     ],
     "menus": {
