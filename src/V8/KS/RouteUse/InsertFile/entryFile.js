@@ -1,10 +1,10 @@
 const vscode = require('vscode');
-const fse = require('fs-extra');
-const readline = require('readline');
 
 const CommonRegisterCommand = "KS.RouteUse.InsertFile";
 
+const { getSelectedFolderPath } = require("./getSelectedFolderPath");
 const { StartFunc: StartFuncFromCreateFolder } = require("./createFolder");
+const { StartFunc: StartFuncFromCreateRouteFile } = require("./createRouteFile");
 
 const StartFunc = () => {
     activateFunc();
@@ -16,7 +16,7 @@ const activateFunc = () => {
 
 const LocalFuncToActivate = async () => {
     try {
-        const selectedFolder = await LocalFuncGetOpenEditorPath();
+        const selectedFolder = await getSelectedFolderPath();
 
         if (!selectedFolder) throw new Error('No folder selected, and no active file found in the workspace.');
 
@@ -24,72 +24,20 @@ const LocalFuncToActivate = async () => {
 
         if (!LocalRouteNeeded) throw new Error('New end point was not provided.');
 
-        StartFuncFromCreateFolder({ inRouteNeeded: LocalRouteNeeded });
+        StartFuncFromCreateFolder({
+            inSelectedFolderPath: selectedFolder,
+            inRouteNeeded: LocalRouteNeeded
+        });
 
-        vscode.window.showInformationMessage(`Folder created and contents copied to: ${LocalEndPointNeeded}`);
+        StartFuncFromCreateRouteFile({
+            inSelectedFolderPath: selectedFolder,
+            inRouteNeeded: LocalRouteNeeded
+        });
+
+        vscode.window.showInformationMessage(`Folder created and routes.js empty inserted to: ${LocalRouteNeeded}`);
     } catch (error) {
         vscode.window.showErrorMessage(`Error: ${error.message}`);
     };
-};
-
-const LocalFuncWriteFile = ({ inLinesArray, inEditorPath }) => {
-    let LocalLines = inLinesArray;
-
-    const content = LocalLines.join('\n');
-
-    fse.writeFileSync(inEditorPath, content, 'utf-8');
-};
-
-const LocalFuncCheckOldEndPoints = ({ inLinesArray, inNewRoute }) => {
-    let LocalLines = inLinesArray;
-    const LocalNewRoute = inNewRoute;
-
-    let LocalFilteredRows = LocalLines.filter((element) => element.startsWith("router.use("));
-    let LocalFind = LocalFilteredRows.find((element) => element.indexOf(LocalNewRoute) >= 0);
-
-    return LocalFind === undefined ? false : true;
-};
-
-const processLineByLine = async ({ inFileName }) => {
-    try {
-        const fileStream = fse.createReadStream(inFileName);
-        let LocalLines = [];
-
-        fileStream.on('error', (err) => {
-            console.error(`Error reading file: ${err.message}`);
-        });
-
-        const rl = readline.createInterface({
-            input: fileStream,
-            crlfDelay: Infinity
-        });
-
-        for await (const line of rl) {
-            // console.log(`Line: ${line}`);
-            LocalLines.push(line);
-            // vscode.window.showInformationMessage(`Error: ${line}`);
-        };
-
-        return LocalLines;
-    } catch (err) {
-        console.error(`Error processing file: ${err.message}`);
-    }
-};
-
-const LocalFuncGetOpenEditorPath = async () => {
-    // If no folder is selected, fall back to the active file's folder
-    const activeEditor = vscode.window.activeTextEditor;
-
-    if (activeEditor) {
-        const activeFilePath = activeEditor.document.uri.fsPath;
-
-        if (await fse.pathExists(activeFilePath)) {
-            return activeFilePath;
-        };
-    };
-
-    // If no folder or active file is found, return null
-    return null;
 };
 
 module.exports = { StartFunc };

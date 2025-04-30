@@ -7,7 +7,14 @@ const StartFunc = ({ inLinesArray, inNewRoute }) => {
     let LocalFindIndex = LocalLines.findIndex((element) => element.startsWith(CommonRouterSearch));
     const LocalToInsertLine = `router.use("/${LocalNewRoute}", routerFrom${LocalNewRoute});\r`;
 
-    LocalLines.splice(LocalFindIndex, 0, `${LocalToInsertLine}`);
+    if (LocalFindIndex === -1) {
+        const LocalArrayLength = LocalLines.length;
+
+        LocalLines.splice(LocalArrayLength - 1, 0, ``);
+        LocalLines.splice(LocalArrayLength - 1, 0, `${LocalToInsertLine}`);
+    } else {
+        LocalLines.splice(LocalFindIndex, 0, `${LocalToInsertLine}`);
+    };
 };
 
 module.exports = { StartFunc };

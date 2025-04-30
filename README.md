@@ -48,6 +48,10 @@ This extension has no settings.
 
 - Preparing this repo for Boilerplate code our File Crud in nodejs and expressjs
 
+### 0.0.31
+
+- KS 3 options perfect
+
 ## License
 
 MIT

@@ -3,7 +3,7 @@
   "displayName": "KEBackNodeJs",
   "publisher": "KeshavSoft",
   "description": "KeshavSoft Extension to enhance the development of web applications",
-  "version": "0.0.30",
+  "version": "0.0.31",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -185,6 +185,10 @@
       {
         "command": "KS.RouteUse.InsertFile",
         "title": "KS RouteUse InsertFile"
+      },
+      {
+        "command": "KS.RouteUse.CreateNew",
+        "title": "KS RouteUse CreateNew"
       }
     ],
     "menus": {

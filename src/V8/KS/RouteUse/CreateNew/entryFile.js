@@ -2,7 +2,7 @@ const vscode = require('vscode');
 const fse = require('fs-extra');
 const readline = require('readline');
 
-const CommonRegisterCommand = "NodeJs.RouteUse.CreateNew";
+const CommonRegisterCommand = "KS.RouteUse.CreateNew";
 
 const { StartFunc: StartFuncFromRoute } = require("./Route/entryFile");
 
@@ -44,21 +44,6 @@ const LocalFuncToActivate = async () => {
         LocalFuncWriteFile({
             inLinesArray: LocalLines, inEditorPath: selectedFolder
         });
-
-        // StartFuncFromController({
-        //     inLinesArray: LocalLines, inEditorPath: selectedFolder,
-        //     inNewRoute: LocalEndPointNeeded
-        // });
-
-        // StartFuncFromRepo({
-        //     inLinesArray: LocalLines, inEditorPath: selectedFolder,
-        //     inNewRoute: LocalEndPointNeeded
-        // });
-
-        // StartFuncFromDal({
-        //     inLinesArray: LocalLines, inEditorPath: selectedFolder,
-        //     inNewRoute: LocalEndPointNeeded
-        // });
 
         vscode.window.showInformationMessage(`Folder created and contents copied to: ${LocalEndPointNeeded}`);
     } catch (error) {
