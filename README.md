@@ -56,6 +56,10 @@ This extension has no settings.
 
 - KS FileAsObject 2 perfect
 
+### 0.0.33
+
+- KS FileAsArray 3 perfect
+
 ## License
 
 MIT
