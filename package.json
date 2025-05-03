@@ -3,7 +3,7 @@
   "displayName": "KEBackNodeJs",
   "publisher": "KeshavSoft",
   "description": "KeshavSoft Extension to enhance the development of web applications",
-  "version": "0.0.34",
+  "version": "0.0.35",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -205,6 +205,10 @@
       {
         "command": "KS.FileAsArray.CreateWithContent",
         "title": "KS FileAsArray CreateWithContent"
+      },
+      {
+        "command": "KS.FileAsObject.FileDelete",
+        "title": "KS FileAsObject FileDelete"
       }
     ],
     "menus": {

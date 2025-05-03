@@ -7,13 +7,13 @@ let PostFunc = (req, res) => {
     const LocalBody = req.body;
 
     let LocalFromRepo = PostFuncRepo({ inFileName: LocalFileName, inInsertData: LocalBody });
-
+    
     if (LocalFromRepo.KTF === false) {
         res.status(409).send(LocalFromRepo.KReason);
         return;
     };
-
-    res.status(200).end();
+    res.status(200).send(LocalFromRepo.JsonData);
+ 
 };
 
 export {

@@ -8,11 +8,11 @@ let GetFunc = (req, res) => {
     let LocalFromRepo = GetFuncRepo({ inFileName: LocalFileName });
 
     if (LocalFromRepo.KTF === false) {
-        res.status(500).send(LocalFromRepo.KReason);
+        res.status(409).send(LocalFromRepo.KReason);
         return;
     };
 
-    res.status(200).end();
+    res.status(200).send(`${LocalFileName}.json File created Successfully`);
 };
 
 export {

@@ -64,6 +64,10 @@ This extension has no settings.
 
 - KS FileAsArray Success messages added
 
+### 0.0.35
+
+- KS FileAsObject Success messages added
+
 ## License
 
 MIT
