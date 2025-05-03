@@ -12,7 +12,7 @@ let GetFunc = (req, res) => {
         return;
     };
 
-    res.status(200).end();
+    res.status(200).end(LocalFromRepo.JsonData);
 };
 
 export {

@@ -8,7 +8,7 @@ write end points in nodejs
 ## Usage
 
 1. Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`).
-2. Search for and run `NodeJs `.
+2. Search for and run (`NodeJs ` / `KS `).
 
 ## Requirements
 
@@ -59,6 +59,10 @@ This extension has no settings.
 ### 0.0.33
 
 - KS FileAsArray 3 perfect
+
+### 0.0.34
+
+- KS FileAsArray Success messages added
 
 ## License
 

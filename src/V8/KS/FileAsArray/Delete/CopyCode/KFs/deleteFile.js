@@ -13,6 +13,8 @@ let StartFunc = ({ inFileName }) => {
         try {
             fs.unlinkSync(filePath);
             LocalReturnData.KTF = true;
+            LocalReturnData.JsonData = `${LocalFileName}.json has been successfully deleted.`;
+
             console.log(`${LocalFileName}.json has been successfully deleted.`);
         } catch (err) {
             LocalReturnData.KReason = err.message;
