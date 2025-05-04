@@ -68,6 +68,10 @@ This extension has no settings.
 
 - KS FileAsObject Success messages added
 
+### 0.0.36
+
+- KS Tasks FileAsArray Create Started
+
 ## License
 
 MIT

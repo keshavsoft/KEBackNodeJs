@@ -3,7 +3,7 @@
   "displayName": "KEBackNodeJs",
   "publisher": "KeshavSoft",
   "description": "KeshavSoft Extension to enhance the development of web applications",
-  "version": "0.0.35",
+  "version": "0.0.36",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -167,14 +167,6 @@
         "title": "NodeJs RouteUse CreateNew"
       },
       {
-        "command": "NodeJs.FileAsArray.Create",
-        "title": "NodeJs FileAsArray Create"
-      },
-      {
-        "command": "NodeJs.FileAsArray.CreateWithContent",
-        "title": "NodeJs FileAsArray CreateWithContent"
-      },
-      {
         "command": "KS.BoilerPlate.Basic",
         "title": "KS BoilerPlate Basic"
       },
@@ -209,6 +201,18 @@
       {
         "command": "KS.FileAsObject.FileDelete",
         "title": "KS FileAsObject FileDelete"
+      },
+      {
+        "command": "KS.FileAsArray.FileRead",
+        "title": "KS FileAsArray FileRead"
+      },
+      {
+        "command": "KS.BoilerPlate.FileAsArray",
+        "title": "KS BoilerPlate FileAsArray"
+      },
+      {
+        "command": "KS.Tasks.FileAsArray.FileCreate",
+        "title": "KS Tasks FileAsArray FileCreate"
       }
     ],
     "menus": {

@@ -13,16 +13,17 @@ let StartFunc = ({ inFileName, inInsertData }) => {
         fs.writeFileSync(LocalFilePath, JSON.stringify(LocalInsertData), { flag: 'wx' });
 
         LocalReturnData.KTF = true;
+        LocalReturnData.JsonData = `File was Created in ${CommonDataPath} folder`;
         return LocalReturnData;
     } catch (err) {
         if (err.code === 'EEXIST') {
             console.log('File already exists.');
-            LocalReturnData.KReason = "File already exists.";
+            LocalReturnData.KReason = `${LocalFileName} File already exists.`;
             return LocalReturnData;
 
         } else {
-            console.error('Error creating file:', err);
-            LocalReturnData.KReason = err;
+            console.error(`Error creating ${LocalFileName} file: , ${err}`);
+            LocalReturnData.KReason = `Error creating ${LocalFileName} file: , ${err}`;
             return LocalReturnData;
         };
     };

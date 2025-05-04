@@ -1,8 +1,6 @@
-const { StartFunc: StartFuncFromBasic } = require("./Basic/entryFile");
 const { StartFunc: StartFuncFromFileAsArray } = require("./FileAsArray/entryFile");
 
 const StartFunc = () => {
-    StartFuncFromBasic();
     StartFuncFromFileAsArray();
 };
 

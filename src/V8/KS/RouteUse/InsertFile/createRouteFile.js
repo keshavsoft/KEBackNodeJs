@@ -7,6 +7,7 @@ const StartFunc = ({ inSelectedFolderPath, inRouteNeeded }) => {
     let LocalLines = [];
 
     LocalLines.push(`import express from 'express';`);
+    LocalLines.push(``);
     LocalLines.push(`const router = express.Router();`);
     LocalLines.push(``);
     LocalLines.push(`export { router };`);
