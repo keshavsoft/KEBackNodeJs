@@ -72,6 +72,10 @@ This extension has no settings.
 
 - KS Tasks FileAsArray Create Started
 
+### 0.0.37
+
+- KS BoilerPlate FileAsArray more files added
+
 ## License
 
 MIT
