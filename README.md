@@ -76,6 +76,10 @@ This extension has no settings.
 
 - KS BoilerPlate FileAsArray more files added
 
+### 0.0.38
+
+- KS BoilerPlate FileAsArray 3 added with out Read
+
 ## License
 
 MIT
