@@ -80,6 +80,10 @@ This extension has no settings.
 
 - KS BoilerPlate FileAsArray 3 added with out Read
 
+### 0.0.39
+
+- KS BoilerPlate FileAsObject CreateWithContent perfect
+
 ## License
 
 MIT
