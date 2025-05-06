@@ -84,6 +84,10 @@ This extension has no settings.
 
 - KS BoilerPlate FileAsObject CreateWithContent perfect
 
+### 0.0.40
+
+- KS BoilerPlate FileAsArray CreateWithContent parsed
+
 ## License
 
 MIT
