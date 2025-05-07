@@ -88,6 +88,10 @@ This extension has no settings.
 
 - KS BoilerPlate FileAsArray CreateWithContent parsed
 
+### 0.0.41
+
+- KS BoilerPlate ArrayAndContent started
+
 ## License
 
 MIT
