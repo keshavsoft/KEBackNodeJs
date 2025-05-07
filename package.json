@@ -3,7 +3,7 @@
   "displayName": "KEBackNodeJs",
   "publisher": "KeshavSoft",
   "description": "KeshavSoft Extension to enhance the development of web applications",
-  "version": "0.0.41",
+  "version": "0.0.42",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -229,6 +229,10 @@
       {
         "command": "KS.Tasks.FileAsObject.FileCreateWithContent",
         "title": "KS Tasks FileAsObject FileCreateWithContent"
+      },
+      {
+        "command": "KS.BoilerPlate.ArrayAndContent",
+        "title": "KS BoilerPlate ArrayAndContent"
       }
     ],
     "menus": {
