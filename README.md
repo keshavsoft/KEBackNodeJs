@@ -92,6 +92,10 @@ This extension has no settings.
 
 - KS BoilerPlate ArrayAndContent started
 
+### 0.0.43
+
+- "KS.Tasks.ArrayAsContent Started
+
 ## License
 
 MIT
