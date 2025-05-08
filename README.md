@@ -100,6 +100,10 @@ This extension has no settings.
 
 - "KS.Tasks.ArrayAsContent still working on more tasks...
 
+### 0.0.47
+
+- "BoiletPlate with ui and more...
+
 ## License
 
 MIT

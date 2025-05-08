@@ -11,8 +11,9 @@ let GetFunc = (req, res) => {
         res.status(409).send(LocalFromRepo.KReason);
         return;
     };
-
-    res.status(200).end(LocalFromRepo.JsonData);
+    
+    res.set('Content-Type', 'text/plain');
+    res.send(LocalFromRepo.SuccessText);
 };
 
 export {

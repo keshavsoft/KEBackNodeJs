@@ -2,14 +2,12 @@ import express from 'express';
 const app = express()
 const port = 3000;
 
-import { router as routerFromFiles } from "./FileAsArray/routes.js";
+import { router as routerFromFileAsArray } from "./FileAsArray/routes.js";
 import { router as routerFromContentInArray } from "./ContentInArray/routes.js";
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-});
+app.use(express.static('public'));
 
-app.use('/FileAsArray', routerFromFiles);
+app.use('/FileAsArray', routerFromFileAsArray);
 app.use('/ContentInArray', routerFromContentInArray);
 
 app.listen(port, () => {
