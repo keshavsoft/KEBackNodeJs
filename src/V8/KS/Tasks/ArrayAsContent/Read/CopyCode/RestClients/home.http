@@ -1,1 +1,1 @@
-GET http://localhost:3000/ContentInArray/Read/Tasks2
+GET http://localhost:3000/ContentInArray/Read/{FileName}

@@ -104,6 +104,14 @@ This extension has no settings.
 
 - "BoiletPlate with ui and more...
 
+### 0.0.49
+
+- "ContentInArray Insert with pk and Delete good
+
+### 0.0.50
+
+- "ContentInArray Rest better
+
 ## License
 
 MIT

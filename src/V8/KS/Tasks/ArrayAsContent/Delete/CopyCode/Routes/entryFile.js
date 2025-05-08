@@ -6,8 +6,6 @@ import {
     postFilterDataFromBodyFunc
 } from '../Controllers/entryFile.js';
 
-import { StartFunc as middlewarespostFilterDataFromBodyFunc } from "../Middlewares/entryFile.js";
-
-router.delete('/:FileName', middlewarespostFilterDataFromBodyFunc, postFilterDataFromBodyFunc);
+router.delete('/:FileName/:Key', postFilterDataFromBodyFunc);
 
 export { router };

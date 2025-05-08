@@ -3,7 +3,7 @@ import { StartFunc as StartFuncCommonExpose } from "../../../CommonExpose/return
 
 const CommonDataPath = "Data";
 
-const StartFunc = ({ inKey, inValue, inFileName }) => {
+const StartFunc = ({ inKey, inFileName }) => {
   const LocalFileName = inFileName;
   const LocalDataPath = StartFuncCommonExpose();
   let LocalReturnObject = { KTF: false };
@@ -19,7 +19,7 @@ const StartFunc = ({ inKey, inValue, inFileName }) => {
 
     let data = JSON.parse(fs.readFileSync(filePath, "utf8"));
 
-    const LocalFindIndex = data.findIndex(e => e[inKey] === inValue);
+    const LocalFindIndex = data.findIndex(e => e.pk === parseInt(inKey));
 
     if (LocalFindIndex === -1) {
       LocalReturnObject.KReason = `Key "${inKey}" not found in the file.`;
@@ -37,7 +37,7 @@ const StartFunc = ({ inKey, inValue, inFileName }) => {
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2), "utf8");
 
     LocalReturnObject.KTF = true;
-    LocalReturnObject.JsonData=`${LocalFileName}.josn Data Deleted Successfully`
+    LocalReturnObject.JsonData = `${LocalFileName}.josn Data Deleted Successfully`
   } catch (err) {
     LocalReturnObject.KReason = `Error occurred: ${err.message}`;
     console.error("Error:", err);

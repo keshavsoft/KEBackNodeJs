@@ -3,14 +3,13 @@ import {
 } from '../Repos/entryFile.js';
 
 let postFilterDataFromBodyFunc = async (req, res) => {
-    let LocalParam = req.params.FileName;
-    let LocalRequestBody = req.body;
-    let LocalKey = LocalRequestBody.Key;
-    let LocalValue = LocalRequestBody.Value;
-    console.log("LocalRequestBody:",LocalRequestBody,LocalValue);
-    
+    let LocalFileName = req.params.FileName;
+    let LocalKey = req.params.Key;
 
-    let LocalFromRepo = await postDefaultFuncFromRepo({ inKey: LocalKey, inValue: LocalValue, inFileName: LocalParam });
+    let LocalFromRepo = await postDefaultFuncFromRepo({
+        inKey: LocalKey,
+        inFileName: LocalFileName
+    });
 
     if (LocalFromRepo.KTF === false) {
         res.status(404).send(LocalFromRepo.KReason);
