@@ -1,0 +1,7 @@
+POST http://localhost:3000/FileAsArrayContent/InsertWithPk/Tasks
+Content-Type: application/json
+
+{
+  "Key":"Mobile1",
+  "Value":9848163021
+}

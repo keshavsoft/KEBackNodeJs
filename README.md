@@ -96,6 +96,10 @@ This extension has no settings.
 
 - "KS.Tasks.ArrayAsContent Started
 
+### 0.0.44
+
+- "KS.Tasks.ArrayAsContent still working on more tasks...
+
 ## License
 
 MIT

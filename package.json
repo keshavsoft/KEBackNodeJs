@@ -3,7 +3,7 @@
   "displayName": "KEBackNodeJs",
   "publisher": "KeshavSoft",
   "description": "KeshavSoft Extension to enhance the development of web applications",
-  "version": "0.0.43",
+  "version": "0.0.44",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -237,6 +237,18 @@
       {
         "command": "KS.Tasks.ArrayAsContent.Insert",
         "title": "KS Tasks ArrayAsContent Insert"
+      },
+      {
+        "command": "KS.Tasks.ArrayAsContent.Delete",
+        "title": "KS Tasks ArrayAsContent Delete"
+      },
+      {
+        "command": "KS.Tasks.ArrayAsContent.Read",
+        "title": "KS Tasks ArrayAsContent Read"
+      },
+      {
+        "command": "KS.Tasks.ArrayAsContent.InsertWithPk",
+        "title": "KS Tasks ArrayAsContent InsertWithPk"
       }
     ],
     "menus": {
