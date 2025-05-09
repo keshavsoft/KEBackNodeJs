@@ -4,6 +4,7 @@ const path = require('path');
 
 const { getSelectedFolderPath } = require('./getSelectedFolderPath');
 const { StartFunc: StartFuncFromRouteUse } = require('./RouteUse/entryFile');
+const { StartFunc: StartFuncFromAlterKF } = require('./AlterKF/entryFile');
 
 const CommonRegisterCommand = "KS.Tasks.FileAsArray.FileCreate";
 
@@ -37,7 +38,12 @@ const LocalFuncToActivate = async () => {
         StartFuncFromRouteUse({
             inEditorPath: LocalActiveEditorPath,
             inNewRoute: LocalEndPointNeeded
-        })
+        });
+
+        StartFuncFromAlterKF({
+            inEditorPath: LocalActiveEditorPath,
+            inNewRoute: LocalEndPointNeeded
+        });
 
         vscode.window.showInformationMessage(`Folder created and contents copied to: ${LocalToPath}`);
     } catch (error) {

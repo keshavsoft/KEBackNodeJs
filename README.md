@@ -120,6 +120,10 @@ This extension has no settings.
 
 - RouteUse more perfect
 
+### 0.9.55
+
+- BoiletPlate FileAsArray added env file and Create Rest working
+
 ## License
 
 MIT
