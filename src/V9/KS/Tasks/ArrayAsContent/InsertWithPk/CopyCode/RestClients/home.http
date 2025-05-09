@@ -1,0 +1,7 @@
+POST http://localhost:3000/ContentInArray/InsertWithPk/{FileName}
+Content-Type: application/json
+
+{
+  "Name":"Keshav",
+  "Mobile":9848163021
+}

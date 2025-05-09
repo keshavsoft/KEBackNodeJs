@@ -1,0 +1,40 @@
+const vscode = require('vscode');
+const fse = require('fs-extra');
+const path = require('path');
+
+const { getSelectedFolderPath } = require('./getSelectedFolderPath');
+
+const CommonRegisterCommand = "KS.BoilerPlate.ArrayAndContent";
+
+const StartFunc = () => {
+    vscode.commands.registerCommand(CommonRegisterCommand, LocalFuncToActivate);
+};
+
+const LocalFuncToActivate = async () => {
+    try {
+        // const selectedFolder = await getSelectedFolderPath();
+
+        // if (!selectedFolder) throw new Error('No folder selected, and no active file found in the workspace.');
+
+        const LocalFromPath = path.join(__dirname, "copyCode");
+        const LocalToPath = LocalFuncGetWorkSpaceFolder();
+
+        await fse.copy(LocalFromPath, LocalToPath);
+
+        vscode.window.showInformationMessage(`Folder created and contents copied to: ${LocalToPath}`);
+    } catch (error) {
+        vscode.window.showErrorMessage(`Error: ${error.message}`);
+    };
+};
+
+const LocalFuncGetWorkSpaceFolder = () => {
+    if (vscode.workspace.workspaceFolders) {
+        const rootUri = vscode.workspace.workspaceFolders[0].uri;
+        const rootPath = rootUri.fsPath; // Get the file path
+        return rootPath;
+    } else {
+        console.log("No workspace folders found.");
+    };
+};
+
+module.exports = { StartFunc };

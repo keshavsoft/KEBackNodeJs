@@ -1,0 +1,7 @@
+POST http://localhost:7328/WA-Crud/Mobiles/InsertContent
+Content-Type: application/json
+
+{
+  "Key":"919848163022@c.us",
+  "Value":"Keshav-------"
+}

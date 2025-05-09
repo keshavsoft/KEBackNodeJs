@@ -7,8 +7,13 @@ write end points in nodejs
 
 ## Usage
 
-1. Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`).
-2. Search for and run (`NodeJs ` / `KS `).
+1. Open an Empty Folder.
+2. Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`).
+3. Search for and run (`KS BoilerPlate`).
+4. Find the available options there ( like `ArrayAndContent`).
+5. All the Folders and Files are copied to your empty Folder.
+6. .env file the place where you define ( Data Path and Port Number ).
+7. app.js is entry file.
 
 ## Requirements
 
@@ -16,7 +21,7 @@ write end points in nodejs
 
 ## Extension Settings
 
-This extension has no settings.
+.env
 
 ## Known Issues
 
