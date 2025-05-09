@@ -1,6 +1,0 @@
-POST http://localhost:7019/Login/ForAny/Create
-Content-Type: application/json
-
-{
-  "Name":"sree"  
-}
