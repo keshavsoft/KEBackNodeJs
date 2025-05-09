@@ -112,6 +112,10 @@ This extension has no settings.
 
 - "ContentInArray Rest better
 
+### 0.0.52
+
+- "ContentInArray InsertWithPkAndUuIdAndDateTime, Alter, AlterWithPk
+
 ## License
 
 MIT
