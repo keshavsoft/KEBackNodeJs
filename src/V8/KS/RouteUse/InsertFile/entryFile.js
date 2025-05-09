@@ -5,6 +5,7 @@ const CommonRegisterCommand = "KS.RouteUse.InsertFile";
 const { getSelectedFolderPath } = require("./getSelectedFolderPath");
 const { StartFunc: StartFuncFromCreateFolder } = require("./createFolder");
 const { StartFunc: StartFuncFromCreateRouteFile } = require("./createRouteFile");
+const { StartFunc: StartFuncFromToActiveEditor } = require("./ToActiveEditor/entryFile");
 
 const StartFunc = () => {
     activateFunc();
@@ -32,6 +33,10 @@ const LocalFuncToActivate = async () => {
         StartFuncFromCreateRouteFile({
             inSelectedFolderPath: selectedFolder,
             inRouteNeeded: LocalRouteNeeded
+        });
+
+        StartFuncFromToActiveEditor({
+            inEndPointNeeded: LocalRouteNeeded
         });
 
         vscode.window.showInformationMessage(`Folder created and routes.js empty inserted to: ${LocalRouteNeeded}`);
