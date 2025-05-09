@@ -1,13 +1,11 @@
 import fs from "fs";
-import { StartFunc as StartFuncCommonExpose } from "../../../CommonExpose/returnRootDir.js";
-const CommonDataPath = "Data";
+const CommonDataPath = "{Data}";
 
 const StartFunc = ({ inRequestBody, inFileName }) => {
   const LocalFileName = inFileName;
   let LocalinDataToInsert = inRequestBody;
-  const LocalDataPath = StartFuncCommonExpose();
 
-  const filePath = `${LocalDataPath}/${CommonDataPath}/${LocalFileName}.json`;
+  const filePath = `${CommonDataPath}/${LocalFileName}.json`;
   let LocalReturnObject = {};
   LocalReturnObject.KTF = false;
 

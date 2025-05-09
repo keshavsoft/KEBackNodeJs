@@ -1,7 +1,7 @@
-POST http://localhost:3000/ContentInArray/InsertWithPk/{FileName}
+POST http://localhost:{PORT}{SubRoute}/{EndPoint}/{FileName}
 Content-Type: application/json
 
 {
-  "Name":"Keshav",
+  "Name":"Keshav1",
   "Mobile":9848163021
 }

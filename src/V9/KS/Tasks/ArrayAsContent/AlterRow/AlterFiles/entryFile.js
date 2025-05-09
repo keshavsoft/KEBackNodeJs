@@ -1,4 +1,4 @@
-const { StartFunc: StartFuncFromAlterKFFile } = require("./alterKFFile");
+const { StartFunc: StartFuncFromAlterKFFile } = require("./KFFile/entryFile");
 const { StartFunc: StartFuncFromAlterRestFile } = require("./alterRestFile");
 
 const StartFunc = async ({ inEditorPath, inNewRoute }) => {

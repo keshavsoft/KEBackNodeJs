@@ -4,7 +4,7 @@ const path = require('path');
 
 const { getSelectedFolderPath } = require('./getSelectedFolderPath');
 const { StartFunc: StartFuncFromRouteUse } = require('./RouteUse/entryFile');
-const { StartFunc: StartFuncFromAlterKF } = require('./AlterKF/entryFile');
+const { StartFunc: StartFuncFromAlterFiles } = require('./AlterFiles/entryFile');
 
 const CommonRegisterCommand = "KS.Tasks.FileAsArray.FileCreate";
 
@@ -40,7 +40,7 @@ const LocalFuncToActivate = async () => {
             inNewRoute: LocalEndPointNeeded
         });
 
-        StartFuncFromAlterKF({
+        StartFuncFromAlterFiles({
             inEditorPath: LocalActiveEditorPath,
             inNewRoute: LocalEndPointNeeded
         });

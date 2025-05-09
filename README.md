@@ -129,6 +129,10 @@ write end points in nodejs
 
 - BoiletPlate FileAsArray added env file and Create Rest working
 
+### 0.9.58
+
+- ContentAsArray 4 done
+
 ## License
 
 MIT

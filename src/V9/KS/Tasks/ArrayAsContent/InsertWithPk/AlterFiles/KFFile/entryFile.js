@@ -3,6 +3,7 @@ const fse = require('fs-extra');
 const readline = require('readline');
 
 const { StartFunc: StartFuncFromReadEnvFile } = require("./readEnvFile");
+const CommonFileName = "insertToFile.js";
 
 const StartFunc = async ({ inEditorPath, inNewRoute }) => {
     try {
@@ -10,16 +11,13 @@ const StartFunc = async ({ inEditorPath, inNewRoute }) => {
 
         const LocalEndPointNeeded = inNewRoute;
         const activeFileFolderPath = require('path').dirname(LocalEditorPath);
-        const LocalFilePath = `${activeFileFolderPath}/${LocalEndPointNeeded}/RestClients/home.http`;
+        const LocalFilePath = `${activeFileFolderPath}/${LocalEndPointNeeded}/KFs/${CommonFileName}`;
         const LocalRootPath = LocalFuncGetWorkSpaceFolder();
-        const LocalRelativePath = activeFileFolderPath.replace(LocalRootPath, "");
 
         const LocalEnvFileData = StartFuncFromReadEnvFile({ inRootPath: LocalRootPath });
 
         let LocalLines = await processLineByLine({ inFileName: LocalFilePath });
-        LocalLines[0] = LocalLines[0].replace("{PORT}", LocalEnvFileData.PORT);
-        LocalLines[0] = LocalLines[0].replace("{SubRoute}", LocalRelativePath.replaceAll(`\\`, "/"));
-        LocalLines[0] = LocalLines[0].replace("{EndPoint}", LocalEndPointNeeded);
+        LocalLines[1] = LocalLines[1].replace("{Data}", LocalEnvFileData.DataPath);
 
         LocalFuncWriteFile({ inLinesArray: LocalLines, inEditorPath: LocalFilePath });
     } catch (error) {

@@ -4,6 +4,7 @@ const path = require('path');
 
 const { getSelectedFolderPath } = require('./getSelectedFolderPath');
 const { StartFunc: StartFuncFromRouteUse } = require('./RouteUse/entryFile');
+const { StartFunc: StartFuncFromAlterFiles } = require('./AlterFiles/entryFile');
 
 const CommonRegisterCommand = "KS.Tasks.ArrayAsContent.AlterWithPk";
 
@@ -35,6 +36,11 @@ const LocalFuncToActivate = async () => {
         await fse.copy(LocalFromPath, LocalToPath);
 
         StartFuncFromRouteUse({
+            inEditorPath: LocalActiveEditorPath,
+            inNewRoute: LocalEndPointNeeded
+        });
+
+        StartFuncFromAlterFiles({
             inEditorPath: LocalActiveEditorPath,
             inNewRoute: LocalEndPointNeeded
         });

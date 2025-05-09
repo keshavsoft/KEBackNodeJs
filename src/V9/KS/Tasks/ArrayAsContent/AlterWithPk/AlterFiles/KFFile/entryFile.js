@@ -3,6 +3,7 @@ const fse = require('fs-extra');
 const readline = require('readline');
 
 const { StartFunc: StartFuncFromReadEnvFile } = require("./readEnvFile");
+const CommonFileName = "insertToFile.js";
 
 const StartFunc = async ({ inEditorPath, inNewRoute }) => {
     try {
@@ -10,9 +11,8 @@ const StartFunc = async ({ inEditorPath, inNewRoute }) => {
 
         const LocalEndPointNeeded = inNewRoute;
         const activeFileFolderPath = require('path').dirname(LocalEditorPath);
-        const LocalFilePath = `${activeFileFolderPath}/${LocalEndPointNeeded}/KFs/createFile.js`;
+        const LocalFilePath = `${activeFileFolderPath}/${LocalEndPointNeeded}/KFs/${CommonFileName}`;
         const LocalRootPath = LocalFuncGetWorkSpaceFolder();
-        const LocalRelativePath = activeFileFolderPath.replace(LocalRootPath, "");
 
         const LocalEnvFileData = StartFuncFromReadEnvFile({ inRootPath: LocalRootPath });
 
