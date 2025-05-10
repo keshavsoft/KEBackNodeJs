@@ -1,8 +1,8 @@
-const { StartFunc: StartFuncNodeJs } = require("./NodeJs/entryFile");
+// const { StartFunc: StartFuncNodeJs } = require("./NodeJs/entryFile");
 const { StartFunc: StartFuncFromKS } = require("./KS/entryFile");
 
 const StartFunc = () => {
-    StartFuncNodeJs();
+    // StartFuncNodeJs();
     StartFuncFromKS();
 };
 

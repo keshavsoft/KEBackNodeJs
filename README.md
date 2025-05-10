@@ -133,6 +133,10 @@ write end points in nodejs
 
 - ContentAsArray 4 done
 
+### 0.9.60
+
+- Can start from empty folder
+
 ## License
 
 MIT

@@ -5,7 +5,7 @@ const { StartFunc: StartFuncFromInsertWithPk } = require("./InsertWithPk/entryFi
 const { StartFunc: StartFuncFromAlterWithPk } = require("./AlterWithPk/entryFile");
 const { StartFunc: StartFuncFromAlter } = require("./Alter/entryFile");
 const { StartFunc: StartFuncFromInsertWithPkAndUuIdAndDateTime } = require("./InsertWithPkAndUuIdAndDateTime/entryFile");
-const { StartFunc: StartFuncFromAlter } = require("./Alter/entryFile");
+const { StartFunc: StartFuncFromAlterRow } = require("./AlterRow/entryFile");
 
 const StartFunc = () => {
     StartFuncFromInsert();
@@ -16,6 +16,7 @@ const StartFunc = () => {
     StartFuncFromAlter();
     StartFuncFromInsertWithPkAndUuIdAndDateTime();
     StartFuncFromAlter();
+    StartFuncFromAlterRow();
 };
 
 module.exports = { StartFunc };
