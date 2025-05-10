@@ -15,7 +15,6 @@ const StartFunc = () => {
     StartFuncFromAlterWithPk();
     StartFuncFromAlter();
     StartFuncFromInsertWithPkAndUuIdAndDateTime();
-    StartFuncFromAlter();
     StartFuncFromAlterRow();
 };
 

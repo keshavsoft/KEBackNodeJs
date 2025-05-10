@@ -3,6 +3,7 @@ const { StartFunc: StartFuncFromFileAsObject } = require("./FileAsObject/entryFi
 const { StartFunc: StartFuncFromRouteUse } = require("./RouteUse/entryFile");
 const { StartFunc: StartFuncFromFileAsArray } = require("./FileAsArray/entryFile");
 const { StartFunc: StartFuncFromTasks } = require("./Tasks/entryFile");
+const { StartFunc: StartFuncFromApp } = require("./App/entryFile");
 
 const StartFunc = () => {
     StartFuncFromBoilerPlate();
@@ -10,6 +11,7 @@ const StartFunc = () => {
     StartFuncFromRouteUse();
     StartFuncFromFileAsArray();
     StartFuncFromTasks();
+    StartFuncFromApp();
 };
 
 module.exports = { StartFunc };

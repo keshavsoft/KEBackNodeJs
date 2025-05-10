@@ -137,6 +137,10 @@ write end points in nodejs
 
 - Can start from empty folder
 
+### 0.9.61
+
+- BoilerPlate ArrayAndContent open app and focus
+
 ## License
 
 MIT
