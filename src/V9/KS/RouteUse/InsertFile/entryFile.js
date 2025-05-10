@@ -6,12 +6,9 @@ const { getSelectedFolderPath } = require("./getSelectedFolderPath");
 const { StartFunc: StartFuncFromCreateFolder } = require("./createFolder");
 const { StartFunc: StartFuncFromCreateRouteFile } = require("./createRouteFile");
 const { StartFunc: StartFuncFromToActiveEditor } = require("./ToActiveEditor/entryFile");
+const { StartFunc: StartFuncFromOpenRouteFile } = require("./openRouteFile");
 
 const StartFunc = () => {
-    activateFunc();
-};
-
-const activateFunc = () => {
     vscode.commands.registerCommand(CommonRegisterCommand, LocalFuncToActivate);
 };
 
@@ -38,6 +35,11 @@ const LocalFuncToActivate = async () => {
         StartFuncFromToActiveEditor({
             inEndPointNeeded: LocalRouteNeeded
         });
+
+        StartFuncFromOpenRouteFile({
+            inToPath: selectedFolder,
+            inRouteNeeded: LocalRouteNeeded
+        })
 
         vscode.window.showInformationMessage(`Folder created and routes.js empty inserted to: ${LocalRouteNeeded}`);
     } catch (error) {

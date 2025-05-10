@@ -7,8 +7,8 @@ import { router as routerFromContentInArray } from "./ContentInArray/routes.js";
 
 app.use(express.static('public'));
 
-app.use('/FileAsArray', routerFromFileAsArray);
-app.use('/ContentInArray', routerFromContentInArray);
+app.use("/FileAsArray", routerFromFileAsArray);
+app.use("/ContentInArray", routerFromContentInArray);
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)

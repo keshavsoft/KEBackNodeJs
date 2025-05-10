@@ -3,7 +3,7 @@ write end points in nodejs
 
 ## Features
 
-- Adds a basic "Hello World" command to the Command Palette.
+- Helps you establish BoilerPlate code for File Crud and also to write SubRoutes and insert EndPoints of your wish.
 
 ## Usage
 
@@ -14,6 +14,7 @@ write end points in nodejs
 5. All the Folders and Files are copied to your empty Folder.
 6. .env file the place where you define ( Data Path and Port Number ).
 7. app.js is entry file.
+8. To create a subRoute from here use `KS RouteUse`
 
 ## Requirements
 
@@ -140,6 +141,10 @@ write end points in nodejs
 ### 0.9.61
 
 - BoilerPlate ArrayAndContent open app and focus
+
+### 0.9.62
+
+- BoilerPlate RouteUse open routes and focus
 
 ## License
 

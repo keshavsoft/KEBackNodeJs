@@ -3,7 +3,6 @@ const path = require("path");
 
 const StartFunc = ({ inSelectedFolderPath, inRouteNeeded }) => {
     const LocalRouteNeeded = inRouteNeeded;
-    const LocalSelectedFolderPath = inSelectedFolderPath;
 
     const LocalToPath = path.join(inSelectedFolderPath, LocalRouteNeeded);
 
