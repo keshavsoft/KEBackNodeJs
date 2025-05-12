@@ -154,6 +154,10 @@ write end points in nodejs
 
 - KS.BoilerPlate.FromJson from schema.json
 
+### 0.10.3
+
+- KS.BoilerPlate.FromJson from schema.json: Insert, Read good
+
 ## License
 
 MIT
