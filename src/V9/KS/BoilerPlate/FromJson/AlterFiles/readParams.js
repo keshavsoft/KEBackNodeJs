@@ -1,0 +1,19 @@
+const fs = require('fs');
+
+function StartFunc({ inEditorPath, inTableName, inDataPath }) {
+    try {
+        const filePath = "params.json";
+        const fileContents = fs.readFileSync(`${inEditorPath}/V1/${inTableName}/CommonFuncs/${filePath}`, 'utf-8');
+        let fileContentsAsJson = JSON.parse(fileContents);
+
+        fileContentsAsJson.TableName = inTableName;
+        fileContentsAsJson.DataPath = inDataPath;
+
+        fs.writeFileSync(`${inEditorPath}/V1/${inTableName}/CommonFuncs/${filePath}`, JSON.stringify(fileContentsAsJson), 'utf-8');
+    } catch (error) {
+        console.error('Error reading .env file:', error);
+        return null;
+    }
+};
+
+module.exports = { StartFunc };

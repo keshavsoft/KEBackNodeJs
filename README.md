@@ -150,6 +150,10 @@ write end points in nodejs
 
 - KS.Tasks.WithTableName.InsertWithPk working good
 
+### 0.10.1
+
+- KS.BoilerPlate.FromJson from schema.json
+
 ## License
 
 MIT
