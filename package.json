@@ -3,7 +3,7 @@
   "displayName": "KEBackNodeJs",
   "publisher": "KeshavSoft",
   "description": "KeshavSoft Extension to enhance the development of web applications",
-  "version": "0.9.63",
+  "version": "0.9.64",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -269,6 +269,10 @@
       {
         "command": "KS.App.InsertFile",
         "title": "KS App InsertFile"
+      },
+      {
+        "command": "KS.Tasks.WithTableName.InsertWithPk",
+        "title": "KS Tasks WithTableName InsertWithPk"
       }
     ],
     "menus": {

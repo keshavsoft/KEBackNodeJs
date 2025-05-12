@@ -146,6 +146,10 @@ write end points in nodejs
 
 - BoilerPlate RouteUse open routes and focus
 
+### 0.9.64
+
+- KS.Tasks.WithTableName.InsertWithPk working good
+
 ## License
 
 MIT
