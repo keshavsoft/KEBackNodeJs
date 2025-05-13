@@ -27,7 +27,10 @@ const LocalFuncToActivate = async () => {
             vscode.window.showInformationMessage('Click for more Info', GoToHelp)
                 .then(selection => {
                     if (selection === GoToHelp) {
-                        fse.writeFileSync(`${LocalToPath}/schema.json`, JSON.stringify({ TableName: "" }));
+                        fse.writeFileSync(`${LocalToPath}/schema.json`, JSON.stringify({
+                            TableName: "",
+                            Columns: []
+                        }));
 
                         StartFuncFromChecksOpenApp({ inToPath: LocalToPath });
                     };
@@ -46,6 +49,7 @@ const LocalFuncToActivate = async () => {
 
         const LocalJsonSchema = StartFuncFromreadJsonSchema({ inRootPath: LocalToPath });
         const LocalTableName = LocalJsonSchema.TableName;
+        const LocalColumnsAsArray = LocalJsonSchema.Columns;
 
         await fse.copy(LocalFromTablePath, `${LocalToPath}/V1/${LocalTableName}`);
 
@@ -58,7 +62,8 @@ const LocalFuncToActivate = async () => {
             inEditorPath: LocalToPath,
             inTableName: LocalTableName,
             inDataPath: LocalEnvFileAsJson.DataPath,
-            inPortNumber: LocalEnvFileAsJson.PORT
+            inPortNumber: LocalEnvFileAsJson.PORT,
+            inColumnsAsArray: LocalColumnsAsArray
         });
 
         vscode.window.showInformationMessage(`BoilerPlate code to: ${LocalToPath}`);
