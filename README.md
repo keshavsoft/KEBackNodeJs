@@ -7,6 +7,14 @@ write end points in nodejs
 
 ## Usage
 
+- BoilerPlate
+
+1. Open an Empty Folder.
+2. Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`).
+3. Search for and run (`KS BoilerPlate FromJson`).
+
+- ArrayAndContent
+
 1. Open an Empty Folder.
 2. Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`).
 3. Search for and run (`KS BoilerPlate`).
@@ -157,6 +165,10 @@ write end points in nodejs
 ### 0.10.3
 
 - KS.BoilerPlate.FromJson from schema.json: Insert, Read good
+
+### 0.10.4
+
+- KS.BoilerPlate.FromJson help in creation
 
 ## License
 

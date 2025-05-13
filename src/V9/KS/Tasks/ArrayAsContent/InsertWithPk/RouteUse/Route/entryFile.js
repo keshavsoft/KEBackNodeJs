@@ -1,7 +1,5 @@
 const fse = require('fs-extra');
 
-const CommonFileName = "EntryFile.js";
-
 const { StartFunc: StartFuncFromRouterDotLine } = require("./routerDotLine");
 const { StartFunc: StartFuncFromImportLine } = require("./importLine");
 
@@ -24,11 +22,7 @@ const LocalFuncWriteFile = ({ inLinesArray, inEditorPath }) => {
 
     const content = LocalLines.join('\n');
 
-    const LocalFileName = CommonFileName;
-
-    const activeFileFolderPath = require('path').dirname(inEditorPath);
-
-    fse.writeFileSync(`${activeFileFolderPath}/${LocalFileName}`, content, 'utf-8');
+    fse.writeFileSync(inEditorPath, content, 'utf-8');
 };
 
 module.exports = { StartFunc };

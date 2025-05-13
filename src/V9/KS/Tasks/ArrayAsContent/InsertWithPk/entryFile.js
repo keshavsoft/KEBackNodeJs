@@ -9,10 +9,6 @@ const { StartFunc: StartFuncFromAlterFiles } = require('./AlterFiles/entryFile')
 const CommonRegisterCommand = "KS.Tasks.ArrayAsContent.InsertWithPk";
 
 const StartFunc = () => {
-    activateFunc();
-};
-
-const activateFunc = () => {
     vscode.commands.registerCommand(CommonRegisterCommand, LocalFuncToActivate);
 };
 

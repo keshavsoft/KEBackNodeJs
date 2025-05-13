@@ -9,6 +9,8 @@ const { StartFunc: StartFuncFromReadEnvFile } = require("./readEnvFile");
 const { StartFunc: StartFuncFromreadJsonSchema } = require("./readJsonSchema");
 const { StartFunc: StartFuncFromRouteUse } = require("./RouteUse/entryFile");
 const { StartFunc: StartFuncFromAlterFiles } = require('./AlterFiles/entryFile');
+const { StartFunc: StartFuncFromChecks } = require('./Checks/forSchemaJson');
+const { StartFunc: StartFuncFromChecksOpenApp } = require("./Checks/openApp");
 
 const StartFunc = () => {
     vscode.commands.registerCommand(CommonRegisterCommand, LocalFuncToActivate);
@@ -16,8 +18,25 @@ const StartFunc = () => {
 
 const LocalFuncToActivate = async () => {
     try {
-        const LocalFromPath = path.join(__dirname, "copyCode");
         const LocalToPath = LocalFuncGetWorkSpaceFolder();
+        const LocalIfExists = StartFuncFromChecks({ inRootPath: LocalToPath });
+
+        if (LocalIfExists === false) {
+            let GoToHelp = 'Create schema.json';
+
+            vscode.window.showInformationMessage('Click for more Info', GoToHelp)
+                .then(selection => {
+                    if (selection === GoToHelp) {
+                        fse.writeFileSync(`${LocalToPath}/schema.json`, JSON.stringify({ TableName: "" }));
+
+                        StartFuncFromChecksOpenApp({ inToPath: LocalToPath });
+                    };
+                });
+
+            return;
+        };
+
+        const LocalFromPath = path.join(__dirname, "copyCode");
 
         await fse.copy(LocalFromPath, LocalToPath);
 

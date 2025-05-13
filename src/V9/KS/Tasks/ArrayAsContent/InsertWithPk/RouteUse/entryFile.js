@@ -26,9 +26,9 @@ const StartFunc = async ({ inEditorPath, inNewRoute }) => {
             inNewRoute: LocalEndPointNeeded
         });
 
-        LocalFuncWriteFile({
-            inLinesArray: LocalLines, inEditorPath: selectedFolder
-        });
+        // LocalFuncWriteFile({
+        //     inLinesArray: LocalLines, inEditorPath: selectedFolder
+        // });
 
         vscode.window.showInformationMessage(`Folder created and contents copied to: ${LocalEndPointNeeded}`);
     } catch (error) {
