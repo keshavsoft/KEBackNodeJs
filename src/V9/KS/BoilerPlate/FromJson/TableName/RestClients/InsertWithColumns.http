@@ -2,6 +2,5 @@ POST http://localhost:{PORT}{SubRoute}/InsertWithColumns
 Content-Type: application/json
 
 {
-  "Name":"Keshav1",
-  "Mobile":9848163021
+  
 }

@@ -178,6 +178,10 @@ write end points in nodejs
 
 - KS.BoilerPlate.FromJson InsertWithColumns perfect
 
+### 0.10.7
+
+- KS.BoilerPlate.FromJson InsertWithColumns Rest Columns showing
+
 ## License
 
 MIT

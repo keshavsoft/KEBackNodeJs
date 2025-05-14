@@ -12,7 +12,7 @@ const StartFunc = async ({ inEditorPath, inTableName, inDataPath, inPortNumber, 
     });
 
     StartFuncFromCreateDataFile({ inTableName });
-    StartFuncFromForColumns({ inEditorPath, inTableName, inColumnsAsArray });
+    StartFuncFromForColumns({ inEditorPath, inTableName, inColumnsAsArray, inPortNumber });
 };
 
 module.exports = { StartFunc };
