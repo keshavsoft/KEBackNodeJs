@@ -3,8 +3,10 @@ const readline = require('readline');
 const CommonRouterSearch = "let LocalFromDal = ";
 const CommonDeclareString = "let postDefaultFunc = ";
 
-async function StartFunc({ inEditorPath, inTableName, inColumnsAsArray }) {
-    const LocaFileName = `${inEditorPath}/V1/${inTableName}/InsertWithColumns/Repos/entryFile.js`;
+async function StartFunc({ inEditorPath, inTableName, inColumnsAsArray, inVersion }) {
+    const LocalVersion = inVersion;
+
+    const LocaFileName = `${inEditorPath}/${LocalVersion}/${inTableName}/InsertWithColumns/Repos/entryFile.js`;
 
     const LocalForInput = inColumnsAsArray.map(element => `LocalCoumn${element}`);
 

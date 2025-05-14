@@ -3,16 +3,18 @@ const { StartFunc: StartFuncFromAlterRestFiles } = require("./alterRestFiles");
 const { StartFunc: StartFuncFromCreateDataFile } = require("./createDataFile");
 const { StartFunc: StartFuncFromForColumns } = require("./ForColumns/entryFile");
 
-const StartFunc = async ({ inEditorPath, inTableName, inDataPath, inPortNumber, inColumnsAsArray }) => {
-    StartFuncFromReadParams({ inEditorPath, inTableName, inDataPath });
+const StartFunc = async ({ inEditorPath, inTableName, inDataPath, inPortNumber, inColumnsAsArray, inVersion }) => {
+    const LocalVersion = inVersion;
+
+    StartFuncFromReadParams({ inEditorPath, inTableName, inDataPath, inVersion });
 
     await StartFuncFromAlterRestFiles({
-        inFolderPath: `${inEditorPath}/V1/${inTableName}/RestClients`,
+        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/RestClients`,
         inTableName, inPortNumber
     });
 
     StartFuncFromCreateDataFile({ inTableName });
-    StartFuncFromForColumns({ inEditorPath, inTableName, inColumnsAsArray, inPortNumber });
+    StartFuncFromForColumns({ inEditorPath, inTableName, inColumnsAsArray, inPortNumber, inVersion });
 };
 
 module.exports = { StartFunc };

@@ -3,8 +3,10 @@ const readline = require('readline');
 const CommonRouterSearch = "let LocalFromLowDb = ";
 const CommonDeclareString = "let postDefaultFunc = ";
 
-async function StartFunc({ inEditorPath, inTableName, inColumnsAsArray }) {
-    const LocaFileName = `${inEditorPath}/V1/${inTableName}/InsertWithColumns/Dals/entryFile.js`;
+async function StartFunc({ inEditorPath, inTableName, inColumnsAsArray, inVersion }) {
+    const LocalVersion = inVersion;
+
+    const LocaFileName = `${inEditorPath}/${LocalVersion}/${inTableName}/InsertWithColumns/Dals/entryFile.js`;
 
     const LocalForInput = inColumnsAsArray.map(element => `LocalCoumn${element}`);
 
@@ -23,7 +25,7 @@ async function StartFunc({ inEditorPath, inTableName, inColumnsAsArray }) {
     if (LocalFindDeclareIndex >= 0) {
         LocalLines[LocalFindDeclareIndex] = LocalLines[LocalFindDeclareIndex].replace("{}", `{${LocalColumnsToString}}`);
     };
-    
+
     LocalFuncWriteFile({ inLinesArray: LocalLines, inEditorPath: LocaFileName });
 };
 

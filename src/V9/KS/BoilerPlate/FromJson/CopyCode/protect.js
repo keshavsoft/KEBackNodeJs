@@ -7,6 +7,7 @@ router.use(cookieParser());
 
 router.use((req, res, next) => {
     const token = req.cookies?.KSToken;
+
     if (!token) return res.status(401).send({ message: 'Unauthorized' });
 
     try {
