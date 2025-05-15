@@ -3,7 +3,7 @@
   "displayName": "KEBackNodeJs",
   "publisher": "KeshavSoft",
   "description": "KeshavSoft Extension to enhance the development of web applications",
-  "version": "0.10.12",
+  "version": "0.10.13",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -277,6 +277,10 @@
       {
         "command": "KS.BoilerPlate.FromJson",
         "title": "KS BoilerPlate FromJson"
+      },
+      {
+        "command": "KS.Tasks.WithTableName.ShowAll",
+        "title": "KS Tasks WithTableName ShowAll"
       }
     ],
     "menus": {

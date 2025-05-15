@@ -202,6 +202,10 @@ write end points in nodejs
 
 - KS.Tasks.WithTableName.ShowAll good;
 
+### 0.10.13
+
+- KS.Tasks.WithTableName.ShowAll hooked;
+
 ## License
 
 MIT
