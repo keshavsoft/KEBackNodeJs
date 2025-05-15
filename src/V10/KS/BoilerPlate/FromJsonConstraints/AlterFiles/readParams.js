@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-function StartFunc({ inEditorPath, inTableName, inDataPath, inVersion }) {
+function StartFunc({ inEditorPath, inTableName, inDataPath, inVersion, inColumnsAsArray, inColumnsWithSchema }) {
     const LocalVersion = inVersion;
 
     try {
@@ -10,6 +10,8 @@ function StartFunc({ inEditorPath, inTableName, inDataPath, inVersion }) {
 
         fileContentsAsJson.TableName = inTableName;
         fileContentsAsJson.DataPath = inDataPath;
+        fileContentsAsJson.Columns = inColumnsAsArray;
+        fileContentsAsJson.ColumnsWithSchema = inColumnsWithSchema;
 
         fs.writeFileSync(`${inEditorPath}/${LocalVersion}/${inTableName}/CommonFuncs/${filePath}`, JSON.stringify(fileContentsAsJson), 'utf-8');
     } catch (error) {

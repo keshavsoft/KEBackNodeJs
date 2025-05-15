@@ -214,6 +214,9 @@ write end points in nodejs
 
 - KS.BoilerPlate.FromJsonConstraints just now started
 
+### 0.11.2
+
+- KS.BoilerPlate.FromJsonConstraints more added on columns
 ## License
 
 MIT

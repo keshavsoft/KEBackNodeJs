@@ -37,7 +37,8 @@ const LocalFuncToActivate = async () => {
         inColumnsAsArray: LocalColumnsAsArray,
         inDataPath: LocalDataPath,
         inPortNumber: LocalPortNumber,
-        inToPath: LocalToPath
+        inToPath: LocalToPath,
+        inColumnsWithSchema: LocalColumnsAsIs
     });
 
     vscode.window.showInformationMessage(`BoilerPlate code to: ${LocalToPath}`);

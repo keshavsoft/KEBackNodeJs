@@ -1,4 +1,5 @@
 {
   "TableName": "",
-  "DataPath": "Data"
+  "DataPath": "Data",
+  "Columns": []
 }
