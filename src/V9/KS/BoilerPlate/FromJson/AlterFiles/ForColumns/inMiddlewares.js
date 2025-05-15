@@ -1,7 +1,7 @@
 const fs = require('fs');
 const readline = require('readline');
 
-async function StartFunc({ inEditorPath, inTableName, inColumnsAsArray }) {
+async function StartFunc({ inEditorPath, inTableName, inColumnsAsArray, inVersion }) {
     const LocalVersion = inVersion;
 
     const LocaFileName = `${inEditorPath}/${LocalVersion}/${inTableName}/InsertWithColumns/Middlewares/entryFile.js`;

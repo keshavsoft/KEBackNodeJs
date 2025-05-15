@@ -21,7 +21,11 @@ const StartFunc = () => {
 const LocalFuncToActivate = async () => {
     const LocalToPath = LocalFuncGetWorkSpaceFolder();
 
-    await LocalFuncFirstCopy({ inToPath: LocalToPath });
+    const LocalFromCopy = await LocalFuncFirstCopy({ inToPath: LocalToPath });
+    
+    if (LocalFromCopy === false) {
+        return false;
+    };
 
     const LocalEnvFileAsJson = StartFuncFromReadEnvFile({ inRootPath: LocalToPath });
     const LocalDataPath = LocalEnvFileAsJson.DataPath;
@@ -82,12 +86,14 @@ const LocalFuncFirstCopy = async ({ inToPath }) => {
                     };
                 });
 
-            return;
+            return await false;
         };
 
         const LocalFromPath = path.join(__dirname, "copyCode");
 
         await fse.copy(LocalFromPath, LocalToPath);
+
+        return await true;
     } catch (error) {
         vscode.window.showErrorMessage(`Error: ${error.message}`);
     };

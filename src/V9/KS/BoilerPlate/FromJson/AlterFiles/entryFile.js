@@ -13,8 +13,8 @@ const StartFunc = async ({ inEditorPath, inTableName, inDataPath, inPortNumber, 
         inTableName, inPortNumber
     });
 
-    StartFuncFromCreateDataFile({ inTableName });
-    StartFuncFromForColumns({ inEditorPath, inTableName, inColumnsAsArray, inPortNumber, inVersion });
+    await StartFuncFromCreateDataFile({ inTableName });
+    await StartFuncFromForColumns({ inEditorPath, inTableName, inColumnsAsArray, inPortNumber, inVersion });
 };
 
 module.exports = { StartFunc };

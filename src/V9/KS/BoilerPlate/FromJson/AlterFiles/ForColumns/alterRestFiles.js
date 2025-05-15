@@ -12,7 +12,6 @@ async function StartFunc({ inFilePath, inPortNumber, inColumnsAsArray }) {
         let LocalLines = await processLineByLine({ inFileName: inFilePath });
         LocalLines[0] = LocalLines[0].replace("{PORT}", inPortNumber);
         LocalLines[0] = LocalLines[0].replace("{SubRoute}", LocalRelativePath.replaceAll(`\\`, "/"));
-        // LocalLines[3] = LocalLines[3].replace("{}", `{${LocalColumnsToString}}`);
 
         inColumnsAsArray.forEach((element, LoopIndex) => {
             if (LoopIndex === 0) {

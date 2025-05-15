@@ -6,7 +6,7 @@ const CommonDeclareString = "let LocalinDataToInsert =";
 async function StartFunc({ inEditorPath, inTableName, inColumnsAsArray, inVersion }) {
     const LocalVersion = inVersion;
 
-    const LocaFileName = `${inEditorPath}/${LocalVersion}}/${inTableName}/InsertWithColumns/KFs/insertToFile.js`;
+    const LocaFileName = `${inEditorPath}/${LocalVersion}/${inTableName}/InsertWithColumns/KFs/insertToFile.js`;
 
     const LocalForInput = inColumnsAsArray.map(element => `LocalCoumn${element}`);
 

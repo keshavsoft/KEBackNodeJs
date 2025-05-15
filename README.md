@@ -190,6 +190,10 @@ write end points in nodejs
 
 - KS.BoilerPlate V2Secured started
 
+### 0.10.10
+
+- KS.BoilerPlate.FromJson perfect with secured also
+
 ## License
 
 MIT

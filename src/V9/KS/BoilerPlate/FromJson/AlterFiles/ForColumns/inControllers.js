@@ -2,7 +2,7 @@ const fs = require('fs');
 const readline = require('readline');
 const CommonRouterSearch = "let LocalFromRepo = ";
 
-async function StartFunc({ inEditorPath, inTableName, inColumnsAsArray }) {
+async function StartFunc({ inEditorPath, inTableName, inColumnsAsArray, inVersion }) {
     const LocalVersion = inVersion;
 
     const LocaFileName = `${inEditorPath}/${LocalVersion}/${inTableName}/InsertWithColumns/Controllers/entryFile.js`;
