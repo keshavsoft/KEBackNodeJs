@@ -194,6 +194,10 @@ write end points in nodejs
 
 - KS.BoilerPlate.FromJson perfect with secured also
 
+### 0.10.11
+
+- KS.App.InsertFile single quote covered
+
 ## License
 
 MIT
