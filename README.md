@@ -206,6 +206,14 @@ write end points in nodejs
 
 - KS.Tasks.WithTableName.ShowAll hooked;
 
+### 0.10.14
+
+- KS.Tasks.WithTableName.Delete started
+
+### 0.11.1
+
+- KS.BoilerPlate.FromJsonConstraints just now started
+
 ## License
 
 MIT
