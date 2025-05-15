@@ -6,7 +6,7 @@ const { getSelectedFolderPath } = require('./getSelectedFolderPath');
 const { StartFunc: StartFuncFromRouteUse } = require('./RouteUse/entryFile');
 const { StartFunc: StartFuncFromAlterFiles } = require('./AlterFiles/entryFile');
 
-const CommonRegisterCommand = "KS.Tasks.WithTableName.InsertWithPk";
+const CommonRegisterCommand = "KS.Tasks.WithTableName.ShowAll";
 
 const StartFunc = () => {
     vscode.commands.registerCommand(CommonRegisterCommand, LocalFuncToActivate);

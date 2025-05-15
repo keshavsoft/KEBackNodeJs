@@ -198,6 +198,10 @@ write end points in nodejs
 
 - KS.App.InsertFile single quote covered
 
+### 0.10.12
+
+- KS.Tasks.WithTableName.ShowAll good;
+
 ## License
 
 MIT
