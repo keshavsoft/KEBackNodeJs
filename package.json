@@ -3,7 +3,7 @@
   "displayName": "KEBackNodeJs",
   "publisher": "KeshavSoft",
   "description": "KeshavSoft Extension to enhance the development of web applications",
-  "version": "0.11.2",
+  "version": "0.11.3",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -285,6 +285,10 @@
       {
         "command": "KS.BoilerPlate.FromJsonConstraints",
         "title": "KS BoilerPlate FromJsonConstraints"
+      },
+      {
+        "command": "KS.Tasks.WithTableName.Delete",
+        "title": "KS Tasks WithTableName Delete"
       }
     ],
     "menus": {

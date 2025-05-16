@@ -217,6 +217,11 @@ write end points in nodejs
 ### 0.11.2
 
 - KS.BoilerPlate.FromJsonConstraints more added on columns
+
+### 0.11.3
+
+- KS.Tasks.WithTableName.Delete done, need to test
+
 ## License
 
 MIT

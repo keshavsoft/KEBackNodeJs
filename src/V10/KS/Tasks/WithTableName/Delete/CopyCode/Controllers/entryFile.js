@@ -1,19 +1,22 @@
 import {
-    getDefaultFunc as getDefaultFuncFromRepo
+    postDefaultFunc as postDefaultFuncFromRepo
 } from '../Repos/entryFile.js';
 
-let getDefaultFunc = (req, res) => {
-    let LocalFromRepo = getDefaultFuncFromRepo();
+let postFilterDataFromBodyFunc = async (req, res) => {
+    let LocalKey = req.params.Key;
+
+    let LocalFromRepo = await postDefaultFuncFromRepo({
+        inKey: LocalKey
+    });
 
     if (LocalFromRepo.KTF === false) {
-        res.status(409).send(LocalFromRepo.KReason);
+        res.status(404).send(LocalFromRepo.KReason);
         return;
     };
 
-    res.set('Content-Type', 'text/plain');
-    res.send(LocalFromRepo?.JsonData);
+    res.status(200).send(LocalFromRepo.JsonData);
 };
 
 export {
-    getDefaultFunc
+    postFilterDataFromBodyFunc
 };

@@ -1,1 +1,1 @@
-GET http://localhost:{PORT}{SubRoute}/{EndPoint}
+DELETE http://localhost:3000/V5/Sree/V1/Task1/Delete/1

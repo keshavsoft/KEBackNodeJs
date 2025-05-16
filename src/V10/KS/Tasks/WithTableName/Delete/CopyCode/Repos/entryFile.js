@@ -1,11 +1,11 @@
 import {
-    getDefaultFunc as getDefaultFuncFromDal
+    postDefaultFunc as postDefaultFuncFromDal,
 } from '../Dals/entryFile.js';
 
-let getDefaultFunc = () => {
-    return getDefaultFuncFromDal();
+let postDefaultFunc = ({ inKey }) => {
+    return postDefaultFuncFromDal({ inKey });
 };
 
 export {
-    getDefaultFunc
+    postDefaultFunc
 };
