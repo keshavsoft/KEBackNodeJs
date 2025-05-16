@@ -1,1 +1,1 @@
-DELETE http://localhost:3000/V5/Sree/V1/Task1/Delete/1
+DELETE http://localhost:{PORT}{SubRoute}/{EndPoint}/{RowPk}

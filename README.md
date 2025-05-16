@@ -222,6 +222,9 @@ write end points in nodejs
 
 - KS.Tasks.WithTableName.Delete done, need to test
 
+### 0.11.5
+
+- KS.Tasks.WithTableName new added...
 ## License
 
 MIT

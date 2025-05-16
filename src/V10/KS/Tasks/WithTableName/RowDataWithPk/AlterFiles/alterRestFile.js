@@ -2,25 +2,25 @@ const vscode = require('vscode');
 const fse = require('fs-extra');
 const readline = require('readline');
 
-const { StartFunc: StartFuncFromReadEnvFile } = require("./readEnvFile");
-const CommonFileName = "deleteFromFile.js";
+const { StartFunc: StartFuncFromReadEnvFile } = require("./KFFile/readEnvFile");
 
-const StartFunc = async ({ inEditorPath, inNewRoute, inTableName }) => {
+const StartFunc = async ({ inEditorPath, inNewRoute }) => {
     try {
         const LocalEditorPath = inEditorPath;
-        const LocalTableName = inTableName;
 
         const LocalEndPointNeeded = inNewRoute;
         const activeFileFolderPath = require('path').dirname(LocalEditorPath);
-        const LocalFilePath = `${activeFileFolderPath}/${LocalEndPointNeeded}/KFs/${CommonFileName}`;
+        const LocalFilePath = `${activeFileFolderPath}/${LocalEndPointNeeded}/RestClients/home.http`;
         const LocalRootPath = LocalFuncGetWorkSpaceFolder();
+        const LocalRelativePath = activeFileFolderPath.replace(LocalRootPath, "");
 
         const LocalEnvFileData = StartFuncFromReadEnvFile({ inRootPath: LocalRootPath });
 
         let LocalLines = await processLineByLine({ inFileName: LocalFilePath });
-        LocalLines[1] = LocalLines[1].replace("{Data}", LocalEnvFileData.DataPath);
-        LocalLines[2] = LocalLines[2].replace("{TableName}", LocalTableName);
-
+        LocalLines[0] = LocalLines[0].replace("{PORT}", LocalEnvFileData.PORT);
+        LocalLines[0] = LocalLines[0].replace("{SubRoute}", LocalRelativePath.replaceAll(`\\`, "/"));
+        LocalLines[0] = LocalLines[0].replace("{EndPoint}", LocalEndPointNeeded);
+        
         LocalFuncWriteFile({ inLinesArray: LocalLines, inEditorPath: LocalFilePath });
     } catch (error) {
         vscode.window.showErrorMessage(`Error: ${error.message}`);
