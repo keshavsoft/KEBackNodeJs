@@ -225,6 +225,11 @@ write end points in nodejs
 ### 0.11.5
 
 - KS.Tasks.WithTableName new added...
+
+### 0.11.8
+
+- KS.Tasks.WithTableName RowDataWithPk KF fixed...
+
 ## License
 
 MIT
