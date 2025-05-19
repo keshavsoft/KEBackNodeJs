@@ -1,1 +1,1 @@
-GET http://localhost:{PORT}{SubRoute}/GetSingleColumn
+GET http://localhost:{PORT}{SubRoute}/GetSingleColumn/{ColumnNamek}

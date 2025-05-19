@@ -250,6 +250,10 @@ write end points in nodejs
 
 - KS.BoilerPlate.FromJsonConstraints GetSingleColumn, ReadSelColsAsArray added
 
+### 0.12.6
+
+- KS.BoilerPlate.FromJsonConstraints GroupSingleColLength, GroupSingleColumn added
+
 ## License
 
 MIT
