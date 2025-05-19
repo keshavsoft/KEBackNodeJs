@@ -238,6 +238,10 @@ write end points in nodejs
 
 - KS.Tasks.WithTableName Alter and InsertWithPkAndUuIdAndDateTime
 
+### 0.12.3
+
+- KS.Tasks.WithTableName RowDataWithPk changed
+
 ## License
 
 MIT
