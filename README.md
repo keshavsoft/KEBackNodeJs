@@ -246,6 +246,10 @@ write end points in nodejs
 
 - KS.BoilerPlate.FromJsonConstraints ReadSelColumns working
 
+### 0.12.5
+
+- KS.BoilerPlate.FromJsonConstraints GetSingleColumn, ReadSelColsAsArray added
+
 ## License
 
 MIT

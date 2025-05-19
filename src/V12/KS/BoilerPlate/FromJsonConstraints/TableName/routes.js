@@ -9,6 +9,8 @@ import { router as routerFromGetSchema } from "./GetSchema/routes.js";
 import { router as routerFromGetColumnsAsArray } from "./GetColumnsAsArray/routes.js";
 import { router as routerFromInsertColumnExist } from "./InsertColumnExist/routes.js";
 import { router as routerFromReadSelColumns } from "./ReadSelColumns/routes.js";
+import { router as routerFromReadSelColsAsArray } from "./ReadSelColsAsArray/routes.js";
+import { router as routerFromGetSingleColumn } from "./GetSingleColumn/routes.js";
 
 router.use("/InsertWithPk", routerFromInsertWithPk);
 router.use("/ReadData", routerFromReadData);
@@ -17,5 +19,7 @@ router.use("/GetSchema", routerFromGetSchema);
 router.use("/GetColumnsAsArray", routerFromGetColumnsAsArray);
 router.use("/InsertColumnExist", routerFromInsertColumnExist);
 router.use("/ReadSelColumns", routerFromReadSelColumns);
+router.use("/ReadSelColsAsArray", routerFromReadSelColsAsArray);
+router.use("/GetSingleColumn", routerFromGetSingleColumn);
 
 export { router };
