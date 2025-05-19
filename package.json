@@ -3,7 +3,7 @@
   "displayName": "KEBackNodeJs",
   "publisher": "KeshavSoft",
   "description": "KeshavSoft Extension to enhance the development of web applications",
-  "version": "0.12.1",
+  "version": "0.12.2",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -293,6 +293,14 @@
       {
         "command": "KS.Tasks.WithTableName.RowDataWithPk",
         "title": "KS Tasks WithTableName RowDataWithPk"
+      },
+      {
+        "command": "KS.Tasks.WithTableName.InsertWithPkAndUuIdAndDateTime",
+        "title": "KS Tasks WithTableName InsertWithPkAndUuIdAndDateTime"
+      },
+      {
+        "command": "KS.Tasks.WithTableName.Alter",
+        "title": "KS Tasks WithTableName Alter"
       }
     ],
     "menus": {

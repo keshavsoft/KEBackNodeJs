@@ -234,6 +234,10 @@ write end points in nodejs
 
 - KS.BoilerPlate.FromJsonConstraints InsertColumnExist started
 
+### 0.12.2
+
+- KS.Tasks.WithTableName Alter and InsertWithPkAndUuIdAndDateTime
+
 ## License
 
 MIT

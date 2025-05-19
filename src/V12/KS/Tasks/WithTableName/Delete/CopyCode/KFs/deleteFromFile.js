@@ -23,7 +23,7 @@ const StartFunc = ({ inKey }) => {
     const LocalFindIndex = data.findIndex(e => e.pk === parseInt(inKey));
 
     if (LocalFindIndex === -1) {
-      LocalReturnObject.KReason = `Key "${inKey}" not found in the file.`;
+      LocalReturnObject.KReason = `Not found data with pk:${inKey}.`;
       return LocalReturnObject;
     }
 
@@ -38,7 +38,7 @@ const StartFunc = ({ inKey }) => {
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2), "utf8");
 
     LocalReturnObject.KTF = true;
-    LocalReturnObject.JsonData = `${LocalFileName}.josn Data Deleted Successfully`
+    LocalReturnObject.JsonData = `Deleted successfully with pk:${inKey}`;
   } catch (err) {
     LocalReturnObject.KReason = `Error occurred: ${err.message}`;
     console.error("Error:", err);

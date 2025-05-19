@@ -2,11 +2,11 @@ import {
     postDefaultFunc as postDefaultFuncFromRepo
 } from '../Repos/entryFile.js';
 
-let postFilterDataFromBodyFunc = async (req, res) => {
-    let LocalKey = req.params.Key;
+let postFilterDataFromBodyFunc = (req, res) => {
+    let LocalRequestBody = req.body;
 
-    let LocalFromRepo = await postDefaultFuncFromRepo({
-        inKey: LocalKey
+    let LocalFromRepo = postDefaultFuncFromRepo({
+        inRequestBody: LocalRequestBody
     });
 
     if (LocalFromRepo.KTF === false) {
