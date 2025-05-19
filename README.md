@@ -230,6 +230,10 @@ write end points in nodejs
 
 - KS.Tasks.WithTableName RowDataWithPk KF fixed...
 
+### 0.12.1
+
+- KS.BoilerPlate.FromJsonConstraints InsertColumnExist started
+
 ## License
 
 MIT
