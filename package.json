@@ -3,7 +3,7 @@
   "displayName": "KEBackNodeJs",
   "publisher": "KeshavSoft",
   "description": "KeshavSoft Extension to enhance the development of web applications",
-  "version": "0.12.3",
+  "version": "0.12.4",
   "engines": {
     "vscode": "^1.96.0"
   },

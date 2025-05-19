@@ -18,7 +18,6 @@ const StartFunc = async ({ inEditorPath, inTableName, inDataPath, inPortNumber, 
     await StartFuncFromCreateDataFile({ inTableName });
     await StartFuncFromForInsertWithColumns({ inEditorPath, inTableName, inColumnsAsArray, inPortNumber, inVersion });
     await StartFuncFromForGetColumnsAsArray({ inEditorPath, inTableName, inPortNumber, inVersion });
-
 };
 
 module.exports = { StartFunc };

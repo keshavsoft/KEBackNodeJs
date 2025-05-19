@@ -242,6 +242,10 @@ write end points in nodejs
 
 - KS.Tasks.WithTableName RowDataWithPk changed
 
+### 0.12.4
+
+- KS.BoilerPlate.FromJsonConstraints ReadSelColumns working
+
 ## License
 
 MIT
