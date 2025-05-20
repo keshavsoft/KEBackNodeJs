@@ -254,6 +254,10 @@ write end points in nodejs
 
 - KS.BoilerPlate.FromJsonConstraints GroupSingleColLength, GroupSingleColumn added
 
+### 0.13.1
+
+- KS.BoilerPlate.FromJsonConSubRoute started...
+
 ## License
 
 MIT
