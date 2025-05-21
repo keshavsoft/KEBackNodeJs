@@ -34,6 +34,11 @@ async function StartFunc({ inEditorPath, inTableName, inColumnsAsArray, inPortNu
         inTableName, inPortNumber, inColumnsAsArray
     });
 
+     await StartFuncFromAlterRestFiles({
+        inFilePath: `${inEditorPath}/${LocalVersion}/${inTableName}/Alter/RestClients/WithPk.http`,
+        inTableName, inPortNumber, inColumnsAsArray
+    });
+
     await StartFuncFromMiddlewares({ inEditorPath, inTableName, inColumnsAsArray, inVersion: LocalVersion });
 };
 
