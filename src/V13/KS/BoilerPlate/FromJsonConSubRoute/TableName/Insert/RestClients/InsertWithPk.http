@@ -1,4 +1,4 @@
-POST http://localhost:{PORT}/{SubRoute}/Insert/InsertWithPk
+POST http://localhost:{PORT}{SubRoute}/InsertWithPk
 Content-Type: application/json
 
 {

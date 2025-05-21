@@ -4,7 +4,7 @@ const { StartFunc: StartFuncFromInDals } = require("./inDals");
 const { StartFunc: StartFuncFromInKF } = require("./inKF");
 const { StartFunc: StartFuncFromAlterRestFiles } = require("./alterRestFiles");
 const { StartFunc: StartFuncFromMiddlewares } = require("./inMiddlewares");
-const CommonTaskName = "InsertWithColumns";
+const CommonTaskName = "Insert/InsertWithColumns";
 
 async function StartFunc({ inEditorPath, inTableName, inColumnsAsArray, inPortNumber, inVersion }) {
     const LocalVersion = inVersion;
@@ -30,7 +30,7 @@ async function StartFunc({ inEditorPath, inTableName, inColumnsAsArray, inPortNu
     });
 
     await StartFuncFromAlterRestFiles({
-        inFilePath: `${inEditorPath}/${LocalVersion}/${inTableName}/RestClients/insertWithColumns.http`,
+        inFilePath: `${inEditorPath}/${LocalVersion}/${inTableName}/Insert/RestClients/insertWithColumns.http`,
         inTableName, inPortNumber, inColumnsAsArray
     });
 
