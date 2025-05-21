@@ -278,6 +278,10 @@ write end points in nodejs
 
 - KS.BoilerPlate.FromJsonConSubRoute all grouped
 
+### 0.13.7
+
+- KS.BoilerPlate.FromJsonConSubRoute ok but with 1 error and rest insert col problem
+
 ## License
 
 MIT
