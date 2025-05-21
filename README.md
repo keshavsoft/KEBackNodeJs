@@ -274,6 +274,10 @@ write end points in nodejs
 
 - KS.BoilerPlate.FromJsonConSubRoute Read Selcolumns fixed on middleware
 
+### 0.13.6
+
+- KS.BoilerPlate.FromJsonConSubRoute all grouped
+
 ## License
 
 MIT
