@@ -266,6 +266,10 @@ write end points in nodejs
 
 - KS.BoilerPlate.FromJsonConSubRoute Read, Insert started
 
+### 0.13.4
+
+- KS.BoilerPlate.FromJsonConSubRoute Read, Insert SubRoute done
+
 ## License
 
 MIT
