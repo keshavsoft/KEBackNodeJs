@@ -1,5 +1,5 @@
 const { StartFunc: StartFuncFromReadParams } = require("./readParams");
-const { StartFunc: StartFuncFromAlterRestFiles } = require("./alterRestFiles");
+const { StartFunc: StartFuncFromAlterRestFiles } = require("./AlterRestFiles/entryFile");
 const { StartFunc: StartFuncFromCreateDataFile } = require("./createDataFile");
 // const { StartFunc: StartFuncFromForColumns } = require("./ForColumns/entryFile");
 const { StartFunc: StartFuncFromForInsertWithColumns } = require("./ForInsertWithColumns/entryFile");
@@ -11,8 +11,7 @@ const StartFunc = async ({ inEditorPath, inTableName, inDataPath, inPortNumber, 
     StartFuncFromReadParams({ inEditorPath, inTableName, inDataPath, inVersion, inColumnsAsArray, inColumnsWithSchema });
 
     await StartFuncFromAlterRestFiles({
-        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/RestClients`,
-        inTableName, inPortNumber
+        inEditorPath, inTableName, inPortNumber, inVersion
     });
 
     await StartFuncFromCreateDataFile({ inTableName });

@@ -26,15 +26,15 @@ const StartFunc = async ({ inTableName, inColumnsAsArray, inDataPath, inPortNumb
             inNewRoute: LocalTableName
         });
 
-        // await StartFuncFromAlterFiles({
-        //     inEditorPath: LocalToPath,
-        //     inTableName: LocalTableName,
-        //     inDataPath: LocalDataPath,
-        //     inPortNumber: LocalPortNumber,
-        //     inColumnsAsArray: LocalColumnsAsArray,
-        //     inVersion: CommonVersion,
-        //     inColumnsWithSchema
-        // });
+        await StartFuncFromAlterFiles({
+            inEditorPath: LocalToPath,
+            inTableName: LocalTableName,
+            inDataPath: LocalDataPath,
+            inPortNumber: LocalPortNumber,
+            inColumnsAsArray: LocalColumnsAsArray,
+            inVersion: CommonVersion,
+            inColumnsWithSchema
+        });
 
         vscode.window.showInformationMessage(`BoilerPlate code to: ${LocalToPath}`);
 
