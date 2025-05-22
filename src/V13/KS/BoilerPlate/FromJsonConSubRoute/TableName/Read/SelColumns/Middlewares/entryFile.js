@@ -1,3 +1,5 @@
+const CommonColumnsArray = [];
+
 const StartFunc = (req, res, next) => {
     const LocalBody = req.body;
 
@@ -11,7 +13,11 @@ const StartFunc = (req, res, next) => {
 
     if (typeof LocalBody === 'object' && Object.keys(LocalBody).length === 0) {
         return res.status(400).send("Request body should not be an empty object.");
-    }
+    };
+
+    if (Object.keys(LocalBody).some(ele => CommonColumnsArray.includes(ele)) === false) {
+        return res.status(400).send(`Request body should contain any of the mandate keys: ${CommonColumnsArray}`);
+    };
 
     next();
 };

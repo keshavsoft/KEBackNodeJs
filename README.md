@@ -282,6 +282,10 @@ write end points in nodejs
 
 - KS.BoilerPlate.FromJsonConSubRoute ok but with 1 error and rest insert col problem
 
+### 0.13.8
+
+- KS.BoilerPlate.FromJsonConSubRoute Read middlewares
+
 ## License
 
 MIT
