@@ -4,7 +4,7 @@ const readline = require('readline');
 async function StartFunc({ inEditorPath, inTableName, inColumnsAsArray, inVersion, inTaskName }) {
     const LocalVersion = inVersion;
 
-    const LocaFileName = `${inEditorPath}/${LocalVersion}/${inTableName}/${inTaskName}/InsertWithColumns/Middlewares/entryFile.js`;
+    const LocaFileName = `${inEditorPath}/${LocalVersion}/${inTableName}/${inTaskName}/Middlewares/entryFile.js`;
 
     const LocalForInput = inColumnsAsArray.map(element => `"${element}"`);
 
