@@ -10,6 +10,7 @@ import { router as routerFromGroupSingleColLength } from "./GroupSingleColLength
 import { router as routerFromSingleColumn } from "./SingleColumn/routes.js";
 import { router as routerFromColumnsAsArray } from "./ColumnsAsArray/routes.js";
 import { router as routerFromRowDataWithPk } from "./RowDataWithPk/routes.js";
+import { router as routerFromGroupSingleColumn } from "./GroupSingleColumn/routes.js";
 
 router.use("/AsIs", routerFromAsIs);
 router.use("/SelColsAsArray", routerFromSelColsAsArray);
@@ -19,5 +20,6 @@ router.use("/GroupSingleColLength", routerFromGroupSingleColLength);
 router.use("/SingleColumn", routerFromSingleColumn);
 router.use("/ColumnsAsArray", routerFromColumnsAsArray);
 router.use("/RowDataWithPk", routerFromRowDataWithPk);
+router.use("/GroupSingleColumn", routerFromGroupSingleColumn);
 
 export { router };
