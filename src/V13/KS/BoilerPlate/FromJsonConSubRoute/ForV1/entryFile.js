@@ -40,7 +40,7 @@ const StartFunc = async ({ inTableName, inColumnsAsArray, inDataPath, inPortNumb
 
         StartFuncFromOpenApp({ inToPath: LocalToPath });
     } catch (error) {
-        vscode.window.showErrorMessage(`Error: ${error.message}`);
+         vscode.window.showErrorMessage(`Error: ${error.message}`);
     };
 };
 

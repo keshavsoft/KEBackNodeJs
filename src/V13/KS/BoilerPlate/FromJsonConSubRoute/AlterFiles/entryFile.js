@@ -8,7 +8,11 @@ const { StartFunc: StartFuncFromForGetColumnsAsArray } = require("./ForGetColumn
 const StartFunc = async ({ inEditorPath, inTableName, inDataPath, inPortNumber, inColumnsAsArray, inVersion, inColumnsWithSchema }) => {
     const LocalVersion = inVersion;
 
-    StartFuncFromReadParams({ inEditorPath, inTableName, inDataPath, inVersion, inColumnsAsArray, inColumnsWithSchema });
+    StartFuncFromReadParams({
+        inEditorPath, inTableName, inDataPath,
+        inVersion: LocalVersion,
+        inColumnsAsArray, inColumnsWithSchema
+    });
 
     await StartFuncFromAlterRestFiles({
         inEditorPath, inTableName, inPortNumber, inVersion
