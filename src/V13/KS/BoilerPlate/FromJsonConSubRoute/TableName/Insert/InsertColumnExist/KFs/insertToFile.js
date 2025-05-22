@@ -1,6 +1,6 @@
 import fs from "fs";
 
-import ParamsJson from '../../CommonFuncs/params.json' with {type: 'json'};
+import ParamsJson from '../../../CommonFuncs/params.json' with {type: 'json'};
 
 const StartFunc = ({}) => {
   const LocalFileName = ParamsJson.TableName;
