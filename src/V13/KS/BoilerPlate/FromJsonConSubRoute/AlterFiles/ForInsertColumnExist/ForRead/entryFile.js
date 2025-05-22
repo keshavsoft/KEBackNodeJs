@@ -29,13 +29,8 @@ async function StartFunc({ inEditorPath, inTableName, inColumnsAsArray, inPortNu
         inTaskName: CommonTaskName
     });
 
-    // await StartFuncFromAlterRestFiles({
-    //     inFilePath: `${inEditorPath}/${LocalVersion}/${inTableName}/Insert/RestClients/insertWithColumns.http`,
-    //     inTableName, inPortNumber, inColumnsAsArray
-    // });
-
     await StartFuncFromAlterRestFiles({
-        inFilePath: `${inEditorPath}/${LocalVersion}/${inTableName}/Alter/RestClients/WithPk.http`,
+        inFilePath: `${inEditorPath}/${LocalVersion}/${inTableName}/Insert/RestClients/InsertColumnExist.http`,
         inTableName, inPortNumber, inColumnsAsArray
     });
 
