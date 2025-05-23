@@ -5,6 +5,7 @@ const { StartFunc: StartFuncFromArrayAndContent } = require("./ArrayAndContent/e
 const { StartFunc: StartFuncFromJson } = require("./FromJson/entryFile");
 const { StartFunc: StartFuncFromJsonConstraints } = require("./FromJsonConstraints/entryFile");
 const { StartFunc: StartFuncFromJsonConSubRoute } = require("./FromJsonConSubRoute/entryFile");
+const { StartFunc: StartFuncFromJsonSchema } = require("./FromJsonSchema/entryFile");
 
 const StartFunc = () => {
     StartFuncFromBasic();
@@ -14,6 +15,7 @@ const StartFunc = () => {
     StartFuncFromJson();
     StartFuncFromJsonConstraints();
     StartFuncFromJsonConSubRoute();
+    StartFuncFromJsonSchema();
 };
 
 module.exports = { StartFunc };

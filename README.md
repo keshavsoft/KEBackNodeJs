@@ -286,6 +286,10 @@ write end points in nodejs
 
 - KS.BoilerPlate.FromJsonConSubRoute Read middlewares
 
+### 0.13.9
+
+- KS.BoilerPlate.FromJsonSchema started
+
 ## License
 
 MIT
