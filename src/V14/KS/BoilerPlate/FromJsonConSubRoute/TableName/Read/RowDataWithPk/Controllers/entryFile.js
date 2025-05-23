@@ -12,7 +12,8 @@ let GetFunc = (req, res) => {
 
         return;
     };
-
+    
+    res.set('Content-Type', 'application/json');
     res.status(200).send(LocalFromRepo.JsonData);
 };
 
