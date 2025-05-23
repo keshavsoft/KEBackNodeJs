@@ -14,7 +14,7 @@ let postFilterDataFromBodyFunc = (req, res) => {
         return;
     };
 
-    res.set('Content-Type', 'text/plain');
+    res.set('Content-Type', 'application/json');
     res.send(LocalFromRepo.JsonData);
 };
 
