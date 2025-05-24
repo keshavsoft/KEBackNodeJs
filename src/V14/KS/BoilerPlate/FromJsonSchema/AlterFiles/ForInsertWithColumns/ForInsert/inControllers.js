@@ -15,8 +15,6 @@ async function StartFunc({ inEditorPath, inTableName, inColumnsAsArray, inVersio
     let LocalLines = await processLineByLine({ inFileName: LocaFileName });
 
     inColumnsAsArray.forEach(element => {
-        console.log("element : ", element);
-
         LocalLines.splice(6, 0, `\tlet LocalCoumn${element} = LocalRequestBody.${element};\r`);
     });
 
