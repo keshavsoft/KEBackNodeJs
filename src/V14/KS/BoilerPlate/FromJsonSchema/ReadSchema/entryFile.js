@@ -14,6 +14,7 @@ function StartFunc({ inRootPath }) {
     });
 
     LocalReturnObject.Columns = LocalFromTable.header[0];
+    LocalReturnObject.Data = LocalFromTable.data;
 
     return LocalReturnObject;
 };
