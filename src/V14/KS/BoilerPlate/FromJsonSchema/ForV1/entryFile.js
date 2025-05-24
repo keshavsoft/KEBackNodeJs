@@ -8,7 +8,7 @@ const { StartFunc: StartFuncFromAlterFiles } = require('../AlterFiles/entryFile'
 
 const CommonVersion = "V1";
 
-const StartFunc = async ({ inTableName, inColumnsAsArray, inDataPath, inPortNumber, inToPath, inColumnsWithSchema }) => {
+const StartFunc = async ({ inTableName, inColumnsAsArray, inDataPath, inPortNumber, inToPath, inColumnsWithSchema, inData }) => {
     const LocalTableName = inTableName;
     const LocalColumnsAsArray = inColumnsAsArray;
     const LocalDataPath = inDataPath;
@@ -33,14 +33,15 @@ const StartFunc = async ({ inTableName, inColumnsAsArray, inDataPath, inPortNumb
             inPortNumber: LocalPortNumber,
             inColumnsAsArray: LocalColumnsAsArray,
             inVersion: CommonVersion,
-            inColumnsWithSchema
+            inColumnsWithSchema,
+            inData
         });
 
         vscode.window.showInformationMessage(`BoilerPlate code to: ${LocalToPath}`);
 
         StartFuncFromOpenApp({ inToPath: LocalToPath });
     } catch (error) {
-         vscode.window.showErrorMessage(`Error: ${error.message}`);
+        vscode.window.showErrorMessage(`Error: ${error.message}`);
     };
 };
 

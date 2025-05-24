@@ -1,12 +1,12 @@
 const fs = require('fs');
 const vscode = require('vscode');
 
-async function StartFunc({ inTableName }) {
+async function StartFunc({ inTableName, inData }) {
     try {
         const LocalTableName = inTableName;
         const LocalRootPath = LocalFuncGetWorkSpaceFolder();
 
-        fs.writeFileSync(`${LocalRootPath}/Data/${LocalTableName}.json`, JSON.stringify([]), 'utf-8');
+        fs.writeFileSync(`${LocalRootPath}/Data/${LocalTableName}.json`, JSON.stringify(inData), 'utf-8');
 
     } catch (err) {
         console.error('Error reading directory:', err);

@@ -7,7 +7,7 @@ const { StartFunc: StartFuncFromForGetColumnsAsArray } = require("./ForGetColumn
 const { StartFunc: StartFuncFromForInsertColumnExist } = require("./ForInsertColumnExist/entryFile");
 const { StartFunc: StartFuncFromForAlterWithColumns } = require("./ForAlterWithColumns/entryFile");
 
-const StartFunc = async ({ inEditorPath, inTableName, inDataPath, inPortNumber, inColumnsAsArray, inVersion, inColumnsWithSchema }) => {
+const StartFunc = async ({ inEditorPath, inTableName, inDataPath, inPortNumber, inColumnsAsArray, inVersion, inColumnsWithSchema, inData }) => {
     const LocalVersion = inVersion;
 
     StartFuncFromReadParams({
@@ -20,7 +20,7 @@ const StartFunc = async ({ inEditorPath, inTableName, inDataPath, inPortNumber, 
         inEditorPath, inTableName, inPortNumber, inVersion
     });
 
-    await StartFuncFromCreateDataFile({ inTableName });
+    await StartFuncFromCreateDataFile({ inTableName, inData });
     await StartFuncFromForInsertWithColumns({ inEditorPath, inTableName, inColumnsAsArray, inPortNumber, inVersion });
     await StartFuncFromForGetColumnsAsArray({ inEditorPath, inTableName, inPortNumber, inVersion });
     await StartFuncFromForInsertColumnExist({ inEditorPath, inTableName, inColumnsAsArray, inPortNumber, inVersion });
