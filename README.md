@@ -290,6 +290,10 @@ write end points in nodejs
 
 - KS.BoilerPlate.FromJsonSchema started
 
+### 0.13.10
+
+- KS.BoilerPlate.FromJsonSchema perfect with data also copied
+
 ## License
 
 MIT
