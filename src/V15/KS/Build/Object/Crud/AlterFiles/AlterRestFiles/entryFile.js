@@ -15,30 +15,30 @@ async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion })
         inTableName, inPortNumber
     });
 
-    await StartFuncFromReadFolder({
-        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonInsertFolderName}/RestClients`,
-        inTableName, inPortNumber
-    });
+    // await StartFuncFromReadFolder({
+    //     inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonInsertFolderName}/RestClients`,
+    //     inTableName, inPortNumber
+    // });
 
-     await StartFuncFromReadFolder({
-        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonDeleteFolderName}/RestClients`,
-        inTableName, inPortNumber
-    });
+    //  await StartFuncFromReadFolder({
+    //     inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonDeleteFolderName}/RestClients`,
+    //     inTableName, inPortNumber
+    // });
 
-    await StartFuncFromReadFolder({
-        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonAlterFolderName}/RestClients`,
-        inTableName, inPortNumber
-    });
+    // await StartFuncFromReadFolder({
+    //     inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonAlterFolderName}/RestClients`,
+    //     inTableName, inPortNumber
+    // });
 
-    await StartFuncFromReadFolder({
-        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonReadSchemaFolderName}/RestClients`,
-        inTableName, inPortNumber
-    });
+    // await StartFuncFromReadFolder({
+    //     inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonReadSchemaFolderName}/RestClients`,
+    //     inTableName, inPortNumber
+    // });
 
-    await StartFuncFromReadFolder({
-        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonGroupByFolderName}/RestClients`,
-        inTableName, inPortNumber
-    });
+    // await StartFuncFromReadFolder({
+    //     inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonGroupByFolderName}/RestClients`,
+    //     inTableName, inPortNumber
+    // });
 };
 
 module.exports = { StartFunc };

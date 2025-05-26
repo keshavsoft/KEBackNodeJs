@@ -10,6 +10,8 @@ const { StartFunc: StartFuncFromForAlterWithColumns } = require("./ForAlterWithC
 const StartFunc = async ({ inEditorPath, inTableName, inDataPath, inPortNumber, inColumnsAsArray, inVersion, inColumnsWithSchema, inData }) => {
     const LocalVersion = inVersion;
 
+    await StartFuncFromCreateDataFile({ inTableName, inData });
+
     StartFuncFromReadParams({
         inEditorPath, inTableName, inDataPath,
         inVersion: LocalVersion,
@@ -20,12 +22,10 @@ const StartFunc = async ({ inEditorPath, inTableName, inDataPath, inPortNumber, 
         inEditorPath, inTableName, inPortNumber, inVersion
     });
 
-    await StartFuncFromCreateDataFile({ inTableName, inData });
-    await StartFuncFromForInsertWithColumns({ inEditorPath, inTableName, inColumnsAsArray, inPortNumber, inVersion });
-    await StartFuncFromForGetColumnsAsArray({ inEditorPath, inTableName, inPortNumber, inVersion });
-    await StartFuncFromForInsertColumnExist({ inEditorPath, inTableName, inColumnsAsArray, inPortNumber, inVersion });
-    await StartFuncFromForAlterWithColumns({ inEditorPath, inTableName, inColumnsAsArray, inPortNumber, inVersion });
-
+    // await StartFuncFromForInsertWithColumns({ inEditorPath, inTableName, inColumnsAsArray, inPortNumber, inVersion });
+    // await StartFuncFromForGetColumnsAsArray({ inEditorPath, inTableName, inPortNumber, inVersion });
+    // await StartFuncFromForInsertColumnExist({ inEditorPath, inTableName, inColumnsAsArray, inPortNumber, inVersion });
+    // await StartFuncFromForAlterWithColumns({ inEditorPath, inTableName, inColumnsAsArray, inPortNumber, inVersion });
 };
 
 module.exports = { StartFunc };
