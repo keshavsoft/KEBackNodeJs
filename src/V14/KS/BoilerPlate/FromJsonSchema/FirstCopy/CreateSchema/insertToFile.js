@@ -5,7 +5,7 @@ const fse = require('fs-extra');
 const StartFunc = ({ inToPath }) => {
     const LocalToPath = inToPath;
     const LocalJsonFilesArray = getJsonFiles({ inToPath });
-    const LocalTableName = LocalJsonFilesArray[0];
+    LocalTableName = LocalJsonFilesArray[0].replace('.json', '');
 
     fse.writeFileSync(`${LocalToPath}/schema.json`, JSON.stringify({
         TableName: LocalTableName,
