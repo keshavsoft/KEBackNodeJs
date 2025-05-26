@@ -7,7 +7,9 @@ const { StartFunc: StartFuncFromForV1 } = require("./ForV1/entryFile");
 const { StartFunc: StartFuncFromOpenApp } = require("./openApp");
 
 const { StartFunc: StartFuncFromReadEnvFile } = require("./readEnvFile");
-const { StartFunc: StartFuncFromFirstCopy } = require("./firstCopy");
+// const { StartFunc: StartFuncFromFirstCopy } = require("./firstCopy");
+
+const { StartFunc: StartFuncFromFirstCopy } = require("./FirstCopy/entryFile");
 const { StartFunc: StartFuncFromReadSchema } = require("./ReadSchema/entryFile");
 
 const StartFunc = () => {
