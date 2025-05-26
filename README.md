@@ -294,6 +294,10 @@ write end points in nodejs
 
 - KS.BoilerPlate.FromJsonSchema perfect with data also copied
 
+### 0.15.1
+
+- KS.Build.Object.Crud started
+
 ## License
 
 MIT

@@ -1,0 +1,7 @@
+POST http://localhost:3000/FileAsArrayContent/InsertWithPkAndUuIdAndDateTime/MastersAddOns
+Content-Type: application/json
+
+{
+    "AddOnService": "MAX STAINS",
+    "AddOnRate": "10"
+}
