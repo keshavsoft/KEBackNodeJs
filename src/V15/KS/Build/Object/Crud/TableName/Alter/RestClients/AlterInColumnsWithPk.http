@@ -1,5 +1,8 @@
-POST http://localhost:{PORT}{SubRoute}/WithPk/{pk}
+POST http://localhost:3000/V2/ItemsWithGroups/Alter/AlterInColumnsWithPk/WithPk
 Content-Type: application/json
 
-{
+
+    {
+    "Value":"rahul",
+    "Key": 653328976
 }
