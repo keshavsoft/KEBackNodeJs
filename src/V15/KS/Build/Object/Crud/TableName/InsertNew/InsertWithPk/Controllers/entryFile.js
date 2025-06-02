@@ -9,12 +9,13 @@ let postFilterDataFromBodyFunc = (req, res) => {
         inRequestBody: LocalRequestBody
     });
 
+    res.set('Content-Type', 'applicaion/json');
+
     if (LocalFromRepo.KTF === false) {
         res.status(409).send(LocalFromRepo.KReason);
         return;
     };
 
-    res.set('Content-Type', 'text/plain');
     res.send(LocalFromRepo.SuccessText);
 };
 
