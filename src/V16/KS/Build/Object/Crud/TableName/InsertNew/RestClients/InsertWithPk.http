@@ -1,0 +1,7 @@
+POST http://localhost:3000/V2/ItemsWithGroups/InsertNew/InsertWithPk
+Content-Type: application/json
+
+{
+    "Value":"rahul",
+    "Key": 653328976
+}
