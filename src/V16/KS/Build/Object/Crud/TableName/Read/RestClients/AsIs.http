@@ -1,1 +1,1 @@
-GET http://localhost:{PORT}{SubRoute}/AsIs
+GET http://localhost:3000/V1/Farmers/Read/AsIs

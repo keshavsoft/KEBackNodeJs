@@ -1,1 +1,1 @@
-GET http://localhost:{PORT}{SubRoute}/RowDataWithPk/{pk}
+GET http://localhost:3000/V1/Farmers/Read/RowDataWithPk/{pk}

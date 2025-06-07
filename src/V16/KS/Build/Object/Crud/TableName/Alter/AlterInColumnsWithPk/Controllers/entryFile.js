@@ -11,8 +11,6 @@ let postFilterDataFromBodyFunc = (req, res) => {
         inPk: LocalPk
     });
 
-    res.set('Content-Type', 'application/json');
-
     if (LocalFromRepo.KTF === false) {
         res.status(404).send(LocalFromRepo.KReason);
         return;
