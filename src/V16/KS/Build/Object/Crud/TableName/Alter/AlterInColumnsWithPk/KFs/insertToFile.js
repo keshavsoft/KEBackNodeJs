@@ -1,39 +1,38 @@
 import fs from "fs";
-import ParamsJson from '../../../CommonFuncs/params.json' with { type: 'json' };
+import ParamsJson from '../../../CommonFuncs/params.json' with {type: 'json'};
 
-const StartFunc = ({ inBody }) => {
+const StartFunc = ({ inPk, inBody }) => {
   const LocalFileName = ParamsJson.TableName;
   const LocalDataPath = ParamsJson.DataPath;
-  const filePath = `${LocalDataPath}/${LocalFileName}.json`;
 
   let LocalReturnObject = { KTF: false };
+  let filePath = `${LocalDataPath}/${LocalFileName}.json`;
 
   try {
     if (!fs.existsSync(filePath)) {
-      LocalReturnObject.KReason = `File ${LocalFileName}.json does not exist in ${LocalDataPath} folder.`;
-      return LocalReturnObject;
-    }
-
-    const { Key, Value } = inBody;
-
-    if (!Key || !Value) {
-      LocalReturnObject.KReason = "Missing 'Key' or 'Value' in request body.";
+      LocalReturnObject.KReason = `File ${LocalFileName}.json does not exist in ${CommonDataPath} folder.`;
       return LocalReturnObject;
     }
 
     const data = JSON.parse(fs.readFileSync(filePath, "utf8"));
+    const indexToUpdate = data.findIndex((e) => e.pk === Number(inPk));
 
-    if (!data.hasOwnProperty(Key)) {
-      LocalReturnObject.KReason = `Key '${Key}' not found in data.`;
+
+    if (indexToUpdate === -1) {
+      LocalReturnObject.KReason = `Record not found with pk:'${inPk}'.`;
       return LocalReturnObject;
     }
 
-    data[Key] = Value;
+    let LocalUpdateData = { ...data[indexToUpdate], ...inBody };
+
+    // Inject pk back to inBody
+    inBody.pk = Number(inPk);
+    data[indexToUpdate] = LocalUpdateData;
 
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2), "utf8");
 
     LocalReturnObject.KTF = true;
-    LocalReturnObject.JsonData = `Record updated successfully for key: '${Key}'`;
+    LocalReturnObject.JsonData = `Record updated successfully with pk :'${inPk}'.`;
   } catch (err) {
     LocalReturnObject.KReason = `Error: ${err.message}`;
     console.error("Error:", err);

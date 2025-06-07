@@ -1,8 +1,7 @@
-POST http://localhost:3000/V2/ItemsWithGroups/Alter/AlterInColumnsWithPk
+POST http://localhost:3000/V1/Farmers/Alter/WithPk/{pk}
 Content-Type: application/json
 
-
-    {
-    "Value":"rahul",
-    "Key": 653328976
+{
+	"Col2" : "",
+	"Col1" : ""
 }

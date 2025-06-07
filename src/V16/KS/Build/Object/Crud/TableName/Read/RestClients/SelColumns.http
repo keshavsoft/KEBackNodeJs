@@ -1,4 +1,4 @@
-POST http://localhost:{PORT}{SubRoute}/SelColumns
+POST http://localhost:3000/V1/Farmers/Read/SelColumns
 Content-Type: application/json
 
 []

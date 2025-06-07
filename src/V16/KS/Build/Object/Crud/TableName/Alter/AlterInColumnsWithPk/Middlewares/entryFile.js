@@ -1,4 +1,4 @@
-const CommonColumnsArray = ["Key","Value"];
+const CommonColumnsArray = ["Col1","Col2"];
 
 const StartFunc = (req, res, next) => {
     const LocalBody = req.body;
