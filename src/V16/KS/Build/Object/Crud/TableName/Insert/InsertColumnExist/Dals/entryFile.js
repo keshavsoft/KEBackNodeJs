@@ -1,7 +1,7 @@
 import { StartFunc as StartFuncFromInsertToFile } from '../KFs/insertToFile.js';
 
-let postDefaultFunc = ({}) => {
-    let LocalFromLowDb = StartFuncFromInsertToFile({});
+let postDefaultFunc = ({LocalCoumnCol1,LocalCoumnCol2}) => {
+    let LocalFromLowDb = StartFuncFromInsertToFile({LocalCoumnCol1,LocalCoumnCol2});
 
     return LocalFromLowDb;
 };

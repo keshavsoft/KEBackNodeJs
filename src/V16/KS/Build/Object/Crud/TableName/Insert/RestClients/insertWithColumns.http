@@ -1,6 +1,8 @@
-POST http://localhost:{PORT}{SubRoute}/InsertWithColumns
+POST http://localhost:3000/V1/Farmers/Insert/InsertWithColumns
 Content-Type: application/json
 
 {
+	"Col2" : "",
+	"Col1" : ""
   
 }

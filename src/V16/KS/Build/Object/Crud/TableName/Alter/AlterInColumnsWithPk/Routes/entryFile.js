@@ -11,6 +11,6 @@ import { StartFunc as middlewarespostFilterDataFromBodyFunc } from "../Middlewar
 
 router.use(bodyparser.json());
 
-router.post('/',middlewarespostFilterDataFromBodyFunc, postFilterDataFromBodyFunc);
+router.post('/:inPk',middlewarespostFilterDataFromBodyFunc, postFilterDataFromBodyFunc);
 
 export { router };

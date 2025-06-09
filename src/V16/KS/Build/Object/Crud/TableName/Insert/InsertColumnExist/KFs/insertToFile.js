@@ -2,11 +2,11 @@ import fs from "fs";
 
 import ParamsJson from '../../../CommonFuncs/params.json' with {type: 'json'};
 
-const StartFunc = ({}) => {
+const StartFunc = ({LocalCoumnCol1,LocalCoumnCol2}) => {
   const LocalFileName = ParamsJson.TableName;
   const LocalDataPath = ParamsJson.DataPath;
 
-  let LocalinDataToInsert = {};
+  let LocalinDataToInsert = {Col1 : LocalCoumnCol1,Col2 : LocalCoumnCol2};
 
   const filePath = `${LocalDataPath}/${LocalFileName}.json`;
   let LocalReturnObject = {};
