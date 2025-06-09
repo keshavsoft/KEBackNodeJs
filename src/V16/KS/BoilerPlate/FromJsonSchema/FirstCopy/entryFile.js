@@ -3,7 +3,6 @@ const fse = require('fs-extra');
 const path = require('path');
 
 const { StartFunc: StartFuncFromChecks } = require('./Checks/forSchemaJson');
-// const { StartFunc: StartFuncFromCreateSchema } = require("./createSchema");
 const { StartFunc: StartFuncFromCreateSchema } = require("./CreateSchema/entryFile");
 
 const StartFunc = async ({ inToPath }) => {
