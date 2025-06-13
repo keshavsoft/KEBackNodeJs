@@ -13,6 +13,7 @@ import { router as routerFromReadSelColsAsArray } from "./ReadSelColsAsArray/rou
 import { router as routerFromGetSingleColumn } from "./GetSingleColumn/routes.js";
 import { router as routerFromGroupSingleColumn } from "./GroupSingleColumn/routes.js";
 import { router as routerFromGroupSingleColLength } from "./GroupSingleColLength/routes.js";
+import { router as routerFromAggregateFunctions } from "./AggregateFunctions/routes.js";
 
 router.use("/InsertWithPk", routerFromInsertWithPk);
 router.use("/ReadData", routerFromReadData);
@@ -25,5 +26,6 @@ router.use("/ReadSelColsAsArray", routerFromReadSelColsAsArray);
 router.use("/GetSingleColumn", routerFromGetSingleColumn);
 router.use("/GroupSingleColumn", routerFromGroupSingleColumn);
 router.use("/GroupSingleColLength", routerFromGroupSingleColLength);
+router.use("/AggregateFunctions", routerFromAggregateFunctions);
 
 export { router };
