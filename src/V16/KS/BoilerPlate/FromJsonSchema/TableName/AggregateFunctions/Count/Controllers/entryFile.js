@@ -10,7 +10,11 @@ let GetFunc = (req, res) => {
         return;
     }
 
-    res.status(200).json(LocalFromRepo.JsonData);
+    const count = Array.isArray(LocalFromRepo.JsonData)
+        ? LocalFromRepo.JsonData.length
+        : 0;
+
+    res.status(200).type('text/plain').send(`count : ${count}`);
 };
 
 export {
