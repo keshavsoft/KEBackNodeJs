@@ -1,1 +1,1 @@
-GET http://localhost:3000/V1/Items/AggregateFunctions/Sum/Expenditure
+GET http://localhost:{PORT}{SubRoute}/Sum/{ColumnName}

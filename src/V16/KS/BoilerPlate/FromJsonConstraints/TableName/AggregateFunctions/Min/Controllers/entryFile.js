@@ -39,10 +39,7 @@ let GetMinFunc = (req, res) => {
 
     const minValue = Math.min(...numericValues);
 
-    res.status(200).json({
-        columnName,
-        min: minValue
-    });
+    res.status(200).send(`Min : ${minValue}`);
 };
 
 export { GetMinFunc };

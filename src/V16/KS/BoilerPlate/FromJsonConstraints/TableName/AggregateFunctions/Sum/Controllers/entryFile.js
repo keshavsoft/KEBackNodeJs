@@ -39,10 +39,7 @@ let GetSumFunc = (req, res) => {
 
     const sumValue = numericValues.reduce((acc, val) => acc + val, 0);
 
-    res.status(200).json({
-        columnName,
-        sum: sumValue
-    });
+    res.status(200).send(`Sum : ${sumValue}`);
 };
 
 export { GetSumFunc };
