@@ -40,7 +40,7 @@ let GetAverageFunc = (req, res) => {
     const sum = numericValues.reduce((acc, val) => acc + val, 0);
     const average = sum / numericValues.length;
 
-    res.status(200).send(`Average : ${average}`);
+    res.status(200).send(` ${average}`);
 };
 
 export { GetAverageFunc };

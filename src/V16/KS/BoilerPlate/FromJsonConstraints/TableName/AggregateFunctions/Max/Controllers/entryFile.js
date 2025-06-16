@@ -39,7 +39,7 @@ let GetMaxFunc = (req, res) => {
 
     const maxValue = Math.max(...numericValues);
 
-    res.status(200).send(`Max : ${maxValue}`);
+    res.status(200).send(` ${maxValue}`);
 };
 
 export { GetMaxFunc };
