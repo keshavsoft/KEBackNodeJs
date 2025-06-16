@@ -14,7 +14,7 @@ let GetFunc = (req, res) => {
         ? LocalFromRepo.JsonData.length
         : 0;
 
-    res.status(200).type('text/plain').send(`count : ${count}`);
+    res.status(200).type('text/plain').send(` ${count}`);
 };
 
 export {
