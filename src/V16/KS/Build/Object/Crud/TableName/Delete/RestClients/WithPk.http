@@ -1,2 +1,2 @@
-DELETE http://localhost:3000/V1/Farmers/Delete/WithPk/{pk}
+DELETE http://localhost:{PORT}{SubRoute}/WithPk/{Key}
 Content-Type: application/json

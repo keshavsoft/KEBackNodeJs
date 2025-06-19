@@ -1,7 +1,7 @@
-POST http://localhost:3000/V1/Farmers/Insert/InsertWithPk
+POST http://localhost:{PORT}{SubRoute}/InsertWithPk
 Content-Type: application/json
 
 {
-    "Name":"Sree",
-    "Mobile":8341177771
+    "Value":"rahul",
+    "Key": 653328976
 }
