@@ -15,5 +15,7 @@ app.get('/', (req, res) => {
 app.use('/FileAsObject', routerFromFiles);
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
+    console.log(`Example app listening on port ${port}`);
+    console.log(`Open here http://localhost:${port}`);
+
 });
