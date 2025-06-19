@@ -9,7 +9,5 @@ app.use(express.static('public'));
 app.use("/V2", routerFromV2);
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
-    console.log(`Open here http://localhost:${port}`)
-
+    console.log(`Example app listening on port ${port}`)
 });

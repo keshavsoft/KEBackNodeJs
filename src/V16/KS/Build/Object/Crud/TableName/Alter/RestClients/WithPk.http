@@ -1,7 +1,5 @@
-POST http://localhost:3000/V1/Farmers/Alter/WithPk/{pk}
+POST http://localhost:{PORT}{SubRoute}/WithPk/{pk}
 Content-Type: application/json
 
 {
-	"Col2" : "",
-	"Col1" : ""
 }

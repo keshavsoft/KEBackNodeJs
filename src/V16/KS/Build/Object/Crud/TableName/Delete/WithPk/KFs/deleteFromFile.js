@@ -1,44 +1,34 @@
 import fs from "fs";
-import ParamsJson from '../../../CommonFuncs/params.json' with {type: 'json'};
+import ParamsJson from '../../../CommonFuncs/params.json' with { type: 'json' };
 
 const StartFunc = ({ inKey }) => {
   const LocalFileName = ParamsJson.TableName;
-    const LocalDataPath = ParamsJson.DataPath;
+  const LocalDataPath = ParamsJson.DataPath;
+  const filePath = `${LocalDataPath}/${LocalFileName}.json`;
 
   let LocalReturnObject = { KTF: false };
 
-  const filePath = `${LocalDataPath}/${LocalFileName}.json`;
-
   try {
     if (!fs.existsSync(filePath)) {
-      LocalReturnObject.JsonData = `key : ${inKey} Row Deleted Successfully`;
-
+      LocalReturnObject.KReason = `File ${LocalFileName}.json not found in ${LocalDataPath}`;
       return LocalReturnObject;
     }
 
     let data = JSON.parse(fs.readFileSync(filePath, "utf8"));
 
-    const LocalFindIndex = data.findIndex(e => e.pk === parseInt(inKey));
-
-    if (LocalFindIndex === -1) {
-      LocalReturnObject.KReason = `Not found data with pk:${inKey}.`;
+    if (!data.hasOwnProperty(inKey)) {
+      LocalReturnObject.KReason = `Key '${inKey}' not found in data.`;
       return LocalReturnObject;
     }
 
-    data.splice(LocalFindIndex, 1);
-
-    data = data.map(item =>
-      Object.fromEntries(
-        Object.entries(item).filter(([key, value]) => value !== null)
-      )
-    );
+    delete data[inKey];
 
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2), "utf8");
 
     LocalReturnObject.KTF = true;
-    LocalReturnObject.JsonData = `Deleted successfully with pk:${inKey}`;
+    LocalReturnObject.JsonData = `Deleted successfully with key: '${inKey}'`;
   } catch (err) {
-    LocalReturnObject.KReason = `Error occurred: ${err.message}`;
+    LocalReturnObject.KReason = `Error: ${err.message}`;
     console.error("Error:", err);
   }
 

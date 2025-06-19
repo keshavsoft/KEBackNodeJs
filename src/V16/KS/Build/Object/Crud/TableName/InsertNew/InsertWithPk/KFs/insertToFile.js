@@ -1,47 +1,44 @@
 import fs from "fs";
-
-import ParamsJson from '../../../CommonFuncs/params.json' with {type: 'json'};
+import ParamsJson from '../../../CommonFuncs/params.json' with { type: 'json' };
 
 const StartFunc = ({ inRequestBody }) => {
   const LocalFileName = ParamsJson.TableName;
   const LocalDataPath = ParamsJson.DataPath;
 
-  let LocalinDataToInsert = inRequestBody;
-
   const filePath = `${LocalDataPath}/${LocalFileName}.json`;
-  let LocalReturnObject = {};
-  LocalReturnObject.KTF = false;
+  let LocalReturnObject = { KTF: false };
 
   try {
     if (fs.existsSync(filePath)) {
-      const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-      let LocalArrayPk = data.map(element => element.pk);
+      const fileData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
-      let LocalRemoveUndefined = LocalArrayPk.filter(function (element) {
-        return element !== undefined;
-      });
+      const { Key, Value } = inRequestBody;
 
-      let numberArray = LocalRemoveUndefined.map(Number);
-      let MaxPk = Math.max(...numberArray, 0) + 1;
+      if (!Key || !Value) {
+        LocalReturnObject.KReason = "Missing 'Key' or 'Value' in request body.";
+        return LocalReturnObject;
+      }
 
-      let LocalInsertData = { ...LocalinDataToInsert, pk: MaxPk };
-      data.push(LocalInsertData);
+      if (fileData.hasOwnProperty(Key)) {
+        LocalReturnObject.KReason = `Key ${Key} already exists.`;
+        return LocalReturnObject;
+      }
 
-      fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
+      fileData[Key] = Value;
+
+      fs.writeFileSync(filePath, JSON.stringify(fileData, null, 2), 'utf8');
 
       LocalReturnObject.KTF = true;
-      LocalReturnObject.SuccessText = `Inserted pk ${MaxPk} In To ${LocalFileName}.json successfully`;
-
+      LocalReturnObject.SuccessText = `Inserted ${Key}: ${Value} into ${LocalFileName}.json`;
       return LocalReturnObject;
     } else {
       LocalReturnObject.KReason = `File ${LocalFileName}.json does not exist in ${LocalDataPath} folder.`;
-      console.warn(LocalReturnObject.KReason);
-
       return LocalReturnObject;
-    };
+    }
   } catch (err) {
     console.error('Error:', err);
-  };
+    LocalReturnObject.KReason = err.message;
+  }
 
   return LocalReturnObject;
 };
