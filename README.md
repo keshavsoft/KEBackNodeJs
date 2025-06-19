@@ -298,6 +298,10 @@ write end points in nodejs
 
 - KS.Build.Object.Crud started
 
+### 0.17.1
+
+- KS.BoilerPlate.FromJsonSchema Columns in Insert.restClients
+
 ## License
 
 MIT
