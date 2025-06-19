@@ -13,5 +13,7 @@ app.use("/V1", routerFromV1);
 app.use("/V2Secured", routerFromProtect, routerFromV2Secured);
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
+    console.log(`Example app listening on port ${port}`);
+    console.log(`Open here http://localhost:${port}`);
+
 });
