@@ -15,9 +15,9 @@ async function StartFunc({ inFilePath, inPortNumber, inColumnsAsArray }) {
 
         inColumnsAsArray.forEach((element, LoopIndex) => {
             if (LoopIndex === 0) {
-                LocalLines.splice(4, 0, `\t"${element}" : ""`);
+                LocalLines.splice(4, 0, element === "SubTable" ? `\t"${element}" : []` : `\t"${element}" : ""`);
             } else {
-                LocalLines.splice(4, 0, `\t"${element}" : "",`);
+                LocalLines.splice(4, 0, element === "SubTable" ? `\t"${element}" : [],` : `\t"${element}" : "",`);
             };
         });
 
