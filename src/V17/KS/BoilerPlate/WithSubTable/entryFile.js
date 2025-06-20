@@ -1,6 +1,6 @@
 const vscode = require('vscode');
 
-const CommonRegisterCommand = "KS.BoilerPlate.FromJsonWithSubTable";
+const CommonRegisterCommand = "KS.BoilerPlate.WithSubTable";
 
 const { StartFunc: StartFuncFromForV1 } = require("./ForV1/entryFile");
 
