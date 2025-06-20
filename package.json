@@ -315,8 +315,8 @@
         "title": "KS Build Object Crud"
       },
       {
-        "command": "KS.BoilerPlate.FromJsonWithSubTable",
-        "title": "KS BoilerPlate FromJsonSubTable"
+        "command": "KS.BoilerPlate.WithSubTable",
+        "title": "KS BoilerPlate WithSubTable"
       }
     ],
     "menus": {

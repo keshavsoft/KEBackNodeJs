@@ -18,6 +18,7 @@ router.use("/Alter", routerFromAlter);
 router.use("/ReadSchema", routerFromReadSchema);
 router.use("/GroupBy", routerFromGroupBy);
 router.use("/AggregateFunctions", routerFromAggregateFunctions);
-router.use("/SubTable", routerFromSubTable);
+
+router.use("/SubTable", routerFromSubTable);//Sub Table CRUD
 
 export { router };

@@ -18,8 +18,16 @@ const StartFunc = ({ inRowIndex, inKeyName, inRequestBody }) => {
     if (fs.existsSync(filePath)) {
       const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
       let LocalRow = data.find(element => element.pk == LocalRowIndex);
-      if (!LocalRow) LocalReturnObject.KReason = `No Row Data ${LocalRowIndex}.`;
-
+     
+      if (!LocalRow) {
+        LocalReturnObject.KReason = `No Row Data ${LocalRowIndex}.`
+        return LocalReturnObject;
+      };
+      
+      if (!Array.isArray(LocalRow[LocalKeyName])) {
+        LocalReturnObject.KReason = `${LocalKeyName} Key Not SubTable`;
+        return LocalReturnObject;
+      };
       let LocalArrayPk = LocalRow[LocalKeyName].map(element => element.pk);
 
       let LocalRemoveUndefined = LocalArrayPk.filter(function (element) {
