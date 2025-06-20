@@ -302,6 +302,10 @@ write end points in nodejs
 
 - KS.BoilerPlate.FromJsonSchema Columns in Insert.restClients
 
+### 0.17.2
+
+- KS.BoilerPlate.FromJsonSchema Columns in Insert.restClients fixed columns error
+
 ## License
 
 MIT
