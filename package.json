@@ -313,6 +313,10 @@
       {
         "command": "KS.Build.Object.Crud",
         "title": "KS Build Object Crud"
+      },
+      {
+        "command": "KS.BoilerPlate.FromJsonWithSubTable",
+        "title": "KS BoilerPlate FromJsonSubTable"
       }
     ],
     "menus": {

@@ -7,6 +7,7 @@ const CommonAlterFolderName = "Alter";
 const CommonReadSchemaFolderName = "ReadSchema";
 const CommonGroupByFolderName = "GroupBy";
 const CommonAggregateFunctions = "AggregateFunctions";
+const CommonSubTableReadFunctions = "SubTable/Insert";
 
 async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion, inColumnsAsArray }) {
     const LocalVersion = inVersion;
@@ -44,6 +45,16 @@ async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion, i
 
     await StartFuncFromReadFolder({
         inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonAggregateFunctions}/RestClients`,
+        inTableName, inPortNumber
+    });
+
+     await StartFuncFromReadFolder({
+        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonSubTableReadFunctions}/RestClients`,
+        inTableName, inPortNumber
+    });
+
+    await StartFuncFromReadFolder({
+        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonSubTableReadFunctions}/RestClients`,
         inTableName, inPortNumber
     });
 };
