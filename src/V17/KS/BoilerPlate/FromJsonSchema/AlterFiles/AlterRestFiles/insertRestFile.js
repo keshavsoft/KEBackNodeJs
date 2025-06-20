@@ -23,10 +23,10 @@ async function StartFunc({ inFolderPath, inPortNumber, inColumnsAsArray }) {
 
                 inColumnsAsArray.forEach((element, LoopIndex) => {
                     if (LoopIndex === 0) {
-                        LocalLines.splice(CommonStartIndex, 0, `\t"${element}" : ""`);
+                        LocalLines.splice(CommonStartIndex, 0, element === "SubTable" ? `\t"${element}" : []` : `\t"${element}" : ""`);
                     } else {
-                        LocalLines.splice(CommonStartIndex, 0, `\t"${element}" : "",`);
-                    };
+                        LocalLines.splice(CommonStartIndex, 0, element === "SubTable" ? `\t"${element}" : [],` : `\t"${element}" : "",`);
+                    }
                 });
 
                 LocalFuncWriteFile({ inLinesArray: LocalLines, inEditorPath: filePath });
