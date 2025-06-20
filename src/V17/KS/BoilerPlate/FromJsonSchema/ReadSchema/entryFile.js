@@ -12,7 +12,7 @@ function StartFunc({ inRootPath }) {
 
     const filePath = path.join(inRootPath, `${LocalReturnObject.TableName}.json`);
 
-     //  Check if the JSON file with the table name exists If it exists, read the header and data from the file
+    //  Check if the JSON file with the table name exists If it exists, read the header and data from the file
     // Otherwise, return empty arrays for Columns and Data
     if (fs.existsSync(filePath)) {
         const LocalFromTable = StartFuncFromTable({
@@ -20,12 +20,30 @@ function StartFunc({ inRootPath }) {
             inFileName: `${LocalReturnObject.TableName}.json`
         });
 
-        LocalReturnObject.Columns = LocalFromTable.header?.[0] || [];
+        LocalReturnObject.Columns = LocalFromTable.header[0] || [];
         LocalReturnObject.Data = LocalFromTable.data || [];
     } else {
-        LocalReturnObject.Columns = LocalFromSchema.Columns;
+        const LocalFromSchemaJson = LocalFuncFromSchemaJson({ inSchemaJson: LocalFromSchema.Columns });
+
+        LocalReturnObject.Columns = LocalFromSchemaJson.Columns;
+        LocalReturnObject.ColumnsWithSchema = LocalFromSchemaJson.ColumnsWithSchema;
         LocalReturnObject.Data = [];
     }
+
+    return LocalReturnObject;
+};
+
+const LocalFuncFromSchemaJson = ({ inSchemaJson }) => {
+    let LocalFromSchema = inSchemaJson;
+
+    let LocalReturnObject = {};
+
+    LocalReturnObject.Columns = inSchemaJson.map(element => {
+        return element.ColumnName;
+    });
+
+    LocalReturnObject.ColumnsWithSchema = LocalFromSchema.Columns;
+    LocalReturnObject.Data = [];
 
     return LocalReturnObject;
 };

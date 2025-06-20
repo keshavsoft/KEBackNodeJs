@@ -35,6 +35,7 @@ const LocalFuncToActivate = async () => {
     const LocalTableName = LocalJsonSchema.TableName;
     const LocalColumnsAsArray = LocalJsonSchema.Columns;
     const LocalData = LocalJsonSchema.Data;
+    const LocalColumnsWithSchema = LocalJsonSchema.ColumnsWithSchema;
 
     await StartFuncFromForV1({
         inTableName: LocalTableName,

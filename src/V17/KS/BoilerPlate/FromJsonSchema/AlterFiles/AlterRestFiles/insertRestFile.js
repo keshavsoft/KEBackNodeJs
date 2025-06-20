@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
 const vscode = require('vscode');
+const CommonStartIndex = 4;
 
 async function StartFunc({ inFolderPath, inPortNumber, inColumnsAsArray }) {
     try {
@@ -22,9 +23,9 @@ async function StartFunc({ inFolderPath, inPortNumber, inColumnsAsArray }) {
 
                 inColumnsAsArray.forEach((element, LoopIndex) => {
                     if (LoopIndex === 0) {
-                        LocalLines.splice(5, 0, `\t"${element.ColumnName}" : ""`);
+                        LocalLines.splice(CommonStartIndex, 0, `\t"${element}" : ""`);
                     } else {
-                        LocalLines.splice(5, 0, `\t"${element.ColumnName}" : "",`);
+                        LocalLines.splice(CommonStartIndex, 0, `\t"${element}" : "",`);
                     };
                 });
 
