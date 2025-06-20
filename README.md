@@ -310,6 +310,10 @@ write end points in nodejs
 
 - KS.BoilerPlate.WithSubTable started
 
+### 0.17.4
+
+- KS.BoilerPlate.WithSubTable working and aligned
+
 ## License
 
 MIT

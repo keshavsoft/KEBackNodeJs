@@ -27,9 +27,9 @@ let StartFunc = ({ inRowIndex, inKeyName }) => {
         };
 
         if (!Array.isArray(LoalRowData[LocalKeyName])) {
-        LocalReturnData.KReason = `${LocalKeyName} Key Not SubTable`;
-        return LocalReturnData;
-      };
+            LocalReturnData.KReason = `${LocalKeyName} Key Not SubTable`;
+            return LocalReturnData;
+        };
 
         LocalReturnData.KTF = true;
         LocalReturnData.JsonData = LoalRowData[LocalKeyName];
