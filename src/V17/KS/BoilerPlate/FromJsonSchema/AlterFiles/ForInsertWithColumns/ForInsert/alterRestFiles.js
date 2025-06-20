@@ -10,38 +10,44 @@ async function StartFunc({ inFilePath, inPortNumber, inColumnsAsArray }) {
         const LocalRelativePath = activeFileFolderPath.replace(LocalRootPath, "");
 
         let LocalLines = await processLineByLine({ inFileName: inFilePath });
+
+        // Replace placeholders
         LocalLines[0] = LocalLines[0].replace("{PORT}", inPortNumber);
         LocalLines[0] = LocalLines[0].replace("{SubRoute}", LocalRelativePath.replaceAll(`\\`, "/"));
 
-        inColumnsAsArray.forEach((element, LoopIndex) => {
-            if (LoopIndex === 0) {
-                LocalLines.splice(4, 0, element === "SubTable" ? `\t"${element}" : []` : `\t"${element}" : ""`);
-            } else {
-                LocalLines.splice(4, 0, element === "SubTable" ? `\t"${element}" : [],` : `\t"${element}" : "",`);
-            };
-        });
+        // Filter out Col1 and Col2
+        const FilteredColumns = inColumnsAsArray.filter(col => col !== "Col1" && col !== "Col2");
+
+        // Insert only if other columns remain
+        if (FilteredColumns.length > 0) {
+            FilteredColumns.forEach((element, LoopIndex) => {
+                const line = element === "SubTable" ? `\t"${element}" : []` : `\t"${element}" : ""`;
+                const isLast = LoopIndex === FilteredColumns.length - 1;
+                const lineWithComma = isLast ? line : `${line},`;
+
+                LocalLines.splice(4, 0, lineWithComma);
+            });
+        }
 
         LocalFuncWriteFile({ inLinesArray: LocalLines, inEditorPath: inFilePath });
     } catch (err) {
-        console.error('Error reading directory:', err);
+        console.error('Error reading file:', err);
     };
-};
+}
 
 const LocalFuncGetWorkSpaceFolder = () => {
     if (vscode.workspace.workspaceFolders) {
         const rootUri = vscode.workspace.workspaceFolders[0].uri;
-        const rootPath = rootUri.fsPath; // Get the file path
+        const rootPath = rootUri.fsPath;
         return rootPath;
     } else {
         console.log("No workspace folders found.");
+        return "";
     };
 };
 
 const LocalFuncWriteFile = ({ inLinesArray, inEditorPath }) => {
-    let LocalLines = inLinesArray;
-
-    const content = LocalLines.join('\n');
-
+    const content = inLinesArray.join('\n');
     fs.writeFileSync(inEditorPath, content, 'utf-8');
 };
 
@@ -61,7 +67,7 @@ const processLineByLine = async ({ inFileName }) => {
 
         for await (const line of rl) {
             LocalLines.push(line);
-        };
+        }
 
         return LocalLines;
     } catch (err) {
