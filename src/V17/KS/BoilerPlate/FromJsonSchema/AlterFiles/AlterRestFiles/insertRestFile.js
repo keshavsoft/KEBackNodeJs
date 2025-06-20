@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
 const vscode = require('vscode');
+
 const CommonStartIndex = 4;
 
 async function StartFunc({ inFolderPath, inPortNumber, inColumnsAsArray }) {
@@ -18,40 +19,44 @@ async function StartFunc({ inFolderPath, inPortNumber, inColumnsAsArray }) {
 
             if (stats.isFile()) {
                 let LocalLines = await processLineByLine({ inFileName: filePath });
+
+                // Replace placeholders
                 LocalLines[0] = LocalLines[0].replace("{PORT}", inPortNumber);
                 LocalLines[0] = LocalLines[0].replace("{SubRoute}", LocalRelativePath.replaceAll(`\\`, "/"));
 
-                inColumnsAsArray.forEach((element, LoopIndex) => {
-                    if (LoopIndex === 0) {
-                        LocalLines.splice(CommonStartIndex, 0, element === "SubTable" ? `\t"${element}" : []` : `\t"${element}" : ""`);
-                    } else {
-                        LocalLines.splice(CommonStartIndex, 0, element === "SubTable" ? `\t"${element}" : [],` : `\t"${element}" : "",`);
-                    }
-                });
+                const FilteredColumns = inColumnsAsArray.filter(col => col !== "Col1" && col !== "Col2");
+
+                if (FilteredColumns.length > 0) {
+                    FilteredColumns.forEach((element, LoopIndex) => {
+                        const line = element === "SubTable" ? `\t"${element}" : []` : `\t"${element}" : ""`;
+                        const isLast = LoopIndex === FilteredColumns.length - 1;
+                        const lineWithComma = isLast ? line : `${line},`;
+
+                        LocalLines.splice(CommonStartIndex, 0, lineWithComma);
+                    });
+                }
 
                 LocalFuncWriteFile({ inLinesArray: LocalLines, inEditorPath: filePath });
-            };
+            }
         }
     } catch (err) {
         console.error('Error reading directory:', err);
-    };
-};
+    }
+}
 
 const LocalFuncGetWorkSpaceFolder = () => {
     if (vscode.workspace.workspaceFolders) {
         const rootUri = vscode.workspace.workspaceFolders[0].uri;
-        const rootPath = rootUri.fsPath; // Get the file path
+        const rootPath = rootUri.fsPath;
         return rootPath;
     } else {
         console.log("No workspace folders found.");
-    };
+        return "";
+    }
 };
 
 const LocalFuncWriteFile = ({ inLinesArray, inEditorPath }) => {
-    let LocalLines = inLinesArray;
-
-    const content = LocalLines.join('\n');
-
+    const content = inLinesArray.join('\n');
     fs.writeFileSync(inEditorPath, content, 'utf-8');
 };
 
@@ -71,7 +76,7 @@ const processLineByLine = async ({ inFileName }) => {
 
         for await (const line of rl) {
             LocalLines.push(line);
-        };
+        }
 
         return LocalLines;
     } catch (err) {
