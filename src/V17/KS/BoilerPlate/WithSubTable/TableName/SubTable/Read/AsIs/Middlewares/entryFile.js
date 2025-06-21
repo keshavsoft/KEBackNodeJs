@@ -1,38 +1,18 @@
-import fs from "fs";
-
-import ParamsJson from '../../../../CommonFuncs/params.json' with {type: 'json'};
+import ParamsJson from '../../../../CommonFuncs/params.json' with { type: 'json' };
+import { StartFunc } from "../KFs/readFromFile.js";
 
 let GetFunc = (req, res, next) => {
-    const LocalFileName = ParamsJson.TableName;
     const LocalParams = req.params;
-    const LocalDataPath = ParamsJson.DataPath;
     const LocalRowIndex = LocalParams.RowIndex;
     const LocalKeyName = LocalParams.KeyName;
 
-    let LocalReturnData = { KTF: false };
-    let filePath = `${LocalDataPath}/${LocalFileName}.json`;
+    const LocalReturnData = StartFunc({ inRowIndex: LocalRowIndex, inKeyName: LocalKeyName });
 
-    try {
-        if (!fs.existsSync(filePath)) {
-            LocalReturnData.KReason = `${LocalFileName}.json File does not exist in ${LocalDataPath} Folder.`;
-            console.warn(LocalReturnData.KReason);
-            return LocalReturnData;
-        };
+    if (!LocalReturnData.KTF) {
+        return res.status(500).send(LocalReturnData.KReason);
+    }
 
-        const data = fs.readFileSync(`${LocalDataPath}/${LocalFileName}.json`, 'utf8');
-        let LoalRowData = JSON.parse(data).find(el => el.pk == LocalRowIndex);
-
-        if (!LoalRowData) {
-            req.status(500).json({Reason:"No Row Data"});
-        };
-
-        next();
-
-    } catch (err) {
-        req.status(500).send(err);
-    };
-
-   
+    next();
 };
 
 export { GetFunc };
