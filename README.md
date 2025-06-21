@@ -314,6 +314,10 @@ write end points in nodejs
 
 - KS.BoilerPlate.WithSubTable working and aligned
 
+### 0.18.1
+
+- KS.BoilerPlate.WithSubTable working on middleware with common code
+
 ## License
 
 MIT

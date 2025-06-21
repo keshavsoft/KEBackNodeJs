@@ -1,0 +1,7 @@
+POST http://localhost:{PORT}{SubRoute}/InsertWithPk
+Content-Type: application/json
+
+{
+  "Name":"Keshav1",
+  "Mobile":9848163021
+}
