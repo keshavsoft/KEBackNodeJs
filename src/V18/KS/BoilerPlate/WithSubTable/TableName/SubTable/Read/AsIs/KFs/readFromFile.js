@@ -1,21 +1,16 @@
-import fs from "fs";
-import ParamsJson from '../../../../CommonFuncs/params.json' with { type: 'json' };
+import { StartFunc as StartFuncFileRead } from "../../../../CommonFuncs/fileRead.js";
 
-let CommonReadFunc = ({ inRowIndex, inKeyName }) => {
-    const LocalFileName = ParamsJson.TableName;
-    const LocalDataPath = ParamsJson.DataPath;
-    const filePath = `${LocalDataPath}/${LocalFileName}.json`;
+let StartFunc = ({ inRowIndex, inKeyName }) => {
     let LocalReturnData = { KTF: false };
+    let LocalFileRead = StartFuncFileRead();
 
-    if (!fs.existsSync(filePath)) {
-        LocalReturnData.KReason = `${LocalFileName}.json File does not exist in ${LocalDataPath} Folder.`;
-        console.warn(LocalReturnData.KReason);
+    if (LocalFileRead.KTF === false) {
+        LocalReturnData = { ...LocalFileRead };
         return LocalReturnData;
     }
 
     try {
-        const data = fs.readFileSync(filePath, 'utf8');
-        const LoalRowData = JSON.parse(data).find(el => el.pk == inRowIndex);
+        const LoalRowData = LocalFileRead.JsonData.find(el => el.pk == inRowIndex);
 
         if (!LoalRowData) {
             LocalReturnData.KReason = `No Row Data with index ${inRowIndex}`;
@@ -31,14 +26,9 @@ let CommonReadFunc = ({ inRowIndex, inKeyName }) => {
         LocalReturnData.JsonData = LoalRowData[inKeyName];
         return LocalReturnData;
     } catch (err) {
-        LocalReturnData.KReason = `Error reading ${LocalFileName} file.`;
         console.warn(LocalReturnData.KReason);
         return LocalReturnData;
     }
-};
-
-let StartFunc = ({ inRowIndex, inKeyName }) => {
-    return CommonReadFunc({ inRowIndex, inKeyName });
 };
 
 export { StartFunc };
