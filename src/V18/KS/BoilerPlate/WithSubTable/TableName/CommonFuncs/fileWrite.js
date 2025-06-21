@@ -1,7 +1,7 @@
 import fs from "fs";
 import { StartFunc as StartFuncFileCheck } from "./fileCheck.js";
 
-let StartFunc = () => {
+let StartFunc = ({ inData }) => {
     let LocalReturnData = { KTF: false };
     let LocalFileCheck = StartFuncFileCheck();
 
@@ -10,11 +10,9 @@ let StartFunc = () => {
         return LocalReturnData;
     }
     try {
-        const data = fs.readFileSync(LocalFileCheck.filePath, 'utf8');
-        const LocalData = JSON.parse(data);
+        fs.writeFileSync(LocalFileCheck.filePath, JSON.stringify(inData, null, 2), "utf8");
 
         LocalReturnData.KTF = true;
-        LocalReturnData.JsonData = LocalData;
         return LocalReturnData;
     } catch (err) {
         LocalReturnData.KReason = `Error reading ${LocalFileCheck.fileName} file.`;
