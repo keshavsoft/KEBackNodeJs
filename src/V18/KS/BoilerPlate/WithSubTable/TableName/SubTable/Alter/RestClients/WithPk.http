@@ -1,4 +1,4 @@
-POST http://localhost:{PORT}{SubRoute}/WithPk/{pk}
+POST http://localhost:{PORT}{SubRoute}/WithPk/{rowIndex}/{ColName}/{pk}
 Content-Type: application/json
 
 {

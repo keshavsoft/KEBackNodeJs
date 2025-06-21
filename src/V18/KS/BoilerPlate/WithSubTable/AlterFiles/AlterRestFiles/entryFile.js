@@ -57,6 +57,17 @@ async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion, i
         inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonSubTableFunctions}/Insert/RestClients`,
         inTableName, inPortNumber
     });
+
+     await StartFuncFromReadFolder({
+        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonSubTableFunctions}/Alter/RestClients`,
+        inTableName, inPortNumber
+    });
+
+    await StartFuncFromReadFolder({
+        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonSubTableFunctions}/Delete/RestClients`,
+        inTableName, inPortNumber
+    });
+
 };
 
 module.exports = { StartFunc };
