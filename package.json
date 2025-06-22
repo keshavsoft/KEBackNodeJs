@@ -3,7 +3,7 @@
   "displayName": "KEBackNodeJs",
   "publisher": "KeshavSoft",
   "description": "KeshavSoft Extension to enhance the development of web applications",
-  "version": "0.18.1",
+  "version": "1.19.1",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -317,6 +317,10 @@
       {
         "command": "KS.BoilerPlate.WithSubTable",
         "title": "KS BoilerPlate WithSubTable"
+      },
+      {
+        "command": "KS.Append.WithSubTable",
+        "title": "KS Append WithSubTable"
       }
     ],
     "menus": {

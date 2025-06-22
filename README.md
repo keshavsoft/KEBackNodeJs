@@ -318,6 +318,10 @@ write end points in nodejs
 
 - KS.BoilerPlate.WithSubTable working on middleware with common code
 
+### 1.19.1
+
+- KS.Append.WithSubTable working good with version increment...
+
 ## License
 
 MIT
