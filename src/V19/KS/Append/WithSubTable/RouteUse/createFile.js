@@ -5,12 +5,11 @@ const readline = require('readline');
 const { StartFunc: StartFuncFromRoute } = require("./Route/entryFile");
 
 const StartFunc = async ({ inEditorPath, inNewRoute }) => {
-    const LocalEditorPath = inEditorPath;
-
-    if (fse.existsSync(LocalEditorPath)) {
+    try {
+        const selectedFolder = inEditorPath;
         const LocalEndPointNeeded = inNewRoute;
 
-        let LocalLines = await processLineByLine({ inFileName: LocalEditorPath });
+        let LocalLines = await processLineByLine({ inFileName: selectedFolder });
 
         const LocalFindEndPoint = LocalFuncCheckOldEndPoints({
             inLinesArray: LocalLines,
@@ -23,13 +22,13 @@ const StartFunc = async ({ inEditorPath, inNewRoute }) => {
         };
 
         StartFuncFromRoute({
-            inLinesArray: LocalLines, inEditorPath: LocalEditorPath,
+            inLinesArray: LocalLines, inEditorPath: selectedFolder,
             inNewRoute: LocalEndPointNeeded
         });
 
         vscode.window.showInformationMessage(`Folder created and contents copied to: ${LocalEndPointNeeded}`);
-    } else {
-        fse.writeFileSync(LocalEditorPath, "safdsfsd", 'utf8');
+    } catch (error) {
+        vscode.window.showErrorMessage(`Error: ${error.message}`);
     };
 };
 
