@@ -6,11 +6,11 @@ const { StartFunc: StartFuncFromRoute } = require("./Route/entryFile");
 
 const StartFunc = async ({ inEditorPath, inNewRoute }) => {
     const LocalEditorPath = inEditorPath;
+    const LocalEndPointNeeded = inNewRoute;
 
+    let LocalLines = await processLineByLine({ inFileName: LocalEditorPath });
     if (fse.existsSync(LocalEditorPath)) {
-        const LocalEndPointNeeded = inNewRoute;
 
-        let LocalLines = await processLineByLine({ inFileName: LocalEditorPath });
 
         const LocalFindEndPoint = LocalFuncCheckOldEndPoints({
             inLinesArray: LocalLines,
@@ -29,7 +29,13 @@ const StartFunc = async ({ inEditorPath, inNewRoute }) => {
 
         vscode.window.showInformationMessage(`Folder created and contents copied to: ${LocalEndPointNeeded}`);
     } else {
-        fse.writeFileSync(LocalEditorPath, "safdsfsd", 'utf8');
+        fse.writeFileSync(LocalEditorPath, "", 'utf8');
+        let LocalRouterData = ["import express from 'express';", '', 'const router = express.Router();', '', 'export { router };']
+        StartFuncFromRoute({
+
+            inLinesArray: LocalRouterData, inEditorPath: LocalEditorPath,
+            inNewRoute: LocalEndPointNeeded
+        });
     };
 };
 
