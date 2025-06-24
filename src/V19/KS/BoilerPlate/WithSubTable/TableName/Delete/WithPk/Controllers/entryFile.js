@@ -9,11 +9,13 @@ let postFilterDataFromBodyFunc = async (req, res) => {
         inKey: LocalKey
     });
 
+    res.set('Content-Type', 'text/plain');
+    
     if (LocalFromRepo.KTF === false) {
         res.status(409).send(LocalFromRepo.KReason);
         return;
     };
-
+    
     res.status(200).send(LocalFromRepo.JsonData);
 };
 

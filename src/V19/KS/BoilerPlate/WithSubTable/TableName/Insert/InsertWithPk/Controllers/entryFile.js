@@ -8,13 +8,15 @@ let postFilterDataFromBodyFunc = (req, res) => {
     let LocalFromRepo = postDefaultFuncFromRepo({
         inRequestBody: LocalRequestBody
     });
-
+    
+    res.set('Content-Type', 'text/plain');
+    
     if (LocalFromRepo.KTF === false) {
         res.status(409).send(LocalFromRepo.KReason);
         return;
     };
 
-    res.set('Content-Type', 'text/plain');
+    
     res.send(LocalFromRepo.SuccessText);
 };
 
