@@ -22,7 +22,8 @@ const StartFunc = async ({ inTableName, inColumnsAsArray, inDataPath, inPortNumb
     try {
         StartFuncFromRouteUse({
             inEditorPath: `${LocalToPath}/${LocalVersion}/routes.js`,
-            inNewRoute: LocalTableName
+            inNewRoute: LocalTableName,
+            inVersion: LocalVersion
         });
 
         await StartFuncFromAlterFiles({

@@ -11,6 +11,7 @@ const { StartFunc: StartFuncFromReadEnvFile } = require("./readEnvFile");
 const { StartFunc: StartFuncFromFirstCopy } = require("./FirstCopy/entryFile");
 const { StartFunc: StartFuncFromReadSchema } = require("./ReadSchema/entryFile");
 const { StartFunc: StartFuncFromGetMaxVersion } = require("./getMaxVersion");
+const { runNodeApp: StartFuncrunNodeApp } = require("./ServerRun");
 
 // pull the columns schema from the json file referred from schema.json
 
@@ -58,6 +59,7 @@ const LocalFuncToActivate = async () => {
     vscode.window.showInformationMessage(`BoilerPlate code to: ${LocalToPath}`);
 
     await StartFuncFromOpenApp({ inToPath: LocalToPath });
+    StartFuncrunNodeApp(LocalToPath)
 };
 
 const LocalFuncGetWorkSpaceFolder = () => {
