@@ -11,7 +11,7 @@ const { StartFunc: StartFuncFromReadEnvFile } = require("./readEnvFile");
 const { StartFunc: StartFuncFromFirstCopy } = require("./FirstCopy/entryFile");
 const { StartFunc: StartFuncFromReadSchema } = require("./ReadSchema/entryFile");
 const { StartFunc: StartFuncFromGetMaxVersion } = require("./getMaxVersion");
-const { runNodeApp: StartFuncrunNodeApp } = require("./ServerRun");
+const { StartFunc: StartFuncrunNodeApp } = require("./ServerRun");
 
 // pull the columns schema from the json file referred from schema.json
 
