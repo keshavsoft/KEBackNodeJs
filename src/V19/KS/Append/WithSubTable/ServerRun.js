@@ -1,21 +1,20 @@
 const vscode = require('vscode');
+const fs = require('fs');
 const path = require('path');
 
-const runNodeApp = (appJsPath) => {
-    const terminalName = 'node app';
-    let existingTerminal = vscode.window.terminals.find(t => t.name === terminalName);
+const StartFunc = (dirPath) => {
+    const termName = 'node app';
+    const term = vscode.window.terminals.find(t => t.name === termName);
+    if (term) term.dispose();
 
-    if (existingTerminal) {
-        existingTerminal.dispose(); // This stops and clears the terminal
+    const terminal = vscode.window.createTerminal({ name: termName, cwd: dirPath });
+    terminal.show(true);
+
+    if (!fs.existsSync(path.join(dirPath, 'node_modules'))) {
+        terminal.sendText('npm i');
     }
 
-    const terminal = vscode.window.createTerminal({
-        name: terminalName,
-        cwd: path.dirname(appJsPath)
-    });
-
-    terminal.show(true);
-    terminal.sendText(`node ${path.basename(appJsPath)}`);
+    terminal.sendText(termName);
 };
 
-module.exports = { runNodeApp };
+module.exports = { StartFunc };
