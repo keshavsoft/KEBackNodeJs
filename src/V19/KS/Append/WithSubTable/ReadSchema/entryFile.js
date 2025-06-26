@@ -28,6 +28,7 @@ function StartFunc({ inRootPath }) {
         LocalReturnObject.Columns = LocalFromSchemaJson.Columns;
         LocalReturnObject.ColumnsWithSchema = LocalFromSchemaJson.ColumnsWithSchema;
         LocalReturnObject.Data = [];
+        LocalReturnObject.Tables = LocalFromSchema.Tables || [];
     }
 
     return LocalReturnObject;
