@@ -1,6 +1,5 @@
 const path = require('path');
 const { StartFunc: StartFuncFromTableCreates } = require('./TableCreate');
-const { StartFunc: StartFuncFromReadSchema } = require("../ReadSchema/entryFile");
 const fs = require("fs");
 
 const LocalFuncReadSchemaJson = ({ inRootPath }) => {
