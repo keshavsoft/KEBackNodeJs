@@ -40,20 +40,20 @@ const LocalFuncToActivate = async () => {
     const LocalPortNumber = LocalEnvFileAsJson.PORT;
 
     const LocalJsonSchema = StartFuncFromReadSchema({ inRootPath: LocalToPath });
-    const LocalTableName = LocalJsonSchema.TableName;
     const LocalColumnsAsArray = LocalJsonSchema.Columns;
     const LocalData = LocalJsonSchema.Data;
     const LocalColumnsWithSchema = LocalJsonSchema.ColumnsWithSchema;
+    const LocalTablesArray = LocalJsonSchema.Tables;
 
     await StartFuncFromForMaxVersion({
-        inTableName: LocalTableName,
         inColumnsAsArray: LocalColumnsAsArray,
         inDataPath: LocalDataPath,
         inPortNumber: LocalPortNumber,
         inToPath: LocalToPath,
         inColumnsWithSchema: LocalColumnsWithSchema,
         inData: LocalData,
-        inVersion: LocalVersion
+        inVersion: LocalVersion,
+        inTablesArray: LocalTablesArray
     });
 
     vscode.window.showInformationMessage(`BoilerPlate code to: ${LocalToPath}`);

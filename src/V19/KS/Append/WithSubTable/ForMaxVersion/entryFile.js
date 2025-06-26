@@ -1,48 +1,23 @@
-const vscode = require('vscode');
-const fse = require('fs-extra');
 const path = require('path');
+const { StartFunc: StartFuncFromTableCreates } = require('./TableCreate');
 
-const { StartFunc: StartFuncFromOpenApp } = require("../openApp");
-const { StartFunc: StartFuncFromRouteUse } = require("../RouteUse/entryFile");
-const { StartFunc: StartFuncFromAlterFiles } = require('../AlterFiles/entryFile');
+const StartFunc = async ({ inColumnsAsArray, inDataPath, inPortNumber, inToPath,
+    inColumnsWithSchema, inData, inVersion, inTablesArray }) => {
 
-const StartFunc = async ({ inTableName, inColumnsAsArray, inDataPath, inPortNumber, inToPath, inColumnsWithSchema, inData, inVersion }) => {
-    const LocalTableName = inTableName;
-    const LocalColumnsAsArray = inColumnsAsArray;
-    const LocalDataPath = inDataPath;
-    const LocalPortNumber = inPortNumber;
-    const LocalVersion = inVersion;
+    const localVersion = inVersion;
+    const localToPath = inToPath;
 
-    const LocalToPath = inToPath;
+    for (const tableName of inTablesArray) {
+        const fromTablePath = path.join(__dirname, '..', tableName);
+        const toTablePath = path.join(localToPath, localVersion, tableName);
 
-    const LocalFromTablePath = path.join(__dirname, "..", "TableName");
-
-    await fse.copy(LocalFromTablePath, `${LocalToPath}/${LocalVersion}/${LocalTableName}`);
-
-    try {
-        StartFuncFromRouteUse({
-            inEditorPath: `${LocalToPath}/${LocalVersion}/routes.js`,
-            inNewRoute: LocalTableName,
-            inVersion: LocalVersion
+        await StartFuncFromTableCreates({
+            inFromTablePath: fromTablePath, inToTablePath: toTablePath,
+            inTableName: tableName, inColumnsAsArray, inDataPath,
+            inPortNumber, inToPath: localToPath, inColumnsWithSchema,
+            inData, inVersion: localVersion
         });
-
-        await StartFuncFromAlterFiles({
-            inEditorPath: LocalToPath,
-            inTableName: LocalTableName,
-            inDataPath: LocalDataPath,
-            inPortNumber: LocalPortNumber,
-            inColumnsAsArray: LocalColumnsAsArray,
-            inVersion: LocalVersion,
-            inColumnsWithSchema,
-            inData
-        });
-
-        vscode.window.showInformationMessage(`BoilerPlate code to: ${LocalToPath}`);
-
-        StartFuncFromOpenApp({ inToPath: LocalToPath });
-    } catch (error) {
-        vscode.window.showErrorMessage(`Error: ${error.message}`);
-    };
+    }
 };
 
 module.exports = { StartFunc };
