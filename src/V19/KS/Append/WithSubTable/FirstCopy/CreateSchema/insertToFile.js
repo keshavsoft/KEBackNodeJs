@@ -3,18 +3,19 @@ const { getJsonFiles } = require("./pullJsonFiles");
 const fse = require("fs-extra");
 
 const StartFunc = ({ inToPath }) => {
-    const LocalToPath = inToPath;
-    
-    const LocalJsonFilesArray = getJsonFiles({ inToPath });
-    
-   const LocalTableName = LocalJsonFilesArray.length > 0
-        ? LocalJsonFilesArray[0].replace('.json', '')
-       : "SampleTable";
-    
+  const LocalToPath = inToPath;
+
+  const LocalJsonFilesArray = getJsonFiles({ inToPath });
+
+  const LocalTableName = LocalJsonFilesArray.length > 0
+    ? LocalJsonFilesArray[0].replace('.json', '')
+    : "SampleTable";
+
   fse.writeFileSync(
     `${LocalToPath}/schema.json`,
     JSON.stringify({
       TableName: LocalTableName,
+      Tables: ["Sample2", "Sample3"],
       Columns: [
         {
           ColumnName: "Col1",
