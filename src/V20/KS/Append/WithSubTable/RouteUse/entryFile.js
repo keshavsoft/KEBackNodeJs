@@ -1,7 +1,7 @@
 const vscode = require('vscode');
 const fse = require('fs-extra');
 const { StartFunc: RouteEntry } = require("./Route/entryFile");
-const { StartFunc: NewTableEntry } = require("./RouteFornewTable/entryFile");
+const { StartFunc: NewTableEntry } = require("./RouteForNewTable/entryFile");
 const { StartFunc: ReadFile } = require("./FileRead");
 
 const checkExistingRoute = (lines, route) =>
