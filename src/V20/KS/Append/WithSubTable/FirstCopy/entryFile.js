@@ -16,7 +16,7 @@ const StartFunc = async ({ inToPath }) => {
             return await false;
         };
 
-        const LocalFromPath = path.join(__dirname, "..", "copyCode");
+        const LocalFromPath = path.join(__dirname, "..", "CopyCode");
 
         await fse.copy(LocalFromPath, LocalToPath);
 
