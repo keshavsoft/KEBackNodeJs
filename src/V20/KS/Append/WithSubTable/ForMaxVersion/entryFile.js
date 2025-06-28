@@ -28,7 +28,7 @@ const StartFunc = async ({ inDataPath, inPortNumber, inToPath, inVersion }) => {
 
         const LocalFromTableJson = LocalFuncReadJson({ inRootPath: LoopInsideTablePath })
 
-        const LocalColumnsAsArray = LocalFromTableJson.Columns;
+        const LocalColumnsAsArray = LocalFromTableJson.Columns.map(el => el.ColumnName);
         const LocalData = LocalJsonSchema.Data;
         const LocalColumnsWithSchema = LocalFromTableJson.ColumnsWithSchema;
 
