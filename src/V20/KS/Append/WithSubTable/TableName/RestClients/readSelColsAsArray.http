@@ -1,4 +1,0 @@
-POST http://localhost:{PORT}{SubRoute}/ReadSelColsAsArray
-Content-Type: application/json
-
-[]
