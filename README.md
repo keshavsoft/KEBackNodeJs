@@ -330,6 +330,10 @@ write end points in nodejs
 
 - KS.Append.WithSubTable started for multiple tables...
 
+### 1.20.2
+
+- KS.Append.WithSubTable working good...
+
 ## License
 
 MIT
