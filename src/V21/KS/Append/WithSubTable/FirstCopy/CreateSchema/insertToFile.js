@@ -18,12 +18,12 @@ const StartFunc = ({ inToPath }) => {
             Tables: ["Sample2", "Sample3"],
             Columns: [
                 {
-                    ColumnName: "Col1",
+                    field: "Col1",
                     unique: true,
                     type: "STRING",
                 },
                 {
-                    ColumnName: "Col2",
+                    field: "Col2",
                     unique: false,
                     type: "NUMBER",
                 },
@@ -36,12 +36,12 @@ const StartFunc = ({ inToPath }) => {
         JSON.stringify({
             Columns: [
                 {
-                    ColumnName: "Col21",
+                    field: "Col21",
                     unique: true,
                     type: "STRING",
                 },
                 {
-                    ColumnName: "Col22",
+                    field: "Col22",
                     unique: false,
                     type: "NUMBER",
                 },
@@ -55,12 +55,12 @@ const StartFunc = ({ inToPath }) => {
         JSON.stringify({
             Columns: [
                 {
-                    ColumnName: "Col31",
+                    field: "Col31",
                     unique: true,
                     type: "STRING",
                 },
                 {
-                    ColumnName: "Col32",
+                    field: "Col32",
                     unique: false,
                     type: "NUMBER",
                 },
