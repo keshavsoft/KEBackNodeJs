@@ -1,0 +1,4 @@
+POST http://localhost:{PORT}{SubRoute}/SelColsAsArray
+Content-Type: application/json
+
+[]

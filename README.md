@@ -334,6 +334,10 @@ write end points in nodejs
 
 - KS.Append.WithSubTable working good...
 
+### 1.21.1
+
+- started for schema json changes...
+
 ## License
 
 MIT
