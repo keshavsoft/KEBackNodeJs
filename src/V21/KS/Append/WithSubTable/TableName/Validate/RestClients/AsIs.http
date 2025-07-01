@@ -1,0 +1,7 @@
+POST http://localhost:{PORT}{SubRoute}/AsIs
+Content-Type: application/json
+
+{
+"UserName":"",
+"Password":""
+}

@@ -8,6 +8,7 @@ const CommonReadSchemaFolderName = "ReadSchema";
 const CommonGroupByFolderName = "GroupBy";
 const CommonAggregateFunctions = "AggregateFunctions";
 const CommonSubTableFunctions = "SubTable";
+const CommonValidateFunctions = "Validate";
 
 async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion, inColumnsAsArray }) {
     const LocalVersion = inVersion;
@@ -65,6 +66,11 @@ async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion, i
 
     await StartFuncFromReadFolder({
         inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonSubTableFunctions}/Delete/RestClients`,
+        inTableName, inPortNumber
+    });
+
+    await StartFuncFromReadFolder({
+        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonValidateFunctions}/RestClients`,
         inTableName, inPortNumber
     });
 
