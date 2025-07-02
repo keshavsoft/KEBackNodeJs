@@ -7,13 +7,13 @@ import { router as routerFromInsertWithColumns } from "./InsertWithColumns/route
 import { router as routerFromInsertColumnExist } from "./InsertColumnExist/routes.js";
 import { router as routerFromInsertAsIs } from "./InsertAsIs/routes.js";
 import { router as routerFromInsertWithPkAndTS } from "./InsertWithPkAndTS/routes.js";
-import { router as routerFromValidate } from "./Validate/routes.js";
+import { router as routerFromInsertAsIsNoPk } from "./InsertAsIsNoPk/routes.js";
 
 router.use("/InsertWithPk", routerFromInsertWithPk);
 router.use("/InsertWithColumns", routerFromInsertWithColumns);
 router.use("/InsertColumnExist", routerFromInsertColumnExist);
 router.use("/InsertAsIs", routerFromInsertAsIs);
 router.use("/InsertWithPkAndTS", routerFromInsertWithPkAndTS);
-router.use("/Validate", routerFromValidate);
+router.use("/InsertAsIsNoPk", routerFromInsertAsIsNoPk);
 
 export { router };

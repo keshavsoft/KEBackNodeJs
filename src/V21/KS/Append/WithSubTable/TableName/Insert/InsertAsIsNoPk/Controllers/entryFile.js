@@ -4,20 +4,18 @@ import {
 
 let postFilterDataFromBodyFunc = (req, res) => {
     let LocalRequestBody = req.body;
-    let LocalCoumnPassword = LocalRequestBody.Password;
-    let LocalCoumnUserName = LocalRequestBody.UserName;
 
-    let LocalFromRepo = postDefaultFuncFromRepo({ LocalCoumnUserName, LocalCoumnPassword });
-
-    res.set('Content-Type', 'text/plain');
+    let LocalFromRepo = postDefaultFuncFromRepo({
+        inRequestBody: LocalRequestBody
+    });
 
     if (LocalFromRepo.KTF === false) {
         res.status(409).send(LocalFromRepo.KReason);
         return;
     };
 
-
-    res.send(LocalFromRepo.KTF);
+    res.set('Content-Type', 'text/plain');
+    res.send(LocalFromRepo.SuccessText);
 };
 
 export {
