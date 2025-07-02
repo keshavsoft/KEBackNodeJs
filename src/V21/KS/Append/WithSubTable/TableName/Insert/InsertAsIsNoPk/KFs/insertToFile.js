@@ -2,10 +2,11 @@ import fs from "fs";
 
 import ParamsJson from '../../../CommonFuncs/params.json' with {type: 'json'};
 
-const StartFunc = ({ LocalCoumnUserName, LocalCoumnPassword }) => {
-  const LocalFileName = "Users";
+const StartFunc = ({ inRequestBody }) => {
+  const LocalFileName = ParamsJson.TableName;
   const LocalDataPath = ParamsJson.DataPath;
 
+  let LocalinDataToInsert = inRequestBody;
 
   const filePath = `${LocalDataPath}/${LocalFileName}.json`;
   let LocalReturnObject = {};
@@ -14,13 +15,14 @@ const StartFunc = ({ LocalCoumnUserName, LocalCoumnPassword }) => {
   try {
     if (fs.existsSync(filePath)) {
       const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-      let LocalData = data.find(element => element.UserName === LocalCoumnUserName && element.Password === LocalCoumnPassword);
+      
+      let LocalInsertData = { ...LocalinDataToInsert};
+      data.push(LocalInsertData);
 
-      if (!LocalData) {
-        LocalReturnObject.KReason = `Wrong Credentials.`;
-        return LocalReturnObject;
-      };
+      fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
+
       LocalReturnObject.KTF = true;
+      LocalReturnObject.SuccessText = `Inserted ${LocalFileName}.json successfully`;
 
       return LocalReturnObject;
     } else {

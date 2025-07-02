@@ -2,10 +2,11 @@ import fs from "fs";
 
 import ParamsJson from '../../../CommonFuncs/params.json' with {type: 'json'};
 
-const StartFunc = ({ LocalCoumnUserName, LocalCoumnPassword }) => {
-  const LocalFileName = "Users";
+const StartFunc = ({ }) => {
+  const LocalFileName = ParamsJson.TableName;
   const LocalDataPath = ParamsJson.DataPath;
 
+  let LocalinDataToInsert = {};
 
   const filePath = `${LocalDataPath}/${LocalFileName}.json`;
   let LocalReturnObject = {};
@@ -14,14 +15,14 @@ const StartFunc = ({ LocalCoumnUserName, LocalCoumnPassword }) => {
   try {
     if (fs.existsSync(filePath)) {
       const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-      let LocalData = data.find(element => element.UserName === LocalCoumnUserName && element.Password === LocalCoumnPassword);
 
-      if (!LocalData) {
-        LocalReturnObject.KReason = `Wrong Credentials.`;
-        return LocalReturnObject;
+      let LocalRemoveUndefined = data.find(element => JSON.stringify(element) === JSON.stringify(LocalinDataToInsert));
+
+      if (!LocalRemoveUndefined) {
+        return LocalReturnObject
       };
-      LocalReturnObject.KTF = true;
 
+      LocalReturnObject.KTF = true;
       return LocalReturnObject;
     } else {
       LocalReturnObject.KReason = `File ${LocalFileName}.json does not exist in ${LocalDataPath} folder.`;

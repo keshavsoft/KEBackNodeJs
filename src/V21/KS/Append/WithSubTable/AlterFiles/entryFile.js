@@ -6,6 +6,7 @@ const { StartFunc: StartFuncFromForInsertWithColumns } = require("./ForInsertWit
 const { StartFunc: StartFuncFromForGetColumnsAsArray } = require("./ForGetColumnsAsArray/entryFile");
 const { StartFunc: StartFuncFromForInsertColumnExist } = require("./ForInsertColumnExist/entryFile");
 const { StartFunc: StartFuncFromForAlterWithColumns } = require("./ForAlterWithColumns/entryFile");
+const { StartFunc: StartFuncFromForValidateColumnAsIs } = require("./ForValidateColumnAsIs/entryFile");
 
 const StartFunc = async ({ inEditorPath, inTableName, inDataPath, inPortNumber, inColumnsAsArray, inVersion, inColumnsWithSchema, inData }) => {
     const LocalVersion = inVersion;
@@ -26,6 +27,8 @@ const StartFunc = async ({ inEditorPath, inTableName, inDataPath, inPortNumber, 
     await StartFuncFromForGetColumnsAsArray({ inEditorPath, inTableName, inPortNumber, inVersion });
     await StartFuncFromForInsertColumnExist({ inEditorPath, inTableName, inColumnsAsArray, inPortNumber, inVersion });
     await StartFuncFromForAlterWithColumns({ inEditorPath, inTableName, inColumnsAsArray, inPortNumber, inVersion });
+    await StartFuncFromForValidateColumnAsIs({ inEditorPath, inTableName, inColumnsAsArray, inPortNumber, inVersion });
+
 };
 
 module.exports = { StartFunc };
