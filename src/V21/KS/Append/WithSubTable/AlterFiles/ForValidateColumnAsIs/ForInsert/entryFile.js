@@ -4,6 +4,7 @@ const { StartFunc: StartFuncFromInDals } = require("./inDals");
 const { StartFunc: StartFuncFromInKF } = require("./inKF");
 const { StartFunc: StartFuncFromAlterRestFiles } = require("./alterRestFiles");
 const { StartFunc: StartFuncFromMiddlewares } = require("./inMiddlewares");
+
 const CommonTaskName = "Validate/AsIs";
 
 async function StartFunc({ inEditorPath, inTableName, inColumnsAsArray, inPortNumber, inVersion }) {

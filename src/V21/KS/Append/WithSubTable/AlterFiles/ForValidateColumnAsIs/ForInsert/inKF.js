@@ -9,27 +9,39 @@ async function StartFunc({ inEditorPath, inTableName, inColumnsAsArray, inVersio
 
     const LocaFileName = `${inEditorPath}/${LocalVersion}/${inTableName}/${LocalTaskName}/KFs/insertToFile.js`;
 
+    let LocalLines = await processLineByLine({ inFileName: LocaFileName });
+
+    LocalFuncForDeclare({ inColumnsAsArray: inColumnsAsArray, inLines: LocalLines });
+    LocalFuncForDeclareString({ inColumnsAsArray: inColumnsAsArray, inLines: LocalLines });
+
+    LocalFuncWriteFile({ inLinesArray: LocalLines, inEditorPath: LocaFileName });
+};
+
+const LocalFuncForDeclare = ({ inColumnsAsArray, inLines }) => {
+    let LocalLines = inLines;
+
     const LocalForInput = inColumnsAsArray.map(element => `LocalCoumn${element}`);
 
     const LocalColumnsToString = LocalForInput.join(",");
-
-    const LocalForObject = inColumnsAsArray.map(element => `${element} : LocalCoumn${element}`);
-
-    let LocalLines = await processLineByLine({ inFileName: LocaFileName });
 
     let LocalFindIndex = LocalLines.findIndex((element) => element.includes(CommonRouterSearch));
 
     if (LocalFindIndex >= 0) {
         LocalLines[LocalFindIndex] = LocalLines[LocalFindIndex].replace("{}", `{${LocalColumnsToString}}`);
+        LocalLines[LocalFindIndex] = LocalLines[LocalFindIndex].replace("{ }", `{${LocalColumnsToString}}`);
     };
+};
+
+const LocalFuncForDeclareString = ({ inColumnsAsArray, inLines }) => {
+    let LocalLines = inLines;
+
+    const LocalForObject = inColumnsAsArray.map(element => `${element} : LocalCoumn${element}`);
 
     let LocalFindDeclareIndex = LocalLines.findIndex((element) => element.includes(CommonDeclareString));
 
     if (LocalFindDeclareIndex >= 0) {
         LocalLines[LocalFindDeclareIndex] = LocalLines[LocalFindDeclareIndex].replace("{}", `{${LocalForObject}}`);
     };
-
-    LocalFuncWriteFile({ inLinesArray: LocalLines, inEditorPath: LocaFileName });
 };
 
 const LocalFuncWriteFile = ({ inLinesArray, inEditorPath }) => {

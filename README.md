@@ -338,6 +338,12 @@ write end points in nodejs
 
 - started for schema json changes...
 
+### 1.21.2
+
+- \src\V21\KS\Append\WithSubTable\AlterFiles\ForValidateColumnAsIs\ForInsert\inKF.js function wise
+
+1.21.2
+
 ## License
 
 MIT

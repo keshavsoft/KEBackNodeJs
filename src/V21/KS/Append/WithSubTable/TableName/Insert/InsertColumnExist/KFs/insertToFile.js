@@ -2,7 +2,7 @@ import fs from "fs";
 
 import ParamsJson from '../../../CommonFuncs/params.json' with {type: 'json'};
 
-const StartFunc = ({}) => {
+const StartFunc = ({ }) => {
   const LocalFileName = ParamsJson.TableName;
   const LocalDataPath = ParamsJson.DataPath;
 
