@@ -342,7 +342,13 @@ write end points in nodejs
 
 - \src\V21\KS\Append\WithSubTable\AlterFiles\ForValidateColumnAsIs\ForInsert\inKF.js function wise
 
-1.21.2
+### 1.21.3
+
+- \src\V21\KS\Append\WithSubTable\ServerRun.js function wise
+
+### 1.22.1
+
+- secured and token working good, but not tested for next 1+ versions
 
 ## License
 

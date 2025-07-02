@@ -1,0 +1,5 @@
+POST http://localhost:{PORT}{SubRoute}/InsertAsIsNoPk
+Content-Type: application/json
+
+{
+}
