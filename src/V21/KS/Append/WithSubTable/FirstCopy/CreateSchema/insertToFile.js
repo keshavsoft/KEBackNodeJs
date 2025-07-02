@@ -14,20 +14,21 @@ const StartFunc = ({ inToPath }) => {
     fse.writeFileSync(
         `${LocalToPath}/schema.json`,
         JSON.stringify({
-            TableName: LocalTableName,
-            Tables: ["Sample2", "Sample3"],
-            Columns: [
-                {
-                    field: "Col1",
-                    unique: true,
-                    type: "STRING",
-                },
-                {
-                    field: "Col2",
-                    unique: false,
-                    type: "NUMBER",
-                },
-            ],
+            // TableName: LocalTableName,
+            Tables: ["Sample2", "Sample3"]
+            // ,
+            // Columns: [
+            //     {
+            //         field: "Col1",
+            //         unique: true,
+            //         type: "STRING",
+            //     },
+            //     {
+            //         field: "Col2",
+            //         unique: false,
+            //         type: "NUMBER",
+            //     },
+            // ],
         })
     );
 
