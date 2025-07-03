@@ -1,13 +1,8 @@
-const fse = require('fs-extra');
+const StartFunc = ({ inLines, inNewVersion }) => {
+    const LocalLines = inLines;
 
-const updateServerFile = ({ filePath, newVersion }) => {
-    const content = fse.readFileSync(filePath, 'utf-8');
-    const lines = content.split('\n');
-
-    LocalFuncForImport({ inLines: lines, inNewVersion: newVersion });
-    LocalFuncForUse({ inLines: lines, inNewVersion: newVersion });
-
-    fse.writeFileSync(filePath, lines.join('\n'), 'utf-8');
+    LocalFuncForImport({ inLines: LocalLines, inNewVersion });
+    LocalFuncForUse({ inLines: LocalLines, inNewVersion });
 };
 
 const LocalFuncForImport = ({ inLines, inNewVersion }) => {
@@ -40,4 +35,4 @@ const LocalFuncForUse = ({ inLines, inNewVersion }) => {
     };
 };
 
-module.exports = { updateServerFile };
+module.exports = { StartFunc };

@@ -354,6 +354,10 @@ write end points in nodejs
 
 - SOLID S in \src\V22\KS\Append\WithSubTable\AppFile
 
+### 1.22.3
+
+- \src\V22\KS\Append\WithSubTable\AppFile\entryFile.js common app file change
+
 ## License
 
 MIT
