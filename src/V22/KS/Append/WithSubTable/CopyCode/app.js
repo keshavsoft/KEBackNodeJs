@@ -4,11 +4,11 @@ import cookieParser from 'cookie-parser';
 const app = express();
 const port = 3000;
 
+import { StartFunc as StartFuncFromMiddleware } from "./Token/MiddleWares/entryFile.js";
+
 import { router as routerFromToken } from "./Token/routes.js";
 import { router as routerFromV1 } from "./V1/routes.js";
 import { router as routerFromSV1 } from "./SV1/routes.js";
-
-import { StartFunc as StartFuncFromMiddleware } from "./Token/MiddleWares/entryFile.js";
 
 app.use(express.static('public'));
 app.use(cookieParser());

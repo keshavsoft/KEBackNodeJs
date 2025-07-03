@@ -12,7 +12,9 @@ const { StartFunc: StartFuncFromFirstCopy } = require("./FirstCopy/entryFile");
 
 const { StartFunc: StartFuncFromGetMaxVersion } = require("./getMaxVersion");
 const { StartFunc: StartFuncrunNodeApp } = require("./ServerRun");
-const { updateServerFile: FileReadupdateServerFile } = require("./AppFile/server");
+// const { updateServerFile: FileReadupdateServerFile } = require("./AppFile/server");
+const { updateServerFile: updateServerFileFromWithMiddleware } = require("./AppFile/withMiddleware");
+const { updateServerFile: updateServerFileFromWithOutMiddleware } = require("./AppFile/withOutMiddleware");
 
 // pull the columns schema from the json file referred from schema.json
 
@@ -35,6 +37,8 @@ const LocalFuncToActivate = async () => {
         inVersion: LocalVersion
     });
 
+    updateServerFileFromWithOutMiddleware({ filePath: `${LocalToPath}/app.js`, newVersion: LocalVersion });
+
     let LocalVersionSecured = await LocalFuncForMaxVersion({ inVersionStart: "SV" });
 
     await StartFuncFromForMaxVersion({
@@ -43,6 +47,8 @@ const LocalFuncToActivate = async () => {
         inToPath: LocalToPath,
         inVersion: LocalVersionSecured
     });
+
+    updateServerFileFromWithMiddleware({ filePath: `${LocalToPath}/app.js`, newVersion: LocalVersionSecured });
 
     vscode.window.showInformationMessage(`BoilerPlate code to: ${LocalToPath}`);
 

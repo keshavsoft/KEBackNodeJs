@@ -350,6 +350,10 @@ write end points in nodejs
 
 - secured and token working good, but not tested for next 1+ versions
 
+### 1.22.2
+
+- SOLID S in \src\V22\KS\Append\WithSubTable\AppFile
+
 ## License
 
 MIT
