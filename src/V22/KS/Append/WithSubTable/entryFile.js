@@ -27,8 +27,12 @@ const LocalFuncToActivate = async () => {
     let LocalVersion = await LocalFuncForMaxVersion({ inVersionStart: "V" });
 
     const LocalEnvFileAsJson = StartFuncFromReadEnvFile({ inRootPath: LocalToPath });
-    const LocalDataPath = LocalEnvFileAsJson.DataPath;
-    const LocalPortNumber = LocalEnvFileAsJson.PORT;
+    
+    if (LocalEnvFileAsJson == null) {
+        return false
+    };
+    const LocalDataPath = LocalEnvFileAsJson.DataPath ? LocalEnvFileAsJson.DataPath : "";
+    const LocalPortNumber = LocalEnvFileAsJson.PORT ? LocalEnvFileAsJson.PORT : "";
 
     await StartFuncFromForMaxVersion({
         inDataPath: LocalDataPath,
