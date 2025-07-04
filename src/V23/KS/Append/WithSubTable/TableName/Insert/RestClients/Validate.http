@@ -1,5 +1,0 @@
-POST http://localhost:{PORT}{SubRoute}/Validate
-Content-Type: application/json
-
-{
-}
