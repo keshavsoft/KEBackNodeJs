@@ -1,4 +1,4 @@
-POST http://localhost:{PORT}{SubRoute}/InsertColumnExist
+POST http://localhost:{PORT}{SubRoute}/ColumnExist
 Content-Type: application/json
 
 {

@@ -1,4 +1,4 @@
-POST http://localhost:{PORT}{SubRoute}/InsertAsIs
+POST http://localhost:{PORT}{SubRoute}/AsIs
 Content-Type: application/json
 
 {

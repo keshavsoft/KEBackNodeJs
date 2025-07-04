@@ -2,16 +2,18 @@ import express from 'express';
 
 const router = express.Router();
 
-import { router as routerFromSchemaColumnsOnly } from "./SchemaColumnsOnly/routes.js";
-import { router as routerFromInsertColumnExist } from "./InsertColumnExist/routes.js";
-import { router as routerFromInsertAsIs } from "./1.AsIs/routes.js";
-import { router as routerFromAsIsAndTS } from "./3.AsIsAndTS/routes.js";
+import { router as routerFromAsIs } from "./1.AsIs/routes.js";
 import { router as routerFromAsIsNoPk } from "./2.AsIsNoPk/routes.js";
+import { router as routerFromAsIsAndTS } from "./3.AsIsAndTS/routes.js";
+import { router as routerFromColumnExist } from "./4.ColumnExist/routes.js";
+import { router as routerFromSchemaColumnsOnly } from "./5.SchemaColumnsOnly/routes.js";
 
-router.use("/SchemaColumnsOnly", routerFromSchemaColumnsOnly);
-router.use("/InsertColumnExist", routerFromInsertColumnExist);
-router.use("/InsertAsIs", routerFromInsertAsIs);
-router.use("/AsIsAndTS", routerFromAsIsAndTS);
+
+router.use("/AsIs", routerFromAsIs);
 router.use("/AsIsNoPk", routerFromAsIsNoPk);
+router.use("/AsIsAndTS", routerFromAsIsAndTS);
+router.use("/ColumnExist", routerFromColumnExist);
+router.use("/SchemaColumnsOnly", routerFromSchemaColumnsOnly);
+
 
 export { router };
