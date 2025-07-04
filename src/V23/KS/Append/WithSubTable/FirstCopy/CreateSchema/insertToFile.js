@@ -35,7 +35,7 @@ const StartFunc = ({ inToPath }) => {
     fse.writeFileSync(
         `${LocalToPath}/Sample2.json`,
         JSON.stringify({
-            Columns: [
+            columns: [
                 {
                     field: "Col21",
                     unique: true,
@@ -47,14 +47,14 @@ const StartFunc = ({ inToPath }) => {
                     type: "NUMBER",
                 },
             ],
-            Data: []
+            data: []
         })
     );
 
     fse.writeFileSync(
         `${LocalToPath}/Sample3.json`,
         JSON.stringify({
-            Columns: [
+            columns: [
                 {
                     field: "Col31",
                     unique: true,
@@ -66,7 +66,7 @@ const StartFunc = ({ inToPath }) => {
                     type: "NUMBER",
                 },
             ],
-            Data: []
+            data: []
         })
     );
 };
