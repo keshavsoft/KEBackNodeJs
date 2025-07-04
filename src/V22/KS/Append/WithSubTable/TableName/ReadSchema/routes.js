@@ -2,10 +2,14 @@ import express from 'express';
 
 const router = express.Router();
 
-import { router as routerFromColumnsAsArray } from "./ColumnsAsArray/routes.js";
-import { router as routerFromSchema } from "./Schema/routes.js";
+import { router as routerFromAsIs } from "./AsIs/routes.js";
+import { router as routerFromFieldsOnly } from "./FieldsOnly/routes.js";
+import { router as routerFromTitlesOnly } from "./TitlesOnly/routes.js";
+import { router as routerFromBoth } from "./Both/routes.js";
 
-router.use("/ColumnsAsArray", routerFromColumnsAsArray);
-router.use("/Schema", routerFromSchema);
+router.use("/AsIs", routerFromAsIs)
+router.use("/FieldsOnly", routerFromFieldsOnly);
+router.use("/TitlesOnly", routerFromTitlesOnly);
+router.use("/Both", routerFromBoth);
 
 export { router };
