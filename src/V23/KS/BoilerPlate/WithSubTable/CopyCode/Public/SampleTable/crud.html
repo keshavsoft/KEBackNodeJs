@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/headers/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/headers/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/footers/">
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link href="../headers.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- <script src="./assets/js/color-modes.js"></script> -->
+    <!-- <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-table@1.22.6/dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="px-3 py-2 text-bg-dark border-bottom">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+                    <a href="/"
+                        class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+                        <i class="bi bi-bootstrap me-2" style="font-size: 1.8rem;"></i>
+                        <span class="fs-4">KeshavSoft</span>
+                    </a>
+
+
+                    <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+
+                        <li>
+                            <a href="../V2.html" class="nav-link text-white text-center">
+                                <i class="bi bi-house d-block mb-1" style="font-size: 1.5rem;"></i> Home
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="./Farmers.html" class="nav-link text-white d-flex flex-column align-items-center">
+                                <i class="bi bi-arrow-90deg-left d-block mb-1" style="font-size: 1.5rem;"></i>
+                                <span>Parent</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white text-center" href="./create.html">
+                                <i class="bi bi-plus-circle-fill text-primary d-block mb-1"
+                                    style="font-size: 1.5rem;"></i>
+                                Insert
+                            </a>
+                        </li>
+
+                        <li class="nav-item active">
+                            <a class="nav-link text-white rounded text-center bg-light bg-opacity-25"
+                                href="./crud.html">
+                                <i class="bi bi-building-add text-info d-block mb-1 fs-4"></i>
+                                Insert_F
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white rounded text-center" href="./tFInTH.html">
+                                <i class="bi bi-journal-plus text-warning d-block mb-1 fs-4"></i>
+                                Insert_H
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white text-center" href="./show.html">
+                                <i class="bi bi-eye-fill text-success d-block mb-1" style="font-size: 1.5rem;"></i>
+                                Show
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white text-center" href="./alter.html">
+                                <i class="bi bi-pencil-square  text-warning d-block mb-1"
+                                    style="font-size: 1.5rem;"></i>
+                                Alter
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white text-center" href="./Delete.html">
+                                <i class="bi bi-trash-fill text-danger d-block mb-1" style="font-size: 1.5rem;"></i>
+                                Delete
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+    </header>
+    <main class="content">
+        <div id="toolbar" class="">
+            <a id="RefreshATagId" href="#"
+                class="btn d-flex justify-content-center align-items-center RefreshBSTableClass bg-gray-600 text-white"
+                style="width: 40px; height: 40px; border-radius: 50%;">
+                <svg class="icon icon-xs" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"
+                    width="16" height="16">
+                    <path
+                        d="M1.161 8a6.84 6.84 0 1 0 6.842-6.84.58.58 0 1 1 0-1.16 8 8 0 1 1-6.556 3.412l-.663-.577a.58.58 0 0 1 .227-.997l2.52-.69a.58.58 0 0 1 .728.633l-.332 2.592a.58.58 0 0 1-.956.364l-.643-.56A6.8 6.8 0 0 0 1.16 8z" />
+                    <path
+                        d="M6.641 11.671V8.843h1.57l1.498 2.828h1.314L9.377 8.665c.897-.3 1.427-1.106 1.427-2.1 0-1.37-.943-2.246-2.456-2.246H5.5v7.352zm0-3.75V5.277h1.57c.881 0 1.416.499 1.416 1.32 0 .84-.504 1.324-1.386 1.324z" />
+                </svg>
+            </a>
+        </div>
+        <div class="container">
+            <nav class="mt-1" aria-label="breadcrumb">
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item"><a href="../V2.html" class="bi bi-house me-1"></i></a>
+                    <li class="breadcrumb-item"><a href="./Farmers.html">Farmers</a></li>
+                    <li class="breadcrumb-item">Insert Footer <Footer></Footer></a></li>
+            </nav>
+            <div class="card mt-5">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="table" class="table" data-show-footer="true">
+                            <thead>
+                                <tr>
+                                    <th data-formatter="jFLocalSerialColumn" data-width="50">#</th>
+                                    <th data-field="FARMERNAME" data-width="350">FarmerName</th>
+                                    <th data-field="FARMERMOBILE" data-width="200">FarmerMobile</th>
+                                    <th data-field="FARMERCITY" data-width="200">FarmerCity</th>
+                                    <th data-field="FARMERFIELD" data-width="200">FarmerField</th>
+                                    <th data-width="100">Opts.</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th></th>
+                                    <th>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="TableFooterItemNameInputId"
+                                                autocomplete="off" placeholder="Enter FarmerName" required>
+                                            <div class="invalid-feedback">
+                                                Please provide correct Name.
+                                            </div>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="input-group">
+                                            <input name="Mobile" id="TableFooterItemCategoryInputId" type="text"
+                                                placeholder="Enter Mobile Number" class="form-control"
+                                                autocomplete="off" required
+                                                oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)">
+                                            <div class="invalid-feedback">
+                                                Please provide correct Mobile Number.
+                                            </div>
+                                        </div>
+
+
+                                    </th>
+
+                                    <th>
+                                        <div class="input-group">
+                                            <input class="form-control" id="TableFooterItemGroupInputId" type="text"
+                                                placeholder="Enter FarmerCity">
+                                            <div class="invalid-feedback">
+                                                Please provide correct City.
+                                            </div>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="input-group">
+                                            <input class="form-control" id="TableFooterFarmerFieldInputId" type="text"
+                                                placeholder="Enter FarmerField">
+                                            <div class="invalid-feedback">
+                                                Please provide correct Field.
+                                            </div>
+                                        </div>
+                                    </th>
+                                    <th class="text-start">
+                                        <button class="btn btn-outline-success" type="button"
+                                            id="TableFooterSaveButtonId">
+                                            Save
+                                        </button>
+                                    </th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="mt-5 border-top text-dark" style="margin-top: 7rem !important;">
+        <div class="container py-4 d-flex flex-wrap justify-content-between align-items-center">
+            <div class="col-md-4 d-flex align-items-center mb-3 mb-md-0">
+                <a href="/" class="me-2 text-dark text-decoration-none lh-1" aria-label="Bootstrap">
+                    <i class="bi bi-bootstrap" style="font-size: 1.5rem;"></i>
+                </a>
+                <span>&copy; 2025 <a href="https://keshavsoft.com"
+                        style="text-decoration: none; color: black; font-weight: 500;"> KeshavSoft</a>, Inc</span>
+            </div>
+
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex mb-0">
+                <li class="ms-3">
+                    <a class="text-dark" href="#" aria-label="Instagram">
+                        <i class="bi bi-instagram" style="font-size: 1.5rem;"></i>
+                    </a>
+                </li>
+                <li class="ms-3">
+                    <a class="text-dark" href="#" aria-label="Facebook">
+                        <i class="bi bi-facebook" style="font-size: 1.5rem;"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js "
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r "
+        crossorigin="anonymous "></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js "
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+ "
+        crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11 "></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-table@1.22.6/dist/bootstrap-table.min.js"></script>
+
+    <script>
+        function jFLocalSerialColumn(value, row, index) {
+            return index + 1;
+        };
+    </script>
+    <script type="module" src="./Js/Crud/entryFile.js"></script>
+</body>
+
+</html>

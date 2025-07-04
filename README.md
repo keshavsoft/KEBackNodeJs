@@ -358,6 +358,10 @@ write end points in nodejs
 
 - \src\V22\KS\Append\WithSubTable\AppFile\entryFile.js common app file change
 
+### 1.23.1
+
+- Insert folder names changed with numbering
+
 ## License
 
 MIT
