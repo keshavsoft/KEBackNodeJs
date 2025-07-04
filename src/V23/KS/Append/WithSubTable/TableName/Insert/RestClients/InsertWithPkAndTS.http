@@ -1,5 +1,0 @@
-POST http://localhost:{PORT}{SubRoute}/InsertWithPkAndTS
-Content-Type: application/json
-
-{
-}

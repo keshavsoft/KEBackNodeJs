@@ -1,0 +1,5 @@
+POST http://localhost:{PORT}{SubRoute}/SchemaColumnsOnly
+Content-Type: application/json
+
+{
+}
