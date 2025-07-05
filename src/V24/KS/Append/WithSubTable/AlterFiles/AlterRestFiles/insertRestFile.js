@@ -19,7 +19,18 @@ async function StartFunc({ inFolderPath, inPortNumber, inColumnsAsArray }) {
 
             let LocalLines = [];
 
-            LocalLines.push(`POST http://localhost:${inPortNumber}${LocalRelativePath.replaceAll(`\\`, "/")}`);
+            const resultObject = inColumnsAsArray.reduce((acc, key) => {
+                acc[key] = "";
+                return acc;
+            }, {});
+
+            const jsonString = JSON.stringify(resultObject, null, 2);
+
+            LocalLines.push(`POST http://localhost:${inPortNumber}${LocalRelativePath.replaceAll(`\\`, "/")}/Insert/${file.split(".")[1]}`);
+
+            LocalLines.push("Content-Type: application/json");
+            LocalLines.push("");
+            LocalLines.push(jsonString);
 
             LocalFuncWriteFile({ inLinesArray: LocalLines, inEditorPath: filePath });
         };
