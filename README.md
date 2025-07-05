@@ -362,6 +362,10 @@ write end points in nodejs
 
 - Insert folder names changed with numbering
 
+### 1.24.1
+
+- dynamic http files generation at insert...
+
 ## License
 
 MIT
