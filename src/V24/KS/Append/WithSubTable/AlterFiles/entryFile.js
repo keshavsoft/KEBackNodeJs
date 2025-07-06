@@ -29,7 +29,6 @@ const StartFunc = async ({ inEditorPath, inTableName, inDataPath, inPortNumber, 
     await StartFuncFromForInsertColumnExist({ inEditorPath, inTableName, inColumnsAsArray, inPortNumber, inVersion });
     await StartFuncFromForAlterWithColumns({ inEditorPath, inTableName, inColumnsAsArray, inPortNumber, inVersion });
     await StartFuncFromForValidateColumnAsIs({ inEditorPath, inTableName, inColumnsAsArray, inPortNumber, inVersion });
-
 };
 
 module.exports = { StartFunc };

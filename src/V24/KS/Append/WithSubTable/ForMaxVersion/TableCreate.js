@@ -33,8 +33,6 @@ const StartFunc = async ({ inTableName, inColumnsAsArray, inDataPath, inPortNumb
         });
 
         vscode.window.showInformationMessage(`BoilerPlate code to: ${LocalToPath}`);
-
-        // StartFuncFromOpenApp({ inToPath: LocalToPath });
     } catch (error) {
         vscode.window.showErrorMessage(`Error: ${error.message}`);
     };

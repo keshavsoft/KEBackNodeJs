@@ -366,6 +366,10 @@ write end points in nodejs
 
 - dynamic http files generation at insert...
 
+### 1.24.2
+
+- still working on copy folders in app alter path...
+
 ## License
 
 MIT

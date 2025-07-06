@@ -26,10 +26,11 @@ const LocalFuncToActivate = async () => {
     let LocalVersion = await LocalFuncForMaxVersion({ inVersionStart: "V" });
 
     const LocalEnvFileAsJson = StartFuncFromReadEnvFile({ inRootPath: LocalToPath });
-    
+
     if (LocalEnvFileAsJson == null) {
         return false
     };
+
     const LocalDataPath = LocalEnvFileAsJson.DataPath ? LocalEnvFileAsJson.DataPath : "";
     const LocalPortNumber = LocalEnvFileAsJson.PORT ? LocalEnvFileAsJson.PORT : "";
 
@@ -40,11 +41,6 @@ const LocalFuncToActivate = async () => {
         inVersion: LocalVersion
     });
 
-    // updateServerFileFromWithOutMiddleware({
-    //     filePath: `${LocalToPath}/app.js`,
-    //     newVersion: LocalVersion
-    // });
-
     let LocalVersionSecured = await LocalFuncForMaxVersion({ inVersionStart: "SV" });
 
     await StartFuncFromForMaxVersion({
@@ -54,14 +50,11 @@ const LocalFuncToActivate = async () => {
         inVersion: LocalVersionSecured
     });
 
-    // updateServerFileFromWithMiddleware({
-    //     filePath: `${LocalToPath}/app.js`,
-    //     newVersion: LocalVersionSecured
-    // });
     updateServerFileFromAppFile({
         filePath: `${LocalToPath}/app.js`,
         newVersion: LocalVersion,
-        inNewVersionProtected: LocalVersionSecured
+        inNewVersionProtected: LocalVersionSecured,
+        inToPath: LocalToPath
     });
 
     vscode.window.showInformationMessage(`BoilerPlate code to: ${LocalToPath}`);

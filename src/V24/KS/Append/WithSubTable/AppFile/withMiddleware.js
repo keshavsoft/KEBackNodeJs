@@ -1,6 +1,7 @@
 const StartFunc = ({ inLines, inNewVersion }) => {
     const LocalLines = inLines;
 
+    LocalFuncForImportMiddleware({ inLines: LocalLines });
     LocalFuncForImport({ inLines: LocalLines, inNewVersion });
     LocalFuncForUse({ inLines: LocalLines, inNewVersion });
 };
@@ -31,6 +32,22 @@ const LocalFuncForUse = ({ inLines, inNewVersion }) => {
     if (!alreadyUsed) {
         const lastUseIndex = LocalLines.reduce((acc, line, i) =>
             line.trim().startsWith('app.use(') ? i : acc, -1);
+        LocalLines.splice(lastUseIndex + 1, 0, useLine);
+    };
+};
+
+const LocalFuncForImportMiddleware = ({ inLines }) => {
+    const LocalLines = inLines;
+
+    const useLine = `import { StartFunc as StartFuncFromMiddleware } from "./Token/MiddleWares/entryFile.js";`;
+
+    const alreadyUsed = LocalLines.some(line => line.trim() === useLine);
+
+    if (!alreadyUsed) {
+        const lastUseIndex = LocalLines.reduce((acc, line, i) =>
+            line.trim().startsWith('const port = ') || line.trim().startsWith("let port = ") ? i : acc, -1);
+
+        LocalLines.splice(lastUseIndex + 1, 0, "");
         LocalLines.splice(lastUseIndex + 1, 0, useLine);
     };
 };
