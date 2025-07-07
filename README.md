@@ -370,6 +370,10 @@ write end points in nodejs
 
 - still working on copy folders in app alter path...
 
+### 1.24.3
+
+- app.js alter perfect with middleware for token
+
 ## License
 
 MIT
