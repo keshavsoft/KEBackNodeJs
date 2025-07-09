@@ -1,4 +1,0 @@
-POST http://localhost:{PORT}{SubRoute}/SelColumns
-Content-Type: application/json
-
-[]
