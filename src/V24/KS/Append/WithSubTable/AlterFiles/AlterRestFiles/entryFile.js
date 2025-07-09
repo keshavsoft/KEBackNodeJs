@@ -3,6 +3,7 @@ const { StartFunc: StartFuncFromInsertRestFile } = require("./insertRestFile");
 const { StartFunc: StartFuncFromReadRestFile } = require("./ReadRestFile");
 const { StartFunc: StartFuncFromAlterRestFile } = require("./AlterRestFile");
 const { StartFunc: StartFuncFromDeleteRestFile } = require("./DeleteRestFile");
+const { StartFunc: StartFuncFromAggregateRestFile } = require("./AggregateRestFile");
 
 const CommonFolderName = "Read";
 const CommonDeleteFolderName = "Delete";
@@ -45,6 +46,12 @@ async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion, i
         inColumnsAsArray
     });
 
+    await StartFuncFromAggregateRestFile({
+        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/AggregateFunctions`,
+        inTableName, inPortNumber,
+        inColumnsAsArray
+    });
+
     // await StartFuncFromReadFolder({
     //     inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonDeleteFolderName}/RestClients`,
     //     inTableName, inPortNumber
@@ -66,10 +73,10 @@ async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion, i
         inTableName, inPortNumber
     });
 
-    await StartFuncFromReadFolder({
-        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonAggregateFunctions}/RestClients`,
-        inTableName, inPortNumber
-    });
+    // await StartFuncFromReadFolder({
+    //     inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonAggregateFunctions}/RestClients`,
+    //     inTableName, inPortNumber
+    // });
 
      await StartFuncFromReadFolder({
         inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonSubTableFunctions}/Read/RestClients`,
