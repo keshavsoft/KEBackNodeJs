@@ -1,5 +1,6 @@
 const { StartFunc: StartFuncFromReadFolder } = require("./readFolder");
 const { StartFunc: StartFuncFromInsertRestFile } = require("./insertRestFile");
+const { StartFunc: StartFuncFromReadRestFile } = require("./ReadRestFile");
 
 const CommonFolderName = "Read";
 const CommonDeleteFolderName = "Delete";
@@ -13,13 +14,19 @@ const CommonValidateFunctions = "Validate";
 async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion, inColumnsAsArray }) {
     const LocalVersion = inVersion;
 
-    await StartFuncFromReadFolder({
-        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonFolderName}/RestClients`,
-        inTableName, inPortNumber
-    });
+    // await StartFuncFromReadFolder({
+    //     inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonFolderName}/RestClients`,
+    //     inTableName, inPortNumber
+    // });
 
     await StartFuncFromInsertRestFile({
         inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/Insert`,
+        inTableName, inPortNumber,
+        inColumnsAsArray
+    });
+
+     await StartFuncFromReadRestFile({
+        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/Read`,
         inTableName, inPortNumber,
         inColumnsAsArray
     });
