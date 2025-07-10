@@ -9,22 +9,13 @@ const { StartFunc: StartFuncFromSubReadRestFile } = require("./SubReadRestFile")
 const { StartFunc: StartFuncFromSubAlterRestFile } = require("./SubAlterRestFile");
 const { StartFunc: StartFuncFromSubDeleteRestFile } = require("./SubDeleteRestFile");
 
-const CommonFolderName = "Read";
-const CommonDeleteFolderName = "Delete";
-const CommonAlterFolderName = "Alter";
 const CommonReadSchemaFolderName = "ReadSchema";
 const CommonGroupByFolderName = "GroupBy";
-const CommonAggregateFunctions = "AggregateFunctions";
 const CommonSubTableFunctions = "SubTable";
 const CommonValidateFunctions = "Validate";
 
 async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion, inColumnsAsArray }) {
     const LocalVersion = inVersion;
-
-    // await StartFuncFromReadFolder({
-    //     inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonFolderName}/RestClients`,
-    //     inTableName, inPortNumber
-    // });
 
     await StartFuncFromInsertRestFile({
         inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/Insert`,
@@ -56,17 +47,6 @@ async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion, i
         inColumnsAsArray
     });
 
-    // await StartFuncFromReadFolder({
-    //     inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonDeleteFolderName}/RestClients`,
-    //     inTableName, inPortNumber
-    // });
-    
-
-    // await StartFuncFromReadFolder({
-    //     inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonAlterFolderName}/RestClients`,
-    //     inTableName, inPortNumber
-    // });
-
     await StartFuncFromReadFolder({
         inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonReadSchemaFolderName}/RestClients`,
         inTableName, inPortNumber
@@ -76,11 +56,6 @@ async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion, i
         inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonGroupByFolderName}/RestClients`,
         inTableName, inPortNumber
     });
-
-    // await StartFuncFromReadFolder({
-    //     inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonAggregateFunctions}/RestClients`,
-    //     inTableName, inPortNumber
-    // });
 
     await StartFuncFromSubReadRestFile({
         inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonSubTableFunctions}/Read`,
