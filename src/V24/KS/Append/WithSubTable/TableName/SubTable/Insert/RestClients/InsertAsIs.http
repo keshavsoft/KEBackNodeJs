@@ -1,5 +1,0 @@
-POST http://localhost:{PORT}{SubRoute}/InsertAsIs/{RowIndex}/{KeyName}
-Content-Type: application/json
-
-{
-}
