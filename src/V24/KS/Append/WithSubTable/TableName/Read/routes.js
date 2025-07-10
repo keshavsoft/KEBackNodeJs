@@ -8,8 +8,8 @@ import { router as routerFromSelColsAsArray } from "./3.SelColsAsArray/routes.js
 import { router as routerFromSelColumns } from "./4.SelColumns/routes.js";
 import { router as routerFromSingleColumn } from "./5.SingleColumn/routes.js";
 
-import { router as routerFromGroupSingleColLength } from "../GroupBy/GroupSingleColLength/routes.js";
-import { router as routerFromGroupSingleColumn } from "../GroupBy/GroupSingleColumn/routes.js";
+import { router as routerFromGroupSingleColLength } from "../GroupBy/SingleColLength/routes.js";
+import { router as routerFromGroupSingleColumn } from "../GroupBy/1.SingleColumn/routes.js";
 
 router.use("/AsIs", routerFromAsIs);
 router.use("/RowDataWithPk", routerFromRowDataWithPk);
