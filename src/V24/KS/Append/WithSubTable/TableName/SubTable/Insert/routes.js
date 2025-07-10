@@ -2,10 +2,10 @@ import express from 'express';
 
 const router = express.Router();
 
-import { router as routerFromInsertAsIs } from "./InsertAsIs/routes.js";
-import { router as routerFromInsertWithUuIdAndDateTime } from "./InsertWithUuIdAndDateTime/routes.js";
+import { router as routerFromAsIs } from "./1.AsIs/routes.js";
+import { router as routerFromWithUuIdAndDT } from "./2.WithUuIdAndDT/routes.js";
 
-router.use("/InsertAsIs", routerFromInsertAsIs);
-router.use("/InsertWithUuIdAndDateTime", routerFromInsertWithUuIdAndDateTime);
+router.use("/AsIs", routerFromAsIs);
+router.use("/WithUuIdAndDT", routerFromWithUuIdAndDT);
 
 export { router };

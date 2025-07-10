@@ -4,6 +4,10 @@ const { StartFunc: StartFuncFromReadRestFile } = require("./ReadRestFile");
 const { StartFunc: StartFuncFromAlterRestFile } = require("./AlterRestFile");
 const { StartFunc: StartFuncFromDeleteRestFile } = require("./DeleteRestFile");
 const { StartFunc: StartFuncFromAggregateRestFile } = require("./AggregateRestFile");
+const { StartFunc: StartFuncFromSubinsertRestFile } = require("./SubinsertRestFile");
+const { StartFunc: StartFuncFromSubReadRestFile } = require("./SubReadRestFile");
+const { StartFunc: StartFuncFromSubAlterRestFile } = require("./SubAlterRestFile");
+const { StartFunc: StartFuncFromSubDeleteRestFile } = require("./SubDeleteRestFile");
 
 const CommonFolderName = "Read";
 const CommonDeleteFolderName = "Delete";
@@ -78,24 +82,28 @@ async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion, i
     //     inTableName, inPortNumber
     // });
 
-     await StartFuncFromReadFolder({
-        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonSubTableFunctions}/Read/RestClients`,
-        inTableName, inPortNumber
+    await StartFuncFromSubReadRestFile({
+        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonSubTableFunctions}/Read`,
+        inTableName, inPortNumber,
+        inColumnsAsArray
     });
 
-    await StartFuncFromReadFolder({
-        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonSubTableFunctions}/Insert/RestClients`,
-        inTableName, inPortNumber
+    await StartFuncFromSubinsertRestFile({
+        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonSubTableFunctions}/Insert`,
+        inTableName, inPortNumber,
+        inColumnsAsArray
     });
 
-     await StartFuncFromReadFolder({
-        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonSubTableFunctions}/Alter/RestClients`,
-        inTableName, inPortNumber
+    await StartFuncFromSubAlterRestFile({
+        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonSubTableFunctions}/Alter`,
+        inTableName, inPortNumber,
+        inColumnsAsArray
     });
 
-    await StartFuncFromReadFolder({
-        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonSubTableFunctions}/Delete/RestClients`,
-        inTableName, inPortNumber
+    await StartFuncFromSubDeleteRestFile({
+        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonSubTableFunctions}/Delete`,
+        inTableName, inPortNumber,
+        inColumnsAsArray
     });
 
      await StartFuncFromInsertRestFile({
