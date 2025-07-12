@@ -1,5 +1,6 @@
 const fs = require("fs");
 const CommonFolderName = "Schemas";
+const path = require("path");
 
 const StartFunc = ({ inToPath }) => {
     const LocalToPath = inToPath;
@@ -8,50 +9,16 @@ const StartFunc = ({ inToPath }) => {
         fs.writeFileSync(
             `${LocalToPath}/schema.json`,
             JSON.stringify({
-                Tables: ["Sample2", "Sample3"]
+                Tables: ["TasksTable"]
             })
         );
 
-        fs.mkdirSync( `${LocalToPath}/${CommonFolderName}`);
+        fs.mkdirSync(`${LocalToPath}/${CommonFolderName}`);
 
-        fs.writeFileSync(
-            `${LocalToPath}/${CommonFolderName}/Sample2.json`,
-            JSON.stringify({
-                columns: [
-                    {
-                        field: "Col21",
-                        unique: true,
-                        type: "STRING",
-                    },
-                    {
-                        field: "Col22",
-                        unique: false,
-                        type: "NUMBER",
-                    },
-                ],
-                data: []
-            })
+        fs.copyFileSync(
+            path.join(__dirname, "TasksTable.json"),
+            `${LocalToPath}/${CommonFolderName}/TasksTable.json`
         );
-
-        fs.writeFileSync(
-            `${LocalToPath}/${CommonFolderName}/Sample3.json`,
-            JSON.stringify({
-                columns: [
-                    {
-                        field: "Col31",
-                        unique: true,
-                        type: "STRING",
-                    },
-                    {
-                        field: "Col32",
-                        unique: false,
-                        type: "NUMBER",
-                    },
-                ],
-                data: []
-            })
-        );
-
     } catch (err) {
         console.error('Error creating directory:', err.message);
     };

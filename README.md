@@ -382,6 +382,10 @@ write end points in nodejs
 
 - Schemas folder getting created
 
+### 1.25.3
+
+- front end also created from gulp ui
+
 ## License
 
 MIT

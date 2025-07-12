@@ -1,6 +1,6 @@
 const vscode = require('vscode');
 
-const { StartFunc: StartFuncFromChecksOpenApp } = require("../Checks/openApp");
+const { StartFunc: StartFuncFromOpenSchemaJson } = require("../Checks/openSchemaJson");
 const { StartFunc: StartFuncFromInsertToFile } = require("./insertToFile");
 
 const StartFunc = async ({ inToPath }) => {
@@ -12,7 +12,7 @@ const StartFunc = async ({ inToPath }) => {
             if (selection === GoToHelp) {
                 StartFuncFromInsertToFile({ inToPath });
 
-                StartFuncFromChecksOpenApp({ inToPath: LocalToPath });
+                StartFuncFromOpenSchemaJson({ inToPath: LocalToPath });
             };
         });
 };
