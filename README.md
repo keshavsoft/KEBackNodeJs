@@ -378,6 +378,10 @@ write end points in nodejs
 
 - Schemas folder started...
 
+### 1.25.2
+
+- Schemas folder getting created
+
 ## License
 
 MIT
