@@ -15,7 +15,7 @@ import { router as routerFromToken } from "./Token/routes.js";
 import { router as routerFromV1 } from "./V1/routes.js";
 import { router as routerFromSV1 } from "./SV1/routes.js";
 
-app.use(express.static('public'));
+app.use(express.static('Public'));
 app.use(cookieParser());
 
 app.use("/Token", routerFromToken);

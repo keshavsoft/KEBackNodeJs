@@ -394,6 +394,10 @@ write end points in nodejs
 
 - app.js changed
 
+### 1.25.6
+
+- npm run added in package
+
 ## License
 
 MIT
