@@ -4,6 +4,8 @@ import ParamsJson from '../../../CommonFuncs/params.json' with {type: 'json'};
 const StartFunc = ({ inRequestBody }) => {
   const LocalFileName = ParamsJson.TableName;
   const LocalDataPath = ParamsJson.DataPath;
+  let LocalKey = inRequestBody.Key;
+  let LocalValue = inRequestBody.Value
 
   const filePath = `${LocalDataPath}/${LocalFileName}.json`;
   let LocalReturnObject = { KTF: false };
@@ -15,15 +17,17 @@ const StartFunc = ({ inRequestBody }) => {
       data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
     }
 
-    const existingPks = Object.keys(data).map(Number);
-    const MaxPk = (existingPks.length > 0 ? Math.max(...existingPks) : 0) + 1;
+    if (LocalKey in data) {
+      LocalReturnObject.KReason = "Key already present";
 
-    data[MaxPk] = inRequestBody;
+      return LocalReturnObject;
+    };
+    data[LocalKey] = LocalValue;
 
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
 
     LocalReturnObject.KTF = true;
-    LocalReturnObject.SuccessText = `Inserted pk ${MaxPk} into ${LocalFileName}.json successfully`;
+    LocalReturnObject.SuccessText = `Inserted ${LocalKey} into ${LocalFileName}.json successfully`;
 
     return LocalReturnObject;
 
