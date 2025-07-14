@@ -29,7 +29,11 @@ async function StartFunc({ inFolderPath, inPortNumber, inColumnsAsArray }) {
                 return acc;
             }, {});
 
-            const jsonString = JSON.stringify(resultObject, null, 2);
+            const jsonString = JSON.stringify({
+                Key: "",
+                Value: ""
+            }, null, 2);
+
 
             const relativeApiPath = LocalRelativePath.replaceAll(`\\`, "/");
             const tableName = file.split(".")[1];
