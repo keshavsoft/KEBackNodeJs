@@ -398,6 +398,10 @@ write end points in nodejs
 
 - npm run added in package
 
+### 2.26.1
+
+- KS.ObjectCrud.OnlyBackEnd started
+
 ## License
 
 MIT

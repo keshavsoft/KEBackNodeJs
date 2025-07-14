@@ -3,7 +3,7 @@
   "displayName": "KEBackNodeJs",
   "publisher": "KeshavSoft",
   "description": "KeshavSoft Extension to enhance the development of web applications",
-  "version": "1.25.6",
+  "version": "2.26.1",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -325,6 +325,14 @@
       {
         "command": "KS.App.CreateNew",
         "title": "KS App CreateNew"
+      },
+      {
+        "command": "KS.Append.OnlyBackEnd",
+        "title": "KS Append OnlyBackEnd"
+      },
+      {
+        "command": "KS.ObjectCrud.OnlyBackEnd",
+        "title": "KS ObjectCrud OnlyBackEnd"
       }
     ],
     "menus": {
