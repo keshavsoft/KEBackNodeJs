@@ -14,6 +14,7 @@ const { StartFunc: StartFuncFromGetMaxVersion } = require("./getMaxVersion");
 const { StartFunc: StartFuncrunNodeApp } = require("./ServerRun");
 
 const { updateServerFile: updateServerFileFromAppFile } = require("./AppFile/entryFile");
+const { StartFunc: StartFuncFromForDataFiles } = require("./ForDataFiles/entryFile");
 
 // pull the columns schema from the json file referred from schema.json
 
@@ -49,6 +50,8 @@ const LocalFuncToActivate = async () => {
         inToPath: LocalToPath,
         inVersion: LocalVersionSecured
     });
+
+    StartFuncFromForDataFiles({ inToPath: LocalToPath });
 
     updateServerFileFromAppFile({
         filePath: `${LocalToPath}/app.js`,

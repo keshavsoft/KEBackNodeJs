@@ -402,6 +402,10 @@ write end points in nodejs
 
 - KS.ObjectCrud.OnlyBackEnd started
 
+### 2.26.2
+
+- KS.ObjectCrud.OnlyBackEnd common data folder creation
+
 ## License
 
 MIT

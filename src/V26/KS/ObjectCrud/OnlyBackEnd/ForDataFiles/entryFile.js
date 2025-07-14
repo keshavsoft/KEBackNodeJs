@@ -1,6 +1,6 @@
-const path = require('path');
-const { StartFunc: StartFuncFromTableCreates } = require('./TableCreate');
+const { StartFunc: StartFuncFromCreateDataFile } = require("./createDataFile");
 const fs = require("fs");
+const path = require('path');
 
 const LocalFuncReadSchemaJson = ({ inRootPath }) => {
     try {
@@ -13,32 +13,22 @@ const LocalFuncReadSchemaJson = ({ inRootPath }) => {
     }
 };
 
-const StartFunc = async ({ inDataPath, inPortNumber, inToPath, inVersion }) => {
-    const localVersion = inVersion;
+const StartFunc = async ({ inToPath }) => {
     const LocalToPath = inToPath;
 
     const LocalJsonSchema = LocalFuncReadSchemaJson({ inRootPath: LocalToPath });
     const LocalTablesArray = LocalJsonSchema.Tables;
 
     for (const tableName of LocalTablesArray) {
-        const fromTablePath = path.join(__dirname, '..', tableName);
-        const toTablePath = path.join(LocalToPath, localVersion, tableName);
         const LoopInsideTablePath = path.join(LocalToPath, "Schemas", `${tableName}.json`);
 
         const LocalFromTableJson = LocalFuncReadTableSchema({ inRootPath: LoopInsideTablePath })
 
-        const LocalColumnsAsArray = LocalFromTableJson.columns.map(el => el.field);
-        const LocalData = LocalFromTableJson.data ? LocalFromTableJson.data : [];
-        const LocalColumnsWithSchema = LocalFromTableJson.columns;
+        const LocalData = LocalFromTableJson.data ? LocalFromTableJson.data : {};
 
-        await StartFuncFromTableCreates({
-            inFromTablePath: fromTablePath, inToTablePath: toTablePath,
+        await StartFuncFromCreateDataFile({
             inTableName: tableName,
-            inColumnsAsArray: LocalColumnsAsArray,
-            inDataPath,
-            inPortNumber, inToPath: LocalToPath,
-            inColumnsWithSchema: LocalColumnsWithSchema,
-            inData: LocalData, inVersion: localVersion
+            inData: LocalData
         });
     };
 };
