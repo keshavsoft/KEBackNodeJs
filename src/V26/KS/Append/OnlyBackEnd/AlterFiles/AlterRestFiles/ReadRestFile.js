@@ -7,29 +7,47 @@ async function StartFunc({ inFolderPath, inPortNumber }) {
         const LocalRootPath = LocalFuncGetWorkSpaceFolder();
         const activeFileFolderPath = path.dirname(inFolderPath);
         const LocalRelativePath = activeFileFolderPath.replace(LocalRootPath, "");
+        const relativeApiPath = LocalRelativePath.replaceAll(`\\`, "/");
 
         LocalFuncCreateFolder({ inFolderPath });
 
         const files = fs.readdirSync(inFolderPath);
 
         for (const file of files) {
-
             if (file === "routes.js" || file === "RestClients") {
                 continue;
             }
 
+            const fileParts = file.split(".");
+            if (fileParts.length < 2) continue;
+
+            const tableName = fileParts[1];
             const filePath = path.join(inFolderPath, "RestClients", `${file.replace(".", "_")}.http`);
-
-            let LocalLines = [];
-
-            const relativeApiPath = LocalRelativePath.replaceAll(`\\`, "/");
-            const tableName = file.split(".")[1];
             const apiPath = `${relativeApiPath}/Read/${tableName}`;
             const fullUrl = `http://localhost:${inPortNumber}${apiPath}`;
+            let LocalLines = [];
 
-            LocalLines.push(`GET ${fullUrl}`);
+            switch (tableName) {
+                case "SelColumns":
+                case "SelColsAsArray":
+                    LocalLines.push(`POST ${fullUrl}`);
+                    LocalLines.push(`Content-Type: application/json`);
+                    LocalLines.push('');
+                    LocalLines.push(`[ "exampleKey"]`);
+                    break;
+                case "SingleColumn":
+                    LocalLines.push(`GET ${fullUrl}/{Column name}`);
+                    break;
+                case "RowDataWithPk":
+                    LocalLines.push(`GET ${fullUrl}/{pk}`);
+                    break;
+                default:
+                    LocalLines.push(`GET ${fullUrl}`);
+                    break;
+            }
 
             LocalFuncWriteFile({ inLinesArray: LocalLines, inEditorPath: filePath });
+            console.log(`Generated: ${filePath}`);
         }
     } catch (err) {
         console.error('Error reading directory:', err);
@@ -37,24 +55,19 @@ async function StartFunc({ inFolderPath, inPortNumber }) {
 }
 
 const LocalFuncCreateFolder = ({ inFolderPath }) => {
-    try {
-        const restClientsPath = path.join(inFolderPath, "RestClients");
-        if (!fs.existsSync(restClientsPath)) {
-            fs.mkdirSync(restClientsPath);
-            console.log('Directory created successfully!');
-        }
-    } catch (err) {
-        console.error('Error creating directory:', err);
+    const restClientsPath = path.join(inFolderPath, "RestClients");
+    if (!fs.existsSync(restClientsPath)) {
+        fs.mkdirSync(restClientsPath);
+        console.log('Directory created successfully!');
     }
 };
 
 const LocalFuncGetWorkSpaceFolder = () => {
     if (vscode.workspace.workspaceFolders) {
-        const rootUri = vscode.workspace.workspaceFolders[0].uri;
-        const rootPath = rootUri.fsPath;
-        return rootPath;
+        return vscode.workspace.workspaceFolders[0].uri.fsPath;
     } else {
         console.log("No workspace folders found.");
+        return "";
     }
 };
 
