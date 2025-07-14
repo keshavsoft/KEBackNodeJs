@@ -1,12 +1,8 @@
 const StartFunc = (req, res, next) => {
     const LocalBody = req.body;
 
-    if (!LocalBody || typeof LocalBody !== 'object') {
-        return res.status(400).send("Invalid request body.");
-    }
-
-    if (Array.isArray(LocalBody)) {
-        return res.status(400).send("Remove the array from the body.");
+    if (!LocalBody || typeof LocalBody !== 'object' || Array.isArray(LocalBody)) {
+        return res.status(400).send("Request body must be a valid object.");
     }
 
     if (Object.keys(LocalBody).length === 0) {
@@ -15,8 +11,12 @@ const StartFunc = (req, res, next) => {
 
     const { Key: LocalKey, Value: LocalValue } = LocalBody;
 
-    if (!LocalKey || !LocalValue) {
-        return res.status(400).send("Both 'Key' and 'Value' fields are required.");
+    if (LocalKey === undefined || LocalKey === null || LocalKey === '') {
+        return res.status(400).send("'Key' field is required and cannot be empty.");
+    }
+
+    if (LocalValue === undefined || LocalValue === null) {
+        return res.status(400).send("'Value' field is required.");
     }
 
     next();
