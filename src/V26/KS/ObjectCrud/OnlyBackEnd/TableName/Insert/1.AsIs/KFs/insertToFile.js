@@ -1,49 +1,37 @@
 import fs from "fs";
-
 import ParamsJson from '../../../CommonFuncs/params.json' with {type: 'json'};
 
 const StartFunc = ({ inRequestBody }) => {
   const LocalFileName = ParamsJson.TableName;
   const LocalDataPath = ParamsJson.DataPath;
 
-  let LocalinDataToInsert = inRequestBody;
-
   const filePath = `${LocalDataPath}/${LocalFileName}.json`;
-  let LocalReturnObject = {};
-  LocalReturnObject.KTF = false;
+  let LocalReturnObject = { KTF: false };
 
   try {
+    let data = {};
+
     if (fs.existsSync(filePath)) {
-      const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-      let LocalArrayPk = data.map(element => element.pk);
+      data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    }
 
-      let LocalRemoveUndefined = LocalArrayPk.filter(function (element) {
-        return element !== undefined;
-      });
+    const existingPks = Object.keys(data).map(Number);
+    const MaxPk = (existingPks.length > 0 ? Math.max(...existingPks) : 0) + 1;
 
-      let numberArray = LocalRemoveUndefined.map(Number);
-      let MaxPk = Math.max(...numberArray, 0) + 1;
+    data[MaxPk] = inRequestBody;
 
-      let LocalInsertData = { ...LocalinDataToInsert, pk: MaxPk };
-      data.push(LocalInsertData);
+    fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
 
-      fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
+    LocalReturnObject.KTF = true;
+    LocalReturnObject.SuccessText = `Inserted pk ${MaxPk} into ${LocalFileName}.json successfully`;
 
-      LocalReturnObject.KTF = true;
-      LocalReturnObject.SuccessText = `Inserted pk ${MaxPk} In To ${LocalFileName}.json successfully`;
+    return LocalReturnObject;
 
-      return LocalReturnObject;
-    } else {
-      LocalReturnObject.KReason = `File ${LocalFileName}.json does not exist in ${LocalDataPath} folder.`;
-      console.warn(LocalReturnObject.KReason);
-
-      return LocalReturnObject;
-    };
   } catch (err) {
     console.error('Error:', err);
-  };
-
-  return LocalReturnObject;
+    LocalReturnObject.KReason = 'Error writing data';
+    return LocalReturnObject;
+  }
 };
 
 export { StartFunc };
