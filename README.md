@@ -410,6 +410,10 @@ write end points in nodejs
 
 - KS.ObjectCrud.OnlyBackEnd working good
 
+### 2.26.6
+
+- dotenv added in package
+
 ## License
 
 MIT
