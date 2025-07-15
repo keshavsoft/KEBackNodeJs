@@ -2,8 +2,8 @@ import {
     postDefaultFunc as postDefaultFuncFromDal
 } from '../Dals/entryFile.js';
 
-let postDefaultFunc = ({ inRequestBody }) => {
-    return postDefaultFuncFromDal({ inRequestBody });
+let postDefaultFunc = ({ inKey, inValue }) => {
+    return postDefaultFuncFromDal({ inKey, inValue });
 };
 
 export {

@@ -4,9 +4,12 @@ import {
 
 let postFilterDataFromBodyFunc = (req, res) => {
     let LocalRequestBody = req.body;
+    let LocalKey = LocalRequestBody.Key;
+    let LocalValue = LocalRequestBody.Value
 
     let LocalFromRepo = postDefaultFuncFromRepo({
-        inRequestBody: LocalRequestBody
+        inKey: LocalKey,
+        inValue: LocalValue
     });
 
     if (LocalFromRepo.KTF === false) {
@@ -14,8 +17,7 @@ let postFilterDataFromBodyFunc = (req, res) => {
         return;
     };
 
-    res.set('Content-Type', 'text/plain');
-    res.send(LocalFromRepo.SuccessText);
+    res.status(200).json(LocalFromRepo.JsonData);
 };
 
 export {
