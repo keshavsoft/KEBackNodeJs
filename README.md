@@ -406,6 +406,10 @@ write end points in nodejs
 
 - KS.ObjectCrud.OnlyBackEnd common data folder creation
 
+### 2.26.5
+
+- KS.ObjectCrud.OnlyBackEnd working good
+
 ## License
 
 MIT

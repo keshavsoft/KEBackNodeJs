@@ -1,6 +1,4 @@
 const vscode = require('vscode');
-const fse = require('fs-extra');
-const path = require('path');
 
 const { StartFunc: StartFuncFromChecks } = require('./Checks/forSchemaJson');
 const { StartFunc: StartFuncFromCreateSchema } = require("./CreateSchema/entryFile");
@@ -15,10 +13,6 @@ const StartFunc = ({ inToPath }) => {
 
             return false;
         };
-
-        // const LocalFromPath = path.join(__dirname, "..", "CopyCode");
-
-        // await fse.copy(LocalFromPath, LocalToPath);
 
         return true;
     } catch (error) {
