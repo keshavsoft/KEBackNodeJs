@@ -5,22 +5,22 @@ const path = require('path');
 const { StartFunc: StartFuncFromChecks } = require('./Checks/forSchemaJson');
 const { StartFunc: StartFuncFromCreateSchema } = require("./CreateSchema/entryFile");
 
-const StartFunc = async ({ inToPath }) => {
+const StartFunc = ({ inToPath }) => {
     try {
         const LocalToPath = inToPath;
         const LocalIfExists = StartFuncFromChecks({ inRootPath: LocalToPath });
 
         if (LocalIfExists === false) {
-            await StartFuncFromCreateSchema({ inToPath: LocalToPath });
+            StartFuncFromCreateSchema({ inToPath: LocalToPath });
 
-            return await false;
+            return false;
         };
 
-        const LocalFromPath = path.join(__dirname, "..", "CopyCode");
+        // const LocalFromPath = path.join(__dirname, "..", "CopyCode");
 
-        await fse.copy(LocalFromPath, LocalToPath);
+        // await fse.copy(LocalFromPath, LocalToPath);
 
-        return await true;
+        return true;
     } catch (error) {
         vscode.window.showErrorMessage(`Error: ${error.message}`);
     };

@@ -51,14 +51,14 @@ const LocalFuncToActivate = async () => {
         inVersion: LocalVersionSecured
     });
 
-    StartFuncFromForDataFiles({ inToPath: LocalToPath });
+    // StartFuncFromForDataFiles({ inToPath: LocalToPath });
 
-    updateServerFileFromAppFile({
-        filePath: `${LocalToPath}/app.js`,
-        newVersion: LocalVersion,
-        inNewVersionProtected: LocalVersionSecured,
-        inToPath: LocalToPath
-    });
+    // updateServerFileFromAppFile({
+    //     filePath: `${LocalToPath}/app.js`,
+    //     newVersion: LocalVersion,
+    //     inNewVersionProtected: LocalVersionSecured,
+    //     inToPath: LocalToPath
+    // });
 
     vscode.window.showInformationMessage(`BoilerPlate code to: ${LocalToPath}`);
 
@@ -76,7 +76,7 @@ const LocalFuncForMaxVersion = async ({ inVersionStart }) => {
     });
 
     if (LocalFromMaxVersion === 0) {
-        const LocalFromCopy = await StartFuncFromFirstCopy({ inToPath: LocalToPath });
+        const LocalFromCopy = StartFuncFromFirstCopy({ inToPath: LocalToPath });
 
         if (LocalFromCopy === false) {
             return false;
