@@ -16,8 +16,8 @@ let postFilterDataFromBodyFunc = (req, res) => {
         res.status(409).send(LocalFromRepo.KReason);
         return;
     };
-
-    res.status(200).json(LocalFromRepo.JsonData);
+    res.set('Content-Type', 'text/plain');
+    res.send(LocalFromRepo.SuccessText);
 };
 
 export {
