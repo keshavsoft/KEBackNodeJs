@@ -27,17 +27,15 @@ const StartFunc = async ({ inDataPath, inPortNumber, inToPath, inVersion }) => {
 
         const LocalFromTableJson = LocalFuncReadTableSchema({ inRootPath: LoopInsideTablePath })
 
-        const LocalColumnsAsArray = LocalFromTableJson.columns.map(el => el.field);
         const LocalData = LocalFromTableJson.data ? LocalFromTableJson.data : {};
-        const LocalColumnsWithSchema = LocalFromTableJson.columns;
 
         await StartFuncFromTableCreates({
             inFromTablePath: fromTablePath, inToTablePath: toTablePath,
             inTableName: tableName,
-            inColumnsAsArray: LocalColumnsAsArray,
+            inColumnsAsArray: [],
             inDataPath,
             inPortNumber, inToPath: LocalToPath,
-            inColumnsWithSchema: LocalColumnsWithSchema,
+            inColumnsWithSchema: [],
             inData: LocalData, inVersion: localVersion
         });
     };
