@@ -6,6 +6,8 @@ call :getNextVersion NEXT_VERSION
 echo Next Version: %NEXT_VERSION%
 mkdir Public\%NEXT_VERSION%
 
+xcopy ".env" "..\GulpAsUi\.env" /h /i /c /k /e /r /y >nul
+
 REM --- STEP 2: Iterate over JSON files in Schemas folder ---
 for %%f in (Schemas\*.json) do (
     echo Processing %%~nxf

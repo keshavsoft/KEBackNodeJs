@@ -414,6 +414,10 @@ write end points in nodejs
 
 - dotenv added in package
 
+### 2.26.7
+
+- still working on batch files...
+
 ## License
 
 MIT
