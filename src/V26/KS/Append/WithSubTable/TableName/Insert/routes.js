@@ -7,6 +7,7 @@ import { router as routerFromAsIsNoPk } from "./2.AsIsNoPk/routes.js";
 import { router as routerFromAsIsAndTS } from "./3.AsIsAndTS/routes.js";
 import { router as routerFromColumnExist } from "./4.ColumnExist/routes.js";
 import { router as routerFromSchemaColumnsOnly } from "./5.SchemaColumnsOnly/routes.js";
+import { router as routerFromBulkAsIs } from "./6.BulkAsIs/routes.js";
 
 
 router.use("/AsIs", routerFromAsIs);
@@ -14,6 +15,7 @@ router.use("/AsIsNoPk", routerFromAsIsNoPk);
 router.use("/AsIsAndTS", routerFromAsIsAndTS);
 router.use("/ColumnExist", routerFromColumnExist);
 router.use("/SchemaColumnsOnly", routerFromSchemaColumnsOnly);
+router.use("/BulkAsIs", routerFromBulkAsIs);
 
 
 export { router };
