@@ -1,11 +1,11 @@
 // extension.js
 const vscode = require('vscode');
 
-const { StartFunc: StartFuncV26 } = require('./src/V26/entryFile');
+const { StartFunc: StartFuncV27 } = require('./src/V27/entryFile');
 
 const activate = async (context) => {
     console.log('Congratulations, your extension "create-folder" is now active!');
-    StartFuncV26();
+    StartFuncV27();
 
     vscode.commands.registerCommand("extension.Path", () => {
         vscode.window.showInformationMessage(__dirname);
