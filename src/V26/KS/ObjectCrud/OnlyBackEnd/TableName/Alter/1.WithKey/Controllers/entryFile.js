@@ -3,12 +3,12 @@ import {
 } from '../Repos/entryFile.js';
 
 let postFilterDataFromBodyFunc = (req, res) => {
-    let LocalPk = req.params.inPk;
-    let LocalRequestBody = req.body;
+    let LocalKey = req.params.inKey;
+    let LocalRequestBody = req.body.Value;
 
     let LocalFromRepo = postDefaultFuncFromRepo({
-        inBody: LocalRequestBody,
-        inPk: LocalPk
+        inValue: LocalRequestBody,
+        inKey: LocalKey
     });
 
     if (LocalFromRepo.KTF === false) {

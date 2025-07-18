@@ -9,11 +9,7 @@ const StartFunc = (req, res, next) => {
         return res.status(400).send("Request body should not be empty.");
     }
 
-    const { Key: LocalKey, Value: LocalValue } = LocalBody;
-
-    if (LocalKey === undefined || LocalKey === null || LocalKey === '') {
-        return res.status(400).send("'Key' field is required and cannot be empty.");
-    }
+    const { Value: LocalValue } = LocalBody;
 
     if (LocalValue === undefined || LocalValue === null) {
         return res.status(400).send("'Value' field is required.");

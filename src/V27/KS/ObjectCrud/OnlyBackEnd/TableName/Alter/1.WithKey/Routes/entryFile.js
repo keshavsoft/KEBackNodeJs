@@ -11,6 +11,6 @@ import {
 
 router.use(bodyparser.json());
 
-router.post('/:inPk', postFilterDataFromBodyFunc);
+router.post('/:inKey', postFilterDataFromBodyFunc);
 
 export { router };
