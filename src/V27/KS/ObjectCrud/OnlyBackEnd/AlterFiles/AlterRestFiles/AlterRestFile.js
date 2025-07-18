@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const vscode = require('vscode');
 
-async function StartFunc({ inFolderPath, inPortNumber, inColumnsAsArray }) {
+async function StartFunc({ inFolderPath, inPortNumber }) {
     try {
         const LocalRootPath = LocalFuncGetWorkSpaceFolder();
         const activeFileFolderPath = path.dirname(inFolderPath);
@@ -21,17 +21,14 @@ async function StartFunc({ inFolderPath, inPortNumber, inColumnsAsArray }) {
             const filePath = path.join(inFolderPath, "RestClients", `${file.replace(".", "_")}.http`);
 
             let LocalLines = [];
+            const jsonString = JSON.stringify({
+                Value: ""
+            }, null, 2);
 
-            const resultObject = inColumnsAsArray.reduce((acc, key) => {
-                acc[key] = "";
-                return acc;
-            }, {});
-
-            const jsonString = JSON.stringify(resultObject, null, 2);
 
             const relativeApiPath = LocalRelativePath.replaceAll(`\\`, "/");
             const tableName = file.split(".")[1];
-            const apiPath = `${relativeApiPath}/Alter/${tableName}/{pk}`;
+            const apiPath = `${relativeApiPath}/Alter/${tableName}/{Key}`;
             const fullUrl = `http://localhost:${inPortNumber}${apiPath}`;
 
             LocalLines.push(`POST ${fullUrl}`);

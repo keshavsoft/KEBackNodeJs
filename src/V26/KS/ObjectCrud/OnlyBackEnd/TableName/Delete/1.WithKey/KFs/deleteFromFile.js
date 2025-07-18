@@ -25,12 +25,6 @@ const StartFunc = ({ inKey }) => {
 
     delete data[LocalKey];
 
-    Object.keys(data).forEach(key => {
-      data[key] = Object.fromEntries(
-        Object.entries(data[key]).filter(([_, value]) => value !== null)
-      );
-    });
-
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2), "utf8");
 
     LocalReturnObject.KTF = true;
