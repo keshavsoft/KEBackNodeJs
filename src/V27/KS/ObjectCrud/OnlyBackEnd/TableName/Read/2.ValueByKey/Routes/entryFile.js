@@ -6,6 +6,6 @@ import {
     GetFunc
 } from '../Controllers/entryFile.js';
 
-router.get('/:id', GetFunc);
+router.get('/:Key', GetFunc);
 
 export { router };

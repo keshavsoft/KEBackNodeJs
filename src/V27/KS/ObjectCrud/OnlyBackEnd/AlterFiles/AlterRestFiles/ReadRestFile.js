@@ -24,10 +24,26 @@ async function StartFunc({ inFolderPath, inPortNumber }) {
 
             const relativeApiPath = LocalRelativePath.replaceAll(`\\`, "/");
             const tableName = file.split(".")[1];
-            const apiPath = `${relativeApiPath}/Read/${tableName}`;
-            const fullUrl = `http://localhost:${inPortNumber}${apiPath}`;
+            let apiPath;
+            let fullUrl;
 
-            LocalLines.push(`GET ${fullUrl}`);
+            switch (tableName) {
+                case "ValueByKey":
+                    apiPath = `${relativeApiPath}/Read/${tableName}/{Key}`;
+                    fullUrl = `http://localhost:${inPortNumber}${apiPath}`;
+
+                    LocalLines.push(`GET ${fullUrl}`);
+
+                    break;
+
+                default:
+                    apiPath = `${relativeApiPath}/Read/${tableName}`;
+                    fullUrl = `http://localhost:${inPortNumber}${apiPath}`;
+
+                    LocalLines.push(`GET ${fullUrl}`);
+                    break;
+            };
+
 
             LocalFuncWriteFile({ inLinesArray: LocalLines, inEditorPath: filePath });
         }
