@@ -1,19 +1,19 @@
 import fs from "fs";
 import ParamsJson from '../../../CommonFuncs/params.json' with {type: 'json'};
 
-let StartFunc = ({ inId }) => {
-    const LocalId = inId;
-     const LocalFileName = ParamsJson.TableName;
+let StartFunc = ({ inKey }) => {
+    const LocalKey = inKey;
+    const LocalFileName = ParamsJson.TableName;
     const LocalDataPath = ParamsJson.DataPath;
 
     let LocalReturnData = { KTF: false };
 
     try {
-        const data = fs.readFileSync(`${LocalDataPath}/${LocalFileName}.json`, 'utf8');
+        const data = JSON.parse(fs.readFileSync(`${LocalDataPath}/${LocalFileName}.json`, 'utf8'));
 
-        let LocalFind = JSON.parse(data).find(el => el.pk == LocalId);
+        let LocalFind = data[LocalKey];
         if (!LocalFind) {
-            LocalReturnData.KReason = `No Data Found with Pk:${LocalId}`;
+            LocalReturnData.KReason = `No Data Found with Key:${LocalKey}`;
             return LocalReturnData;
         };
 
