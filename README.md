@@ -426,6 +426,10 @@ write end points in nodejs
 
 - KS.Append.FrontAndBack working good
 
+### 2.27.1
+
+- worked on object crud
+
 ## License
 
 MIT
