@@ -1,5 +1,4 @@
 import fs from "fs";
-
 import ParamsJson from '../../../CommonFuncs/params.json' with {type: 'json'};
 
 let StartFunc = ({ inColumnName }) => {
@@ -16,13 +15,13 @@ let StartFunc = ({ inColumnName }) => {
             return LocalReturnData;
         };
 
-        const data = fs.readFileSync(`${LocalDataPath}/${LocalFileName}.json`, 'utf8');
+        const data = fs.readFileSync(filePath, 'utf8');
         const LocalDataAsJson = JSON.parse(data);
 
         LocalReturnData.KTF = true;
-        LocalReturnData.JsonData = LocalDataAsJson.map(element => element[inColumnName]);
+        LocalReturnData.JsonData = [...new Set(LocalDataAsJson.map(element => element[inColumnName]))];
     } catch (err) {
-        LocalReturnData.KReason = `Error reading ${LocalFileName} file .`;
+        LocalReturnData.KReason = `Error reading ${LocalFileName} file.`;
         console.warn(LocalReturnData.KReason);
         return LocalReturnData;
     };
