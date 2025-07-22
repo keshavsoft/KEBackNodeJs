@@ -1,0 +1,2 @@
+DELETE http://localhost:{PORT}{SubRoute}/WithPk/{pk}
+Content-Type: application/json

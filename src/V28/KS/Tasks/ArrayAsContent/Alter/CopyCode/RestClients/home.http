@@ -1,0 +1,7 @@
+POST http://localhost:3000/FileAsArrayContent/Alter/MastersAddOns
+Content-Type: application/json
+
+{
+  "Key":"PIN HOLE",
+  "Value":"Hole"
+}
