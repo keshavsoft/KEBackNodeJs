@@ -9,7 +9,7 @@ import { router as routerFromSelColumns } from "./4.SelColumns/routes.js";
 import { router as routerFromSingleColumn } from "./5.SingleColumn/routes.js";
 import { router as routerFromSetSingleColumn } from "./6.SetSingleColumn/routes.js";
 
-import { router as routerFromGroupSingleColLength } from "../GroupBy/SingleColLength/routes.js";
+import { router as routerFromGroupSingleColLength } from "../GroupBy/2.SingleColLength/routes.js";
 import { router as routerFromGroupSingleColumn } from "../GroupBy/1.SingleColumn/routes.js";
 
 router.use("/AsIs", routerFromAsIs);
