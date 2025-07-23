@@ -19,7 +19,8 @@ let StartFunc = ({ inColumnName }) => {
         const LocalDataAsJson = JSON.parse(data);
 
         LocalReturnData.KTF = true;
-        LocalReturnData.JsonData = [...new Set(LocalDataAsJson.map(element => element[inColumnName]))];
+        LocalReturnData.JsonData = [...new Set(LocalDataAsJson.map(element => element[inColumnName]))]
+            .map(value => ({ [inColumnName]: value }));
     } catch (err) {
         LocalReturnData.KReason = `Error reading ${LocalFileName} file.`;
         console.warn(LocalReturnData.KReason);
