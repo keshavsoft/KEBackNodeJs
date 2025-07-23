@@ -36,12 +36,13 @@ async function StartFunc({ inFolderPath, inPortNumber }) {
                     LocalLines.push(`[ "exampleKey"]`);
                     break;
                 case "SingleColumn":
-                case "SetSingleColumn":
-                case "KeyCount":
                     LocalLines.push(`GET ${fullUrl}/{Column name}`);
                     break;
                 case "RowDataWithPk":
                     LocalLines.push(`GET ${fullUrl}/{pk}`);
+                    break;
+                case "SetSingleColumn":
+                    LocalLines.push(`GET ${fullUrl}/{Column name}`);
                     break;
                 default:
                     LocalLines.push(`GET ${fullUrl}`);
@@ -49,7 +50,7 @@ async function StartFunc({ inFolderPath, inPortNumber }) {
             }
 
             LocalFuncWriteFile({ inLinesArray: LocalLines, inEditorPath: filePath });
-            console.log(`Generated: ${filePath}`);
+            // console.log(`Generated: ${filePath}`);
         }
     } catch (err) {
         console.error('Error reading directory:', err);
