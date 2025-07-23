@@ -36,6 +36,8 @@ async function StartFunc({ inFolderPath, inPortNumber }) {
                     LocalLines.push(`[ "exampleKey"]`);
                     break;
                 case "SingleColumn":
+                case "SetSingleColumn":
+                case "KeyCount":
                     LocalLines.push(`GET ${fullUrl}/{Column name}`);
                     break;
                 case "RowDataWithPk":
