@@ -14,7 +14,7 @@ const StartFunc = async ({ inTableName, inColumnsAsArray, inDataPath, inPortNumb
 
     const LocalToPath = inToPath;
 
-    const LocalFromTablePath = path.join(__dirname, "..", "TableName");
+    const LocalFromTablePath = path.join(__dirname, "..", "..", "TableName");
 
     await fse.copy(LocalFromTablePath, `${LocalToPath}/${LocalVersion}/${LocalTableName}`);
 
