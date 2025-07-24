@@ -9,13 +9,13 @@ import { router as routerFromSingleColumn } from "./5.SingleColumn/routes.js";
 import { router as routerFromSetSingleColumn } from "./6.SetSingleColumn/routes.js";
 import { router as routerFromKeyCount } from "./7.KeyCount/routes.js";
 
-router.use("/AsIs", routerFromAsIs);
-router.use("/RowDataWithPk", routerFromRowDataWithPk);
-router.use("/SelColsAsArray", routerFromSelColsAsArray);
-router.use("/SelColumns", routerFromSelColumns);
-router.use("/SingleColumn", routerFromSingleColumn);
-router.use("/SetSingleColumn", routerFromSetSingleColumn);
-router.use("/KeyCount", routerFromKeyCount);
+router.use("/AsIs", routerFromAsIs);//return all original data
+router.use("/RowDataWithPk", routerFromRowDataWithPk);//return a row using pk
+router.use("/SelColsAsArray", routerFromSelColsAsArray);//returns selected col as an array of values
+router.use("/SelColumns", routerFromSelColumns);// returns selected col as an object
+router.use("/SingleColumn", routerFromSingleColumn);//returns all values from a col
+router.use("/SetSingleColumn", routerFromSetSingleColumn);// returns unique values from a single col
+router.use("/KeyCount", routerFromKeyCount);//returns count of each keys/value in a col
 
 
 export { router };
