@@ -8,6 +8,7 @@ const { StartFunc: StartFuncFromSubinsertRestFile } = require("./SubinsertRestFi
 const { StartFunc: StartFuncFromSubReadRestFile } = require("./SubReadRestFile");
 const { StartFunc: StartFuncFromSubAlterRestFile } = require("./SubAlterRestFile");
 const { StartFunc: StartFuncFromSubDeleteRestFile } = require("./SubDeleteRestFile");
+const { StartFunc: StartFuncFromGroupByRestFile } = require("./GroupByRestFile");
 
 const CommonReadSchemaFolderName = "ReadSchema";
 const CommonGroupByFolderName = "GroupBy";
@@ -46,6 +47,12 @@ async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion, i
         inTableName, inPortNumber,
         inColumnsAsArray
     });
+
+     await StartFuncFromGroupByRestFile({
+            inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/GroupBy`,
+            inTableName, inPortNumber,
+            inColumnsAsArray
+        });
 
     await StartFuncFromReadFolder({
         inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonReadSchemaFolderName}/RestClients`,
