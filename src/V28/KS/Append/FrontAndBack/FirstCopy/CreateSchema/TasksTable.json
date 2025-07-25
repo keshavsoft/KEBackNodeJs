@@ -13,7 +13,7 @@
             "title": "Start Date",
             "unique": false,
             "type": "date",
-            "isInput": true
+            "isDate":true
         },
         {
             "field": "className",
@@ -70,5 +70,10 @@
                 }
             ]
         }
-    ]
+    ],
+    "DataTableOptions": {
+        "Header": {
+            "autoFocus": "title"
+        }
+    }
 }
