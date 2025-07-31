@@ -430,6 +430,10 @@ write end points in nodejs
 
 - worked on object crud
 
+### 2.29.1
+
+- KS.Append.FrontAndBack added gulp hbs also
+
 ## License
 
 MIT
