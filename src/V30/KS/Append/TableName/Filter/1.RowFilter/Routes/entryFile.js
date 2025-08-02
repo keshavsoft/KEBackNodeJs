@@ -6,6 +6,9 @@ import {
     GetFunc
 } from '../Controllers/entryFile.js';
 
-router.get('/:inKey/:inValue', GetFunc);
+import { StartFunc as StartFuncFromMiddlewares } from "../Middlewares/entryFile.js";
+
+
+router.get('/:inKey/:inValue', StartFuncFromMiddlewares, GetFunc);
 
 export { router };
