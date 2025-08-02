@@ -7,6 +7,7 @@ const { StartFunc: StartFuncFromJsonConstraints } = require("./FromJsonConstrain
 const { StartFunc: StartFuncFromJsonConSubRoute } = require("./FromJsonConSubRoute/entryFile");
 const { StartFunc: StartFuncFromJsonSchema } = require("./FromJsonSchema/entryFile");
 const { StartFunc: StartFuncFromWithSubTable } = require("./WithSubTable/entryFile");
+const { StartFunc: StartFuncFromFromArray } = require("./FromArray/entryFile");
 
 const StartFunc = () => {
     StartFuncFromBasic();
@@ -18,6 +19,7 @@ const StartFunc = () => {
     StartFuncFromJsonConSubRoute();
     StartFuncFromJsonSchema();
     StartFuncFromWithSubTable();
+    StartFuncFromFromArray();
 };
 
 module.exports = { StartFunc };

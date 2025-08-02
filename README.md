@@ -438,6 +438,10 @@ write end points in nodejs
 
 - KS.Append TableName Common filter starte...
 
+### 2.30.2
+
+- KS.BoilerPlate.FromArray.OnlyBackEnd takes 1st json file and reads array from that and schema from first object
+
 ## License
 
 MIT
