@@ -1,4 +1,0 @@
-POST http://localhost:{PORT}{SubRoute}/ReadSelColumns
-Content-Type: application/json
-
-[]

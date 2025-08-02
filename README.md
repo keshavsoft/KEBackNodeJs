@@ -434,6 +434,10 @@ write end points in nodejs
 
 - KS.Append.FrontAndBack added gulp hbs also
 
+### 2.30.1
+
+- KS.Append TableName Common filter starte...
+
 ## License
 
 MIT

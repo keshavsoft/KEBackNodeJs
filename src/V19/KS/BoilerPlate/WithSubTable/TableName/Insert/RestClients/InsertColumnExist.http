@@ -1,5 +1,0 @@
-POST http://localhost:{PORT}{SubRoute}/InsertColumnExist
-Content-Type: application/json
-
-{
-}
