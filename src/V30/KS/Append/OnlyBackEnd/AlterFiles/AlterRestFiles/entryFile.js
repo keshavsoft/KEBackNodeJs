@@ -9,6 +9,7 @@ const { StartFunc: StartFuncFromSubReadRestFile } = require("./SubReadRestFile")
 const { StartFunc: StartFuncFromSubAlterRestFile } = require("./SubAlterRestFile");
 const { StartFunc: StartFuncFromSubDeleteRestFile } = require("./SubDeleteRestFile");
 const { StartFunc: StartFuncFromGroupByRestFile } = require("./GroupByRestFile");
+const { StartFunc: StartFuncFromFilterRestClient } = require("./FilterRestClient");
 
 const CommonReadSchemaFolderName = "ReadSchema";
 const CommonSubTableFunctions = "SubTable";
@@ -23,7 +24,7 @@ async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion, i
         inColumnsAsArray
     });
 
-     await StartFuncFromReadRestFile({
+    await StartFuncFromReadRestFile({
         inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/Read`,
         inTableName, inPortNumber,
         inColumnsAsArray
@@ -82,8 +83,14 @@ async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion, i
         inColumnsAsArray
     });
 
-     await StartFuncFromInsertRestFile({
+    await StartFuncFromInsertRestFile({
         inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonValidateFunctions}/RestClients`,
+        inTableName, inPortNumber,
+        inColumnsAsArray
+    });
+
+    await StartFuncFromFilterRestClient({
+        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/Filter`,
         inTableName, inPortNumber,
         inColumnsAsArray
     });
