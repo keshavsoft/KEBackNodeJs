@@ -442,6 +442,10 @@ write end points in nodejs
 
 - KS.BoilerPlate.FromArray.OnlyBackEnd takes 1st json file and reads array from that and schema from first object
 
+### 2.30.3
+
+- KS.ObjectCrud.FrontAndBack in tablename removed unwanted
+
 ## License
 
 MIT
