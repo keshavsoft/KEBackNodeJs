@@ -446,6 +446,10 @@ write end points in nodejs
 
 - KS.ObjectCrud.FrontAndBack in tablename removed unwanted
 
+### 2.30.4
+
+- KS.ObjectCrud.FrontAndBack still working ui copy
+
 ## License
 
 MIT

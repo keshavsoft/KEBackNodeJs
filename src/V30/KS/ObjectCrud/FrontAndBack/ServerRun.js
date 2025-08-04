@@ -3,6 +3,8 @@ const fs = require('fs');
 const path = require('path');
 const CommonTermName = 'node app';
 
+const CommonRepoName = "GulpForObject";
+
 const StartFunc = (dirPath) => {
     LocalFuncDispose();
 
@@ -13,8 +15,8 @@ const StartFunc = (dirPath) => {
     LocalFuncForNPM({ inDirPath: dirPath, inTerminal: terminal });
 
     terminal.sendText('cd ..');
-    terminal.sendText('git clone https://github.com/keshavsoft/GulpAsUi');
-    terminal.sendText('cd GulpAsUi');
+    terminal.sendText(`git clone https://github.com/keshavsoft/${CommonRepoName}`);
+    terminal.sendText(`cd ${CommonRepoName}`);
     terminal.sendText('npm i');
     terminal.sendText(`cd ../${rootFolderName}`);
     terminal.sendText(`./BatchFiles/generateApiVersion.bat`);
