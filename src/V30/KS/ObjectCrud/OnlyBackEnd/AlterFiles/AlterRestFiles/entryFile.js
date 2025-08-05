@@ -8,9 +8,10 @@ const { StartFunc: StartFuncFromSubinsertRestFile } = require("./SubinsertRestFi
 const { StartFunc: StartFuncFromSubReadRestFile } = require("./SubReadRestFile");
 const { StartFunc: StartFuncFromSubAlterRestFile } = require("./SubAlterRestFile");
 const { StartFunc: StartFuncFromSubDeleteRestFile } = require("./SubDeleteRestFile");
+const { StartFunc: StartFuncFromGroupByRestFile } = require("./GroupByRestFile");
+const { StartFunc: StartFuncFromFilterRestClient } = require("./FilterRestClient");
 
 const CommonReadSchemaFolderName = "ReadSchema";
-const CommonGroupByFolderName = "GroupBy";
 const CommonSubTableFunctions = "SubTable";
 const CommonValidateFunctions = "Validate";
 
@@ -23,7 +24,7 @@ async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion, i
         inColumnsAsArray
     });
 
-     await StartFuncFromReadRestFile({
+    await StartFuncFromReadRestFile({
         inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/Read`,
         inTableName, inPortNumber,
         inColumnsAsArray
@@ -47,13 +48,14 @@ async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion, i
         inColumnsAsArray
     });
 
-    await StartFuncFromReadFolder({
-        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonReadSchemaFolderName}/RestClients`,
-        inTableName, inPortNumber
+    await StartFuncFromGroupByRestFile({
+        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/GroupBy`,
+        inTableName, inPortNumber,
+        inColumnsAsArray
     });
 
     await StartFuncFromReadFolder({
-        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonGroupByFolderName}/RestClients`,
+        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonReadSchemaFolderName}/RestClients`,
         inTableName, inPortNumber
     });
 
@@ -81,8 +83,14 @@ async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion, i
         inColumnsAsArray
     });
 
-     await StartFuncFromInsertRestFile({
+    await StartFuncFromInsertRestFile({
         inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonValidateFunctions}/RestClients`,
+        inTableName, inPortNumber,
+        inColumnsAsArray
+    });
+
+    await StartFuncFromFilterRestClient({
+        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/Filter`,
         inTableName, inPortNumber,
         inColumnsAsArray
     });

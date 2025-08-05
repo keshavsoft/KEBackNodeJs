@@ -19,11 +19,6 @@ const StartFunc = ({ inToPath }) => {
             path.join(__dirname, "TasksTable.json"),
             `${LocalToPath}/${CommonFolderName}/TasksTable.json`
         );
-
-        // fs.writeFileSync(
-        //     `${LocalToPath}/.env`,
-        //     ""
-        // );
     } catch (err) {
         console.error('Error creating directory:', err.message);
     };
