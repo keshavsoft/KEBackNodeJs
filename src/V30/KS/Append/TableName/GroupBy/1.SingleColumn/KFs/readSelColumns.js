@@ -22,7 +22,16 @@ let StartFunc = ({ inColumnName }) => {
 
         LocalReturnData.KTF = true;
         // LocalReturnData.JsonData = LocalDataAsJson.map(element => element[inColumnName]);
-        LocalReturnData.JsonData = Object.groupBy(LocalDataAsJson, LoopItem => LoopItem[LocalColumnName]);
+        // LocalReturnData.JsonData = Object.groupBy(LocalDataAsJson, LoopItem => LoopItem[LocalColumnName]);
+        LocalReturnData.JsonData = LocalDataAsJson.map(element => element[inColumnName]);
+        LocalReturnData.JsonData = LocalDataAsJson.reduce((acc, item) => {
+            const key = item[LocalColumnName];
+            if (!acc[key]) {
+                acc[key] = [];
+            }
+            acc[key].push(item);
+            return acc;
+        }, {});
     } catch (err) {
         LocalReturnData.KReason = `Error reading ${LocalFileName} file .`;
         console.warn(LocalReturnData.KReason);
