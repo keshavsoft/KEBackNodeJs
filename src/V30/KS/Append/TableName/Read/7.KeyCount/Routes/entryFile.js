@@ -5,7 +5,10 @@ var router = express.Router();
 import {
     getFilterDataFromBodyFunc
 } from '../Controllers/entryFile.js';
+import {
+    StartFunc as StartFuncMiddlewares
+} from '../Middlewares/entryFile.js';
 
-router.get('/:ColumnName', getFilterDataFromBodyFunc);
+router.get('/:ColumnName', StartFuncMiddlewares, getFilterDataFromBodyFunc);
 
 export { router };
