@@ -27,7 +27,18 @@ async function StartFunc({ inFolderPath, inPortNumber }) {
             const fullUrl = `http://localhost:${inPortNumber}${apiPath}`;
             let LocalLines = [];
 
-            LocalLines.push(`GET ${fullUrl}/{ColumnName}`);
+            switch (tableName) {
+                case "Sum":
+                    LocalLines.push(`POST ${fullUrl}`);
+                    LocalLines.push(`Content-Type: application/json`);
+                    LocalLines.push('');
+                    LocalLines.push(`[ "exampleKey"]`);
+                    break;
+                default:
+                    LocalLines.push(`GET ${fullUrl}/{ColumnName}`);
+                    break;
+            }
+
 
             LocalFuncWriteFile({ inLinesArray: LocalLines, inEditorPath: filePath });
         }
