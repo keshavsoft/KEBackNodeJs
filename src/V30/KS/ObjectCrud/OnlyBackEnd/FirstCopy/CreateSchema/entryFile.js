@@ -3,7 +3,7 @@ const vscode = require('vscode');
 const { StartFunc: StartFuncFromOpenSchemaJson } = require("../Checks/openSchemaJson");
 const { StartFunc: StartFuncFromInsertToFile } = require("./insertToFile");
 
-const StartFunc = ({ inToPath }) => {
+const StartFunc = async ({ inToPath }) => {
     const LocalToPath = inToPath;
     let GoToHelp = 'Create schema.json';
 

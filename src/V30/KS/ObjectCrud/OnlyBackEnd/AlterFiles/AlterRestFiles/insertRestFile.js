@@ -1,8 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const readline = require('readline');
 const vscode = require('vscode');
-const CommonStartIndex = 4;
 
 async function StartFunc({ inFolderPath, inPortNumber, inColumnsAsArray }) {
     try {
@@ -29,21 +27,28 @@ async function StartFunc({ inFolderPath, inPortNumber, inColumnsAsArray }) {
                 return acc;
             }, {});
 
-            const jsonString = JSON.stringify({
-                Key: "",
-                Value: ""
-            }, null, 2);
-
+            const jsonString = JSON.stringify(resultObject, null, 2);
 
             const relativeApiPath = LocalRelativePath.replaceAll(`\\`, "/");
             const tableName = file.split(".")[1];
             const apiPath = `${relativeApiPath}/Insert/${tableName}`;
             const fullUrl = `http://localhost:${inPortNumber}${apiPath}`;
 
-            LocalLines.push(`POST ${fullUrl}`);
-            LocalLines.push("Content-Type: application/json");
-            LocalLines.push("");
-            LocalLines.push(jsonString);
+            switch (tableName) {
+                case "BulkAsIs":
+                    LocalLines.push(`POST ${fullUrl}`);
+                    LocalLines.push(`Content-Type: application/json`);
+                    LocalLines.push('');
+                    let LocalArray = [resultObject];
+                    LocalLines.push(JSON.stringify(LocalArray, null, 2));
+                    break;
+                default:
+                    LocalLines.push(`POST ${fullUrl}`);
+                    LocalLines.push("Content-Type: application/json");
+                    LocalLines.push("");
+                    LocalLines.push(jsonString);
+                    break;
+            };
 
             LocalFuncWriteFile({ inLinesArray: LocalLines, inEditorPath: filePath });
         }
@@ -79,28 +84,6 @@ const LocalFuncWriteFile = ({ inLinesArray, inEditorPath }) => {
     fs.writeFileSync(inEditorPath, content, 'utf-8');
 };
 
-const processLineByLine = async ({ inFileName }) => {
-    try {
-        const fileStream = fs.createReadStream(inFileName);
-        let LocalLines = [];
 
-        fileStream.on('error', (err) => {
-            console.error(`Error reading file: ${err.message}`);
-        });
-
-        const rl = readline.createInterface({
-            input: fileStream,
-            crlfDelay: Infinity
-        });
-
-        for await (const line of rl) {
-            LocalLines.push(line);
-        }
-
-        return LocalLines;
-    } catch (err) {
-        console.error(`Error processing file: ${err.message}`);
-    }
-};
 
 module.exports = { StartFunc };
