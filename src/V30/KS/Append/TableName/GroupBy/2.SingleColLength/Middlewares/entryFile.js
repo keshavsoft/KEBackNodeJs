@@ -11,7 +11,7 @@ const StartFunc = (req, res, next) => {
     const isValid = paramValues.every(value => validColumns.includes(value));
 
     if (!isValid) {
-        return res.status(400).send("Request params should give valid key.");
+        return res.status(400).send(`Request params should contain any of the mandate keys: ${validColumns}`);
     };
 
     next();
