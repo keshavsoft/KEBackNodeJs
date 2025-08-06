@@ -450,6 +450,10 @@ write end points in nodejs
 
 - KS.ObjectCrud.FrontAndBack still working ui copy
 
+### 2.30.5
+
+- KS.ObjectCrud.FrontAndBack perfect with front end also
+
 ## License
 
 MIT

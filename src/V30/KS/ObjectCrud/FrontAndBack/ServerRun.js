@@ -20,7 +20,7 @@ const StartFunc = (dirPath) => {
     terminal.sendText('npm i');
     terminal.sendText(`cd ../${rootFolderName}`);
     terminal.sendText(`./BatchFiles/generateApiVersion.bat`);
-    terminal.sendText(`./generateFrontEnd.bat`);
+    terminal.sendText(`./genFrontFromGulpForObject.bat`);
 
     terminal.sendText(CommonTermName);
 };
