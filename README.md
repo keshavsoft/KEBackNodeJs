@@ -454,6 +454,10 @@ write end points in nodejs
 
 - KS.ObjectCrud.FrontAndBack perfect with front end also
 
+### 2.31.1
+
+- KS.Append alter files made common
+
 ## License
 
 MIT
