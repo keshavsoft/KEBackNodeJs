@@ -8,7 +8,8 @@ const { StartFunc: StartFuncFromOpenApp } = require("./openApp");
 
 const { StartFunc: StartFuncFromReadEnvFile } = require("./readEnvFile");
 
-const { StartFunc: StartFuncFromFirstCopy } = require("./FirstCopy/entryFile");
+const { StartFunc: StartFuncFromFirstCopy } = require("../CommonCode/FirstCopy/entryFile");
+// const { StartFunc: StartFuncFromFirstCopy } = require("./FirstCopy/entryFile");
 
 const { StartFunc: StartFuncFromGetMaxVersion } = require("./getMaxVersion");
 
