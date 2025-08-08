@@ -3,7 +3,8 @@ const fse = require('fs-extra');
 const path = require('path');
 
 const { StartFunc: StartFuncFromRouteUse } = require("../RouteUse/entryFile");
-const { StartFunc: StartFuncFromAlterFiles } = require('../AlterFiles/entryFile');
+const { StartFunc: StartFuncFromAlterFiles } = require('../../CommonCode/AlterFiles/entryFile');
+// const { StartFunc: StartFuncFromAlterFiles } = require('../AlterFiles/entryFile');
 
 const StartFunc = async ({ inTableName, inColumnsAsArray, inDataPath, inPortNumber, inToPath, inColumnsWithSchema, inData, inVersion }) => {
     const LocalTableName = inTableName;
