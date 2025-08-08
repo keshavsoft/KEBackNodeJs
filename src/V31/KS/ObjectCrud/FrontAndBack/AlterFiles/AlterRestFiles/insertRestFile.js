@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const vscode = require('vscode');
 
-async function StartFunc({ inFolderPath, inPortNumber, inColumnsAsArray }) {
+async function StartFunc({ inFolderPath, inPortNumber }) {
     try {
         const LocalRootPath = LocalFuncGetWorkSpaceFolder();
         const activeFileFolderPath = path.dirname(inFolderPath);
@@ -22,33 +22,17 @@ async function StartFunc({ inFolderPath, inPortNumber, inColumnsAsArray }) {
 
             let LocalLines = [];
 
-            const resultObject = inColumnsAsArray.reduce((acc, key) => {
-                acc[key] = "";
-                return acc;
-            }, {});
-
-            const jsonString = JSON.stringify(resultObject, null, 2);
+            const jsonString = JSON.stringify({ Key: "", Value: "" }, null, 2);
 
             const relativeApiPath = LocalRelativePath.replaceAll(`\\`, "/");
             const tableName = file.split(".")[1];
             const apiPath = `${relativeApiPath}/Insert/${tableName}`;
             const fullUrl = `http://localhost:${inPortNumber}${apiPath}`;
 
-            switch (tableName) {
-                case "BulkAsIs":
-                    LocalLines.push(`POST ${fullUrl}`);
-                    LocalLines.push(`Content-Type: application/json`);
-                    LocalLines.push('');
-                    let LocalArray = [resultObject];
-                    LocalLines.push(JSON.stringify(LocalArray, null, 2));
-                    break;
-                default:
-                    LocalLines.push(`POST ${fullUrl}`);
-                    LocalLines.push("Content-Type: application/json");
-                    LocalLines.push("");
-                    LocalLines.push(jsonString);
-                    break;
-            };
+            LocalLines.push(`POST ${fullUrl}`);
+            LocalLines.push("Content-Type: application/json");
+            LocalLines.push("");
+            LocalLines.push(jsonString);
 
             LocalFuncWriteFile({ inLinesArray: LocalLines, inEditorPath: filePath });
         }

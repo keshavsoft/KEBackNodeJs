@@ -24,7 +24,7 @@ async function StartFunc({ inFolderPath, inPortNumber }) {
 
             const relativeApiPath = LocalRelativePath.replaceAll(`\\`, "/");
             const tableName = file.split(".")[1];
-            const apiPath = `${relativeApiPath}/Delete/${tableName}/{pk}`;
+            const apiPath = `${relativeApiPath}/Delete/${tableName}/{Key}`;
             const fullUrl = `http://localhost:${inPortNumber}${apiPath}`;
 
             LocalLines.push(`DELETE ${fullUrl}`);
