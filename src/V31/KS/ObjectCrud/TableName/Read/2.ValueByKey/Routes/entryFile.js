@@ -6,6 +6,10 @@ import {
     GetFunc
 } from '../Controllers/entryFile.js';
 
-router.get('/:Key', GetFunc);
+import {
+    GetFunc as GetFuncMiddlewares
+} from '../Middlewares/entryFile.js';
+
+router.get('/:Key', GetFuncMiddlewares, GetFunc);
 
 export { router };
