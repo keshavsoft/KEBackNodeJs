@@ -3,9 +3,7 @@ import {
 } from '../Repos/entryFile.js';
 
 let GetFunc = (req, res) => {
-    const LocalKey = req.params.Key;
-
-    let LocalFromRepo = GetFuncRepo({ inKey: LocalKey });
+    let LocalFromRepo = GetFuncRepo();
 
     if (LocalFromRepo.KTF === false) {
         res.status(404).send(LocalFromRepo.KReason);
@@ -13,8 +11,7 @@ let GetFunc = (req, res) => {
         return;
     };
 
-    res.set('Content-Type', 'application/text');
-    res.status(200).send(LocalFromRepo.JsonData);
+    res.status(200).json(LocalFromRepo.JsonData);
 };
 
 export {

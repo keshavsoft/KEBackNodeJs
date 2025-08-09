@@ -26,7 +26,7 @@ async function StartFunc({ inFolderPath, inPortNumber }) {
             const apiPath = `${relativeApiPath}/Read/${tableName}`;
             let fullUrl = `http://localhost:${inPortNumber}${apiPath}`;
 
-            switch (apiPath) {
+            switch (tableName) {
                 case "ValueByKey":
                     LocalLines.push(`GET ${fullUrl}/{Key}`);
                     break;
